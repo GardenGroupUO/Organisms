@@ -17,6 +17,6 @@ The ''structure + energy'' fitness operator is designed to include a portion of 
 
 This genetic algorithm has been designed with Atomic Simulation Environment (ASE, [https://wiki.fysik.dtu.dk/ase/](https://wiki.fysik.dtu.dk/ase/)). with the use of ASE, clusters that are generated using the genetic algorithm are placed into databases that you can assess through the terminal or via a website. See more about how to the ASE database works [in the link here](https://wiki.fysik.dtu.dk/ase/ase/db/db.html?highlight=databases#id9).
 
-All the information about this program is found online at [garden-uo.readthedocs.io/en/latest/](https://organisms.readthedocs.io/en/latest/). It is recommended to read the installation page before using the algorithm ([garden-uo.readthedocs.io/en/latest/Installation.html](https://organisms.readthedocs.io/en/latest/Installation.html)). Note that you can install Organisms through pip (Organisms-UO). See the instruction about how to do this. 
+All the information about this program is found online at [organisms.readthedocs.io/en/latest/](https://organisms.readthedocs.io/en/latest/). It is recommended to read the installation page before using the algorithm ([organisms.readthedocs.io/en/latest/Installation.html](https://organisms.readthedocs.io/en/latest/Installation.html)). Note that you can install Organisms through pip (Organisms-UO). See the instruction about how to do this. 
 
 Have fun!
