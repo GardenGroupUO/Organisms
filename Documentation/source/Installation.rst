@@ -189,7 +189,7 @@ First, download Organisms to your computer. You can do this by cloning a version
 .. code-block:: bash
 	
 	cd PATH/TO/WHERE_YOU_WANT_Organisms_TO_LIVE_ON_YOUR_COMPUTER
-	git clone https://github.com/GardenGroupUO/Organisms-UO
+	git clone https://github.com/GardenGroupUO/Organisms
 
 .. Next, add a python path to it in your  ``.bashrc`` to indicate its location. First you want to ``cd`` into the newly cloned ``Organisms`` folder and then enter into the terminal ``pwd``
 
@@ -211,7 +211,7 @@ This will give you the path to the Organisms program. You want to enter the resu
 	export PATH_TO_GA="<path_to_Organisms>" 
 	export PYTHONPATH="$PATH_TO_GA":$PYTHONPATH
 
-where ``"<path_to_Organisms>"`` is the directory path that you place Organisms-UO (Enter in here the result you got from the ``pwd`` command). Once you have run ``source ~/.bashrc``, the genetic algorithm should be all ready to go!
+where ``"<path_to_Organisms>"`` is the directory path that you place Organisms (Enter in here the result you got from the ``pwd`` command). Once you have run ``source ~/.bashrc``, the genetic algorithm should be all ready to go!
 
 Organisms contains many parts to it. You will see that there are six folders. These are ``GA``, ``Subsidiary_Programs``, ``Postprocessing_Programs``, ``Helpful_Programs``, ``Examples`` and ``Documentation``. 
 

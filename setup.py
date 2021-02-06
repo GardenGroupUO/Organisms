@@ -44,7 +44,7 @@ def find_scripts():
           scripts.append(filepath)
   return sorted(scripts)
 
-setup(name='Organisms-UO',
+setup(name='Organisms',
       packages=find_packages(root='Organisms'),
       scripts=find_scripts(),
       version=get_version_number(),
