@@ -13,29 +13,18 @@ Required to outputs: AfterOpt.traj, INFO.txt
 Other outputs: Trajectory file.
  
 '''
-from ase import Atom, Atoms
-from ase.io import read as ase_read
-from ase.io import write as ase_write
-from asap3.Internal.BuiltinPotentials import Gupta
-from ase.optimize import BFGS, FIRE
 import sys
 import time
- 
-from ase.visualize import view
+from asap3.Internal.BuiltinPotentials import Gupta
+from ase.optimize import BFGS, FIRE
 
 def Minimisation_Function(cluster,collection,cluster_name):
-	####################################################################################################################
-	# Read the BeforeOpt file and record the elements, the
-	# number of each element in the cluster and their positions
-	#cluster = ase_read("BeforeOpt",format='vasp')
-	cluster.pbc = False
-	####################################################################################################################
-	#Construct atoms using the ASE class "Atoms".
-	####################################################################################################################
+	#######################################################################################
+	cluster.pbc = False # make sure that the periodic boundry conditions are set off
+	#######################################################################################
 	# Perform the local optimisation method on the cluster.
 	# Parameter sequence: [p, q, a, xi, r0]
-	#Gupta_parameters = {'Au': [10.529999999999999, 4.2999999999999998, 0.21970000000000001, 1.855, 2.8779245994292486]}
-	Gupta_parameters = {'Pd': [10.867, 3.742, 0.1746, 1.718, 2.7485], 'Au': [10.229, 4.036, 0.2061, 1.79, 2.884], ('Au','Pd'): [10.54, 3.89, 0.19, 1.75, 2.816]}
+	Gupta_parameters = {'Cu': [10.960, 2.2780, 0.0855, 1.224, 2.556]}
 	cluster.set_calculator(Gupta(Gupta_parameters, cutoff=1000, debug=False))
 	dyn = FIRE(cluster,logfile=None)
 	startTime = time.time(); converged = False
@@ -49,13 +38,12 @@ def Minimisation_Function(cluster,collection,cluster_name):
 	except:
 		print('Local Optimiser Failed for some reason.')
 	endTime = time.time()
-	#ase_write('AfterOpt.traj',cluster)
 	####################################################################################################################
 	# Write information about the algorithm
 	Info = {}
 	Info["INFO.txt"] = ''
 	Info["INFO.txt"] += ("No of Force Calls: " + str(dyn.get_number_of_steps()) + '\n')
 	Info["INFO.txt"] += ("Time (s): " + str(endTime - startTime) + '\n')
-	#Info.write("Cluster converged?: " + str(dyn.converged()) + '\n')
+	#Info["INFO.txt"] += ("Cluster converged?: " + str(dyn.converged()) + '\n')
 	####################################################################################################################
 	return cluster, converged, Info

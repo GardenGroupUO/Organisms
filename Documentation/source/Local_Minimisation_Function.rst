@@ -16,6 +16,7 @@ The implementation of the local minimisation process in this genetic algoritm pr
 
 Because of the flexibility, it is possible to use any type of calculator from ASE, ASAP, GWAP, LAMMPS, etc. It is even possible for the user to design this to use with non-python user-interface based local optimisers, such as VASP or Quantum Espresso! See at the bottom of this page, :ref:`How to write the Minimisation_Function for non-ASE Implemented Calculator <non_ASE_Implemented_Calculator>`.
 
+In the following documentation we will describe how the ``Minimisation_Function`` method is designed in a **RunMinimisation.py** file, and how you can make your own. Examples of **RunMinimisation.py** files can be found in `github.com/GardenGroupUO/Organisms <https://github.com/GardenGroupUO/Organisms>`_ in the directory path ``Examples/Set_of_RunMinimisation_Files`` (this should be found in `github.com/GardenGroupUO/Organisms/tree/main/Examples/Set_of_RunMinimisation_Files <https://github.com/GardenGroupUO/Organisms/tree/main/Examples/Set_of_RunMinimisation_Files>`_). 
 
 Where to write the Minimisation_Function
 ****************************************

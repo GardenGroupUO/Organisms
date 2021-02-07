@@ -16,7 +16,7 @@ Other outputs: Trajectory file.
 import sys
 import time
 from asap3.Internal.BuiltinPotentials import Gupta
-from ase.optimize import FIRE
+from ase.optimize import BFGS, FIRE
 
 def Minimisation_Function(cluster,collection,cluster_name):
 	####################################################################################################################
@@ -29,7 +29,8 @@ def Minimisation_Function(cluster,collection,cluster_name):
 	####################################################################################################################
 	# Perform the local optimisation method on the cluster.
 	# Parameter sequence: [p, q, a, xi, r0]
-	Gupta_parameters = {'Cu': [10.960, 2.2780, 0.0855, 1.224, 2.556]}
+	#Gupta_parameters = {'Au': [10.529999999999999, 4.2999999999999998, 0.21970000000000001, 1.855, 2.8779245994292486]}
+	Gupta_parameters = {'Pd': [10.867, 3.742, 0.1746, 1.718, 2.7485], 'Au': [10.229, 4.036, 0.2061, 1.79, 2.884], ('Au','Pd'): [10.54, 3.89, 0.19, 1.75, 2.816]}
 	cluster.set_calculator(Gupta(Gupta_parameters, cutoff=1000, debug=False))
 	dyn = FIRE(cluster,logfile=None)
 	startTime = time.time(); converged = False

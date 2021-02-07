@@ -1,5 +1,20 @@
+'''
+RunMinimisation.py, GRW, 8/6/17
+ 
+This python program is designed to input the POSCAR file and use it
+with Atomic Simulation Environment (ASE) to minimise the given structure
+using an empirical potential.
+ 
+The program will take the output translate it into a OUTCAR file which
+the bpga will use.
+ 
+Required inputs: BeforeOpt
+Required to outputs: AfterOpt.traj, INFO.txt
+Other outputs: Trajectory file.
+ 
+'''
+import sys
 import time
-from copy import deepcopy
 from asap3.Internal.BuiltinPotentials import Gupta
 from ase.optimize import FIRE
 
