@@ -51,6 +51,7 @@ Table of Contents
    How_To_Use_The_Organisms_Program
    Using_Run
    Local_Minimisation_Function
+   Examples_of_Running_GA
    Using_MakeTrials
    Safely_Finishing_the_GA_Midway
    Restarting_the_Genetic_Algorithm
