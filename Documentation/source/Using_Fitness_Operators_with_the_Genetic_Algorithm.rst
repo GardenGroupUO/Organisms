@@ -36,7 +36,7 @@ The representative similaity is obtained as follows: Every cluster in the popula
 
 The input parameters required for this fitness operator are:
 
-* **CNA scheme** (*str.*): This is the type of CNA schem you would like to use. This can be either Total Comparison Structural Comparison Method (TC-SCM) or the Atom-by-Atom Comparison Structural Comparison Method (AC-SCM). Read more about this at the :ref:`SCM Based Predation Operator <SCM_Based_Predation_Operator>`.
+* **SCM scheme** (*str.*): This is the type of SCM scheme you would like to use. This can be either Total Comparison Structural Comparison Method (T-SCM) or the Atom-by-Atom Comparison Structural Comparison Method (A-SCM). Read more about this at the :ref:`SCM Based Predation Operator <SCM_Based_Predation_Operator>`.
 * **SCM_fitness_contribution** (*float*): This is the relative contribution of the SCM fitness value to the overall value. The energetic fitness contribution is 1 - ``'SCM_fitness_contribution'``. 
 * **Take from the collection of a clusters similarities** (*str.*): This determines how you want to process all the siilarities that are associated with a cluster in the population and offspring. This can be set to either ``'Maximum'`` or ``'Average'``. See :ref:`Take from the collection of a cluster's similarities <Take_from_the_collection_of_a_clusters_similarities>` for more information. Default: ``'Maximum'``. 
 * **normalise_similarities** (*bool*): This will tell the SCM + Energy Fitness Operator whether to normalise the similarity or not. Normalising the similarities means taking the structural similarity, subtracting it from the minimum similarity of clusters in the population , and dividing it by the maximum similarity minus minimum similarity of clusters in the population. True means to normalise, False means do not normalise the similarities. See :ref:`Normalise Similarities <Normalise_Similarities>` for more information. Default: False. 
@@ -77,19 +77,19 @@ Three examples of how these settings are implimented into your Run.py or MakeTri
 
 .. code-block:: python
 
-	fitness_information = {'Fitness Operator': 'SCM + Energy', 'CNA scheme': 'TC-SRA', 'rCut_high': 3.2, 'rCut_low': 2.9, 'rCut_resolution': 0.05, 'SCM_fitness_contribution': 0.5, 'normalise_similarities': False, 'Dynamic Mode': False, 'energy_fitness_function': energy_fitness_function, 'SCM_fitness_function': SCM_fitness_function}
+	fitness_information = {'Fitness Operator': 'SCM + Energy', 'CNA scheme': 'T-SCM', 'rCut_high': 3.2, 'rCut_low': 2.9, 'rCut_resolution': 0.05, 'SCM_fitness_contribution': 0.5, 'normalise_similarities': False, 'Dynamic Mode': False, 'energy_fitness_function': energy_fitness_function, 'SCM_fitness_function': SCM_fitness_function}
 
 If you want to perform your SCM fitness operator on gold (with a lattice constant of 4.07 Å) sampling 78 points between the 1 + 1/3 n.n.d and 1 + 2/3 n.n.d (where n.n.d is the nearest neighbour distance), This is how you would enter this into your Run.py or MakeTrials.py script:
 
 .. code-block:: python
 
-	fitness_information = {'Fitness Operator': 'SCM + Energy', 'CNA scheme': 'TC-SRA', lattice_constant: 4.07, 'nn_high': 1.0 + (2.0/3.0), 'n_low': 1.0 + (1.0/3.0), 'nn_resolution': 78, 'SCM_fitness_contribution': 0.5, 'normalise_similarities': False, 'Dynamic Mode': False, 'energy_fitness_function': energy_fitness_function, 'SCM_fitness_function': SCM_fitness_function}
+	fitness_information = {'Fitness Operator': 'SCM + Energy', 'CNA scheme': 'T-SCM', lattice_constant: 4.07, 'nn_high': 1.0 + (2.0/3.0), 'n_low': 1.0 + (1.0/3.0), 'nn_resolution': 78, 'SCM_fitness_contribution': 0.5, 'normalise_similarities': False, 'Dynamic Mode': False, 'energy_fitness_function': energy_fitness_function, 'SCM_fitness_function': SCM_fitness_function}
 
 If you are using the SCM-based predation operator and sampling the same values of rCut, you can set ``Use Predation Information = True`` and negate writing in the same values for rCut. An example is given below:
 
 .. code-block:: python
 
-	fitness_information = {'Fitness Operator': 'SCM + Energy', 'CNA scheme': 'TC-SRA', 'Use Predation Information': True, 'SCM_fitness_contribution': 0.5, 'normalise_similarities': False, 'Dynamic Mode': False, 'energy_fitness_function': energy_fitness_function, 'SCM_fitness_function': SCM_fitness_function}
+	fitness_information = {'Fitness Operator': 'SCM + Energy', 'CNA scheme': 'T-SCM', 'Use Predation Information': True, 'SCM_fitness_contribution': 0.5, 'normalise_similarities': False, 'Dynamic Mode': False, 'energy_fitness_function': energy_fitness_function, 'SCM_fitness_function': SCM_fitness_function}
 
 .. _Take_from_the_collection_of_a_clusters_similarities:
 

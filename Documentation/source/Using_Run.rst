@@ -67,7 +67,7 @@ An example of these parameters in Run.py is given below:
 4) Details concerning the Mating and Mutation Proceedure
 ========================================================
 
-The following set of parameters are focused on settings that involve the Mating and Mutation Procedures of the genetic algorithm. These are processes that affect how new offspring are created during the genetic algorithm. There are three sets of parameters involving the Mating and Mutation Procedures. Firstly, below is a parameter that affects both the Mating and Mutation Procedures:
+The following set of parameters are focused on settings that involve the Mating and Mutation Procedures of the genetic algorithm. These are processes that affect how new offspring are created during the genetic algorithm. There are four sets of parameters involving the Mating and Mutation Procedures. Firstly, below is a parameter that affects both the Mating and Mutation Procedures:
 
 * **creating_offspring_mode** (*str.*): This indicates how you want these procedures to work when making an offspring. There are two options:
 		
@@ -122,7 +122,7 @@ An example of the epoch parameters used in the Run.py file is given below:
 6) Other Details
 ================
 
-There are two other variables which are important to include in your Run.py file. These are:
+There are three other variables which are important to include in your Run.py file. These are:
 
 * **r_ij** (*float*): This is the maximum bond distance that we would expect in this cluster. This parameter is used when clusters are created using either or both the mating or mutation schemes. This parameter is used to determine if a cluster has stayed in one piece after the local minimisation, as it is possible for the cluster to break into multiple pieces. This should be a reasonable distance, but not excessively large. For example, for Au, which has a FCC lattice constant of 4.078 Å. Therefore it has a first nearest neighbour of 2.884 Å and a second nearest neighbour of 4.078 Å. Therefore r_ij should be set to some value between 2.884 Å and 4.078 Å. For example, r_ij = 3.5 Å or r_ij = 4.0 Å would probably be appropriate, however I have been able to get away with r_ij = 3.0 Å.
 * **cell_length** (*float*): If you are wanting to create randomly generated clusters, either at the start of the genetic algorithm or using the 'random' mutation method, then you will want to specify the length of the box that you want to add atoms to. boxtoplaceinlength is the length of this box. Don't make this too big, or else it is likely atoms will be too far apart and a cluster will be broken into multiple pieces.
@@ -148,7 +148,7 @@ One can write this function into the Run.py file, however it is usually easier a
 
 Because of the flexibility, it is possible to use any type of calculator from ASE, ASAP, GWAP, LAMMPS, etc. It is even possible for the user to design this to use with non-python user-interface based local optimisers, such as VASP or Quantum Espresso! 
 
-To see an example of how to write Minimisation_Function, see :ref:`Writing a Local Minimisation Function for the Genetic Algorithm <Local_Minimisation_Function>`
+To see an example of how to write Minimisation_Function, see :ref:`Writing a Local Minimisation Function for the Genetic Algorithm <Local_Minimisation_Function>`.
 
 The algorithm is imported into Run.py as follows:
 
@@ -180,7 +180,7 @@ In terms of the Run.py file, there is only one variable that we need to deal wit
 
 .. code-block:: python
 
-	predation_information = {'Predation_Switch': 'SCM', 'CNA Scheme': 'TC-SRA', 'rCut_high': 3.2, 'rCut_low': 2.9, 'rCut_resolution': 0.05}
+	predation_information = {'Predation_Switch': 'SCM', 'SCM Scheme': 'T-SCM', 'rCut_high': 3.2, 'rCut_low': 2.9, 'rCut_resolution': 0.05}
 
 There are a variety of predation operators that are inbuilt currently into the genetic algorithm. You can find out more about what they do, and how to use them in your Run.py file, at :ref:`Using Predation Operators with the Genetic Algorithm <Using_Predation_Operators>`.
 
@@ -249,7 +249,7 @@ These last set of parameters are important, but there is no good appropriate pla
 
 * **force_replace_pop_clusters_with_offspring** (*bool*): In the genetic algorithm, the predation operator may find that the an offspring is "identical" to a cluster in the population, but that offspring is more fit than the cluster in the population. In this case, the genetic algorithm can replace the less fit cluster in the population with the "identical" more fit offspring. Set this variable to ``True`` if you want this to happen. Set this variable to ``False`` if you don't want this to happen. Default: ``True``. 
 * **user_initilised_population_folder** (*str.*): This is the name, or the path to, the folder holding the initalised population that you would like to use instead of the program creating a set of randomly generated clusters. If you do not have, or do not want to use, an initialised population, set this to ``None`` or ``''``.
-* **rounding_criteria** (*int*): This is the round that will be enforced on the value of the cluster energy. Default: 2
+* **rounding_criteria** (*int*): This is the round that will be enforced on the value of the cluster energy. Default: ``2``
 * **print_details** (*bool*): Will print the details of the genetic algotithm, like a verbose. 
 * **no_of_cpus** (*int*): This is the number of cpus that you would like the algorithm to run on. These extra cores will be used to create the offspring as well as used by the predation and fitness operators if beneficial to use extra cores for the chosen operators.
 * **finish_algorithm_if_found_cluster_energy** (*dict.*): This parameter will stop the algorithm if the desired global minimum is found. This parameter is to be used if the user would like to test the performance of the algorithm and knows beforehand what the energy of the global minimum is. This parameter is set as a dictionary as two parameters. **'cluster energy'** is a float that states the energy of the global minimum. **'round'** is an interger that you want to set to the same rounding that you gave for the 'cluster energy' input. This will round the energy of clusters made, and compare this energy to your 'cluster energy' input. An example of this for Au38 using Cleri Gupta parameters are ``finish_algorithm_if_found_cluster_energy = {'cluster energy': -130.54, 'round': 2}``. If you are not testing the performance of the algorithm, or dont know the global minimum of the cluster you are testing, set ``finish_algorithm_if_found_cluster_energy = None``. Default: ``None``

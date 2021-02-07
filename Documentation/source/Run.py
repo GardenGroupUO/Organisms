@@ -39,15 +39,15 @@ memory_operator_information = {'Method': 'Off'}
 #predation_information = {'Predation Operator':'Energy', 'mode': 'comprehensive', 'minimum_energy_diff': 0.025, 'type_of_comprehensive_scheme': 'energy'}
 #predation_information = {'Predation Operator':'Energy', 'mode': 'comprehensive', 'minimum_energy_diff': 0.025, 'type_of_comprehensive_scheme': 'fitness'}
 #predation_information = {'Predation Operator': 'IDCM', 'percentage_diff': 5.0}
-predation_information = {'Predation Operator': 'SCM', 'CNA Scheme': 'T-SCM', 'rCut_high': 3.2, 'rCut_low': 2.9, 'rCut_resolution': 0.05}
+predation_information = {'Predation Operator': 'SCM', 'SCM Scheme': 'T-SCM', 'rCut_high': 3.2, 'rCut_low': 2.9, 'rCut_resolution': 0.05}
 
 # This switch tells the genetic algorithm the type of fitness scheme they want to place on the genetic algoithm.
 energy_fitness_function = {'function': 'exponential', 'alpha': 3.0}
 #SCM_fitness_function = {'function': 'exponential', 'alpha': 1.0}
 fitness_information = {'Fitness Operator': 'Energy', 'fitness_function': energy_fitness_function}
 #fitness_information = {'Fitness Operator': 'SCM + Energy', 'Use Predation Information': True, 'SCM_fitness_contribution': 0.5, 'normalise_similarities': False, 'Dynamic Mode': False, 'energy_fitness_function': energy_fitness_function, 'SCM_fitness_function': SCM_fitness_function}
-#fitness_information = {'Fitness Operator': 'SCM + Energy', 'CNA Scheme': 'T-SCM', 'rCut_high': 3.2, 'rCut_low': 2.9, 'rCut_resolution': 0.05, 'SCM_fitness_contribution': 0.5, 'normalise_similarities': False, 'Dynamic Mode': False, 'energy_fitness_function': energy_fitness_function, 'SCM_fitness_function': SCM_fitness_function}
-#fitness_information = {'Fitness Operator': 'SCM + Energy', 'CNA Scheme': 'T-SCM', 'rCut': 3.05, 'SCM_fitness_contribution': 0.5, 'normalise_similarities': False, 'Dynamic Mode': False, 'energy_fitness_function': energy_fitness_function, 'SCM_fitness_function': SCM_fitness_function}
+#fitness_information = {'Fitness Operator': 'SCM + Energy', 'SCM Scheme': 'T-SCM', 'rCut_high': 3.2, 'rCut_low': 2.9, 'rCut_resolution': 0.05, 'SCM_fitness_contribution': 0.5, 'normalise_similarities': False, 'Dynamic Mode': False, 'energy_fitness_function': energy_fitness_function, 'SCM_fitness_function': SCM_fitness_function}
+#fitness_information = {'Fitness Operator': 'SCM + Energy', 'SCM Scheme': 'T-SCM', 'rCut': 3.05, 'SCM_fitness_contribution': 0.5, 'normalise_similarities': False, 'Dynamic Mode': False, 'energy_fitness_function': energy_fitness_function, 'SCM_fitness_function': SCM_fitness_function}
 
 # Variables required for the Recording_Cluster.py class/For recording the history as required of the genetic algorithm.
 ga_recording_information = {}

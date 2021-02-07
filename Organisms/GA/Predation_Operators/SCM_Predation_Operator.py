@@ -59,15 +59,15 @@ class SCM_Predation_Operator(Predation_Operator):
 			import pdb; pdb.set_trace()
 			exit()
 		############################################################
-		# Determine which CNA Scheme to use, either the AC-SRA or the TC-SRA.
-		self.CNA_Scheme = Predation_Information['CNA Scheme']
-		if not self.CNA_Scheme in ['A-SCM','T-SCM']:
+		# Determine which SCM Scheme to use, either the AC-SRA or the TC-SRA.
+		self.SCM_Scheme = Predation_Information['SCM Scheme']
+		if not self.SCM_Scheme in ['A-SCM','T-SCM']:
 			print('Error in class SCM_Predation_Scheme, in SCM_Predation_Scheme.py')
-			print('The "CNA_Scheme" option should be either "A-SCM" or "T-SCM"')
-			print('You have entered '+str(self.CNA_Scheme))
+			print('The "SCM_Scheme" option should be either "A-SCM" or "T-SCM"')
+			print('You have entered '+str(self.SCM_Scheme))
 			print('Check this.')
 			exit('This program will finish without running.')
-		get_CNA_profile, get_CNA_similarities = get_SCM_methods(self.CNA_Scheme)
+		get_CNA_profile, get_CNA_similarities = get_SCM_methods(self.SCM_Scheme)
 		get_cna_profile_method = get_CNA_profile
 		get_cna_similarities_method = get_CNA_similarities
 		############################################################

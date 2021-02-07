@@ -9,7 +9,7 @@ def CNA_Database_Check(self,fitness_information, predation_operator):
 	else:
 		self.use_predation_information = False
 
-	have_CNA_Scheme = ('CNA Scheme' in fitness_information)
+	have_SCM_Scheme = ('SCM Scheme' in fitness_information)
 
 	have_rCut_high = ('rCut_high' in fitness_information)
 	have_rCut_low = ('rCut_low' in fitness_information)
@@ -22,7 +22,7 @@ def CNA_Database_Check(self,fitness_information, predation_operator):
 	have_nn_resolution = ('nn_resolution' in fitness_information)
 	have_single_nn_measurement = ('single_nn_measurement' in fitness_information)
 
-	have_settings = (have_CNA_Scheme,have_rCut_high,have_rCut_low,have_rCut_resolution,have_rCut,have_lattice_constant,have_nn_high,have_nn_low,have_nn_resolution,have_single_nn_measurement)
+	have_settings = (have_SCM_Scheme,have_rCut_high,have_rCut_low,have_rCut_resolution,have_rCut,have_lattice_constant,have_nn_high,have_nn_low,have_nn_resolution,have_single_nn_measurement)
 	
 	# ----------------------------------------------------------------------------------------------------------------------------------------
 	# You are using the SCM predation operator and use_predation_information == True, so this fitness operator should use the same cna_database as the predation operator
@@ -52,12 +52,12 @@ def CNA_Database_Check(self,fitness_information, predation_operator):
 	# ----------------------------------------------------------------------------------------------------------------------------------------
 
 def Checks_for_if_predation_switch_equals_SCM_predation_and_use_predation_information_is_true(self,fitness_information,have_settings):
-	have_CNA_Scheme,have_rCut_high,have_rCut_low,have_rCut_resolution,have_rCut,have_lattice_constant,have_nn_high,have_nn_low,have_nn_resolution,have_single_nn_measurement = have_settings
-	if (have_CNA_Scheme or have_rCut_high or have_rCut_low or have_rCut_resolution or have_rCut or have_lattice_constant or have_nn_high or have_nn_low or have_nn_resolution or have_single_nn_measurement):
+	have_SCM_Scheme,have_rCut_high,have_rCut_low,have_rCut_resolution,have_rCut,have_lattice_constant,have_nn_high,have_nn_low,have_nn_resolution,have_single_nn_measurement = have_settings
+	if (have_SCM_Scheme or have_rCut_high or have_rCut_low or have_rCut_resolution or have_rCut or have_lattice_constant or have_nn_high or have_nn_low or have_nn_resolution or have_single_nn_measurement):
 		print('ERROR in def SCM_options, in Class SCM_and_Energy_Fitness_Operator, in SCM_and_Energy_Fitness_Operator.py/SCM_and_Energy_Fitness_Operator_Options.py')
 		print("You are using the SCM operator and have set the 'Use Predation Information' switch in your fitness_information dictionary to True.")
 		settings_to_mention = []
-		names = ['CNA Scheme','rCut_high','rCut_low','rCut_resolution','rCut','lattice_constant','nn_high','nn_low','nn_resolution','single_nn_measurement']
+		names = ['SCM Scheme','rCut_high','rCut_low','rCut_resolution','rCut','lattice_constant','nn_high','nn_low','nn_resolution','single_nn_measurement']
 		for name in names:
 			if name in fitness_information:
 				settings_to_mention.append(name)
@@ -70,10 +70,10 @@ def Checks_for_if_predation_switch_equals_SCM_predation_and_use_predation_inform
 		exit('This program will finish without completing.')
 
 def Checks_for_if_predation_switch_equals_SCM_predation_or_use_predation_information_is_true(self,fitness_information,predation_operator,have_settings):
-	have_CNA_Scheme,have_rCut_high,have_rCut_low,have_rCut_resolution,have_rCut,have_lattice_constant,have_nn_high,have_nn_low,have_nn_resolution,have_single_nn_measurement = have_settings
-	if not 'CNA Scheme' in fitness_information:
+	have_SCM_Scheme,have_rCut_high,have_rCut_low,have_rCut_resolution,have_rCut,have_lattice_constant,have_nn_high,have_nn_low,have_nn_resolution,have_single_nn_measurement = have_settings
+	if not 'SCM Scheme' in fitness_information:
 		print('ERROR in def SCM_options, in Class SCM_and_Energy_Fitness_Operator, in SCM_and_Energy_Fitness_Operator.py/SCM_and_Energy_Fitness_Operator_Options.py')
-		print('You need to include the "CNA Scheme" setting. This could be either the T-SCM or the A-SCM.')
+		print('You need to include the "SCM Scheme" setting. This could be either the T-SCM or the A-SCM.')
 		print('Your fitness_information dictionary is: '+str(fitness_information))
 		print('Check this.')
 		exit('This program will finish without completing.')

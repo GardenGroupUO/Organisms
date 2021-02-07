@@ -19,10 +19,10 @@ def SCM_options(self,fitness_information, predation_operator, no_of_cpus):
 
 	"""
 	self.predation_switch = predation_operator.Predation_Switch
-	if not ('CNA Scheme' in fitness_information) and not (fitness_information['CNA Scheme'] in ['T-SCM','A-SCM']):
+	if not ('SCM Scheme' in fitness_information) and not (fitness_information['SCM Scheme'] in ['T-SCM','A-SCM']):
 		print('ERROR in def SCM_options, in Class SCM_and_Energy_Fitness_Operator, in SCM_and_Energy_Fitness_Operator.py/SCM_and_Energy_Fitness_Operator_Options.py')
-		print('You either need to include the "CNA Scheme" setting, or you have entered an invalid entry for "CNA Scheme" setting in the fitness_information dictionary.')
-		print('The "CNA Scheme" setting can be either the T-SCM or the A-SCM.')
+		print('You either need to include the "SCM Scheme" setting, or you have entered an invalid entry for "SCM Scheme" setting in the fitness_information dictionary.')
+		print('The "SCM Scheme" setting can be either the T-SCM or the A-SCM.')
 		print('Your fitness_information dictionary is: '+str(fitness_information))
 		print('Check this.')
 		exit('This program will finish without completing.')
@@ -101,9 +101,9 @@ def make_new_cna_database(self, fitness_information, no_of_cpus):
 	:returns: return a CNA_Database object
 	:rtype:   Organisms.GA.SCM_Scripts.CNA_Database
 	"""
-	CNA_Scheme = fitness_information['CNA Scheme']
+	SCM_Scheme = fitness_information['SCM Scheme']
 	rCuts = get_rCuts(self,fitness_information)
-	get_cna_profile_method, get_cna_similarities_method = get_SCM_methods(CNA_Scheme)
+	get_cna_profile_method, get_cna_similarities_method = get_SCM_methods(SCM_Scheme)
 	try:
 		cut_off_similarity = predation_Information['Cut_off']
 	except:

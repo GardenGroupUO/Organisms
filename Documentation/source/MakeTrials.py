@@ -35,7 +35,7 @@ from RunMinimisation import Minimisation_Function
 memory_operator_information = {'Method': 'Off'}
 
 # This dictionary includes the information required by the predation scheme
-predation_information = {'Predation Operator': 'SCM', 'CNA Scheme': 'TC-SRA', 'rCut_high': 3.2, 'rCut_low': 2.9, 'rCut_resolution': 0.05}
+predation_information = {'Predation Operator': 'SCM', 'SCM Scheme': 'TC-SRA', 'rCut_high': 3.2, 'rCut_low': 2.9, 'rCut_resolution': 0.05}
 
 # This dictionary includes the information required by the fitness scheme
 energy_fitness_function = {'function': 'exponential', 'alpha': 3.0}
