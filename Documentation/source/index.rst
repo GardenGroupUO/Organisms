@@ -11,6 +11,10 @@ Welcome to the Otago Research Genetic Algorithm for Nanoclusters, Including Stru
 .. raw:: html
     :file: Images/pypi_version.svg
 .. raw:: html
+    :file: Images/conda_version.svg
+.. raw:: html
+    :file: Images/binder_badge.svg
+.. raw:: html
     :file: Images/github_licence.svg
 
 This documentation is designed to guide the user to use the GOtago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similatity (Organisms) program. This algorithm is designed to explore the potential energy surface of a cluster system, using the genetic algorithm, and to local the putative globally lowest energetic cluster. It was designed for obtaining low energy structures of clusters that could be catalytically interesting. The algorithm was designed by Dr Anna Garden and the Garden group at the University of Otago, Dunedin, New Zealand. See for more information about what the group does at `blogs.otago.ac.nz/annagarden <https://blogs.otago.ac.nz/annagarden/>`_. The Github page for this program can be found at `github.com/GardenGroupUO/Organisms <https://github.com/GardenGroupUO/Organisms>`_.

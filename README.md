@@ -3,6 +3,7 @@ The Genetic Algorithm for Research and Development on Nanoclusters (Organisms) P
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Organisms)
 ![PyPI](https://img.shields.io/pypi/v/Organisms)
+![Conda](https://img.shields.io/conda/v/gardengroupuo/organisms)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/GardenGroupUO/Organisms)
 [![Documentation Status](https://readthedocs.org/projects/organisms/badge/?version=latest)](https://organisms.readthedocs.io/en/latest/)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Live_Examples/main?filepath=Organisms_Live_Example.ipynb)

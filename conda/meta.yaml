@@ -28,6 +28,7 @@ requirements:
 about:
   home: https://github.com/GardenGroupUO/Organisms
   license: AGPL-3.0
+  license_file: https://github.com/GardenGroupUO/Organisms/blob/main/LICENSE.md
   summary: 'The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) program is a genetic algorithm designed to globally optimise nanoclusters (also known as clusters or nanoparticles)'
 
 # Build using: conda build .
