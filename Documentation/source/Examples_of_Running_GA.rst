@@ -8,3 +8,5 @@ Examples of Running the Organisms Program with *Run.py* and *RunMinimisation.py*
     :file: Images/binder_badge.svg
 
 This is under development. This page will give information about how to run examples of Organisms through a jupyter notbook using https://mybinder.org/
+
+https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Jupyter_Examples/main?filepath=Organisms_Jupyter_Example.ipynb
