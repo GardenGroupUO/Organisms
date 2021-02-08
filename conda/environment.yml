@@ -1,0 +1,6 @@
+name: Organisms
+dependencies:
+  - numpy
+  - scipy
+  - ase
+  - asap3
