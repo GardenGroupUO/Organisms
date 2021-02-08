@@ -1,4 +1,4 @@
-{% set version = "v3.2.0.5" %}
+{% set version = "v3.2.0.6" %}
 
 package:
   name: organisms
