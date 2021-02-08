@@ -86,8 +86,8 @@ First, it is usually a good idea to tell ase if you want the calculator to calcu
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 26
-	:lines: 26
+	:lineno-start: 22
+	:lines: 22
 	:dedent: 4
 
 Preparing the Potential, and setting up the local optimiser.
@@ -103,8 +103,8 @@ See below for a example:
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 30
-	:lines: 30-34
+	:lineno-start: 24
+	:lines: 24-28
 	:dedent: 4
 
 Executing the local optimiser
@@ -116,8 +116,8 @@ We would like to now get the definition to run a local optimisation. This is don
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 35
-	:lines: 35-45
+	:lineno-start: 29
+	:lines: 29-39
 	:dedent: 4
 
 You can also see that I have placed an if statement to determine if the local optimsation actually converged. I have found that it is useful to include a way of noting if the optimisation was able to converge or not. See more about `How to perform a local optimisation in ASE here <https://wiki.fysik.dtu.dk/ase/ase/optimize.html>`_, or refer to the manual of the local optimiser you are using for more information on how to do this.
@@ -131,8 +131,8 @@ I have found it useful for benchmarking in the past to give back to the genetic 
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 48
-	:lines: 48-53
+	:lineno-start: 41
+	:lines: 41-46
 	:dedent: 4
 
 Return the Optimised Cluster and Info
@@ -144,8 +144,8 @@ Remember to return the ``cluster`` and ``Info`` to the genetic algorithm so that
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 55
-	:lines: 55
+	:lineno-start: 48
+	:lines: 48
 	:dedent: 4
 
 
