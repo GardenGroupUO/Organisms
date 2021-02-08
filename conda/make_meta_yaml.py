@@ -5,7 +5,7 @@ def get_version_number():
   with open(path_to_written_version) as initPY:
     for line in initPY:
       if line.startswith('__version__'):
-        version = eval(line.rstrip().replace('__version__ = ',''))a
+        version = eval(line.rstrip().replace('__version__ = ',''))
         break
   return version
 
