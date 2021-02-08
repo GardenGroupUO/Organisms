@@ -52,3 +52,8 @@ def write_meta_YAML(version):
     metaYAML.write('  summary: "The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) program is a genetic algorithm designed to globally optimise nanoclusters (also known as clusters or nanoparticles)"\n')
     metaYAML.write('\n')
     metaYAML.write('# Build using: conda build .\n')
+
+print('Writing meta.yaml to conda directory')
+version = get_version_number()
+write_meta_YAML(version)
+print('Successfully finished writing meta.yaml to conda directory')
