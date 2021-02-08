@@ -16,9 +16,9 @@ def get_long_description():
     long_description = f.read()
   return long_description
 
-def write_meta_YAML(version)
-
-  with open('meta.yaml','w') as metaYAML:
+def write_meta_YAML(version):
+  name_of_file = 'meta.yaml'
+  with open(name_of_file,'w') as metaYAML:
     metaYAML.write('{% set version = "'+str(version)+'" %}\n')
     metaYAML.write('\n')
     metaYAML.write('package:\n')
