@@ -13,24 +13,14 @@ Required to outputs: AfterOpt.traj, INFO.txt
 Other outputs: Trajectory file.
  
 '''
-from ase import Atom, Atoms
-from ase.io import read as ase_read
-from ase.io import write as ase_write
-from asap3.Internal.BuiltinPotentials import Gupta
-from ase.optimize import BFGS, FIRE
 import sys
 import time
- 
-from ase.visualize import view
+from asap3.Internal.BuiltinPotentials import Gupta
+from ase.optimize import BFGS, FIRE
 
 def Minimisation_Function(cluster,collection,cluster_name):
 	####################################################################################################################
-	# Read the BeforeOpt file and record the elements, the
-	# number of each element in the cluster and their positions
-	#cluster = ase_read("BeforeOpt",format='vasp')
 	cluster.pbc = False
-	####################################################################################################################
-	#Construct atoms using the ASE class "Atoms".
 	####################################################################################################################
 	# Perform the local optimisation method on the cluster.
 	# Parameter sequence: [p, q, a, xi, r0]
@@ -48,13 +38,12 @@ def Minimisation_Function(cluster,collection,cluster_name):
 	except:
 		print('Local Optimiser Failed for some reason.')
 	endTime = time.time()
-	#ase_write('AfterOpt.traj',cluster)
 	####################################################################################################################
 	# Write information about the algorithm
 	Info = {}
 	Info["INFO.txt"] = ''
 	Info["INFO.txt"] += ("No of Force Calls: " + str(dyn.get_number_of_steps()) + '\n')
 	Info["INFO.txt"] += ("Time (s): " + str(endTime - startTime) + '\n')
-	#Info.write("Cluster converged?: " + str(dyn.converged()) + '\n')
+	#Info["INFO.txt"] += ("Cluster converged?: " + str(dyn.converged()) + '\n')
 	####################################################################################################################
 	return cluster, converged, Info
