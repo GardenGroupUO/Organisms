@@ -1,7 +1,7 @@
 {% set version = "3.2.0.1" %}
 
 package:
-  name: Organisms
+  name: organisms
   version: {{ version }}
 
 source:
