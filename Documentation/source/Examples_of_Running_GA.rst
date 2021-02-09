@@ -7,7 +7,7 @@ Examples of Running the Organisms Program with *Run.py*
 .. raw:: html
     :file: Images/binder_badge.svg
 
-Provided in the Organisms Github repository are examples of *Run.py* (and *RunMinimisation.py*, see :ref:`RunMinimisation.py - Writing a Local Minimisation Function for the Genetic Algorithm <Local_Minimisation_Function>`_ for more information about this file) scripts that you can try out. Find these various examples at https://github.com/GardenGroupUO/Organisms/tree/main/Examples. 
+Provided in the Organisms Github repository are examples of *Run.py* (and *RunMinimisation.py*, see :ref:`RunMinimisation.py - Writing a Local Minimisation Function for the Genetic Algorithm <Local_Minimisation_Function>` for more information about this file) scripts that you can try out. Find these various examples at https://github.com/GardenGroupUO/Organisms/tree/main/Examples. 
 
 We have also developed a Jupyter notebook with some examples of various *Run.py* (and *RunMinimisation.py*) that you can play with and muck around with. The Github repository for this Jupyter notebook can be found at https://github.com/GardenGroupUO/Organisms_Jupyter_Examples. 
 
