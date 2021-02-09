@@ -21,7 +21,7 @@ This documentation is designed to guide the user to use the GOtago Research Gene
 
 **If you are new to the Organisms program, it is recommended try it out by running Organisms live on our interactive Jupyter+Binder page before you download it. On Jupyter+Binder, you can play around with the Organisms program on the web. You do not need to install anything to try Organisms out on Jupyter+Binder.** 
 
-**Click the Binder button below to try Organisms out on the web!**
+**Click the Binder link below to try Organisms out on the web!**
 
 https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Jupyter_Examples/main?filepath=Notebooks%2FOrganisms_Jupyter_Example.ipynb
 
