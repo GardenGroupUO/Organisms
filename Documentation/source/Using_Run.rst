@@ -4,7 +4,7 @@
 *Run.py* - Running the Genetic Algorithm
 ########################################
 
-In this article, we will look at how to run the genetic algorithm. This program is run though the **Run.py** script, which includes all the information on what cluster to globally optimise and the genetic algorithm settings to use. You can find another example of a ``Run.py`` file at `github.com/GardenGroupUO/Organisms <https://github.com/GardenGroupUO/Organisms>`_ under ``Examples\Playground``. Also, you can try out this program by running an example script through a Jupyter notebook. See :ref:`Examples_of_Running_GA` to get access to examples of running Organisms through this Jupyter notebook!
+In this article, we will look at how to run the genetic algorithm. This program is run though the **Run.py** script, which includes all the information on what cluster to globally optimise and the genetic algorithm settings to use. You can find other examples of ``Run.py`` files at `github.com/GardenGroupUO/Organisms <https://github.com/GardenGroupUO/Organisms>`_ under ``Examples\Playground`` and ``Examples\Example_Run_Files``. Also, you can try out this program by running an example script through a Jupyter notebook. See :ref:`Examples_of_Running_GA` to get access to examples of running Organisms through this Jupyter notebook!
 
 Running the Genetic Algorithm Program
 *************************************
