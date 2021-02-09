@@ -28,18 +28,17 @@ If you installed the Organisms program with ``pip3``, these scripts will be inst
 If you performed a Manual installation
 --------------------------------------
 
-If you have manually added this program to your computer (such as cloning this program from Github), you will need to make sure that you have included the ``Subsidiary_Programs`` folder into your ``PATH`` and ``PYTHONPATH`` in your ``~/.bashrc`` file. All of these program can be found in the ``Subsidiary_Programs`` folder. To execute these programs from the ``Subsidiary_Programs`` folder, you must include the following in your ``~/.bashrc``:
+If you have manually added this program to your computer (such as cloning this program from Github), you will need to make sure that you have included the ``Subsidiary_Programs`` folder into your ``PATH`` in your ``~/.bashrc`` file. All of these program can be found in the ``Subsidiary_Programs`` folder. To execute these programs from the ``Subsidiary_Programs`` folder, you must include the following in your ``~/.bashrc``:
 
 .. code-block:: bash
 
-	export PATH_TO_GA="<Path_to_ga>" 
+	export PATH_TO_GA="<Path_to_Organisms>" 
 
-where ``<Path_to_ga>"`` is the path to get to the genetic algorithm program. Also include somewhere before this in your ``~/.bashrc``:
+where ``<Path_to_Organisms>"`` is the path to get to the genetic algorithm program. Also include somewhere before this in your ``~/.bashrc``:
 
 .. code-block:: bash
 
-	export PATH=<Path_to_OGA>/Subsidiary_Programs:$PATH
-	export PYTHONPATH=<Path_to_OGA>/Subsidiary_Programs:$PYTHONPATH
+	export PATH="$PATH_TO_GA"/Organisms/Subsidiary_Programs:$PATH
 
 See more about this in :ref:`Installation of the Genetic Algorithm <Installation_of_the_Genetic_Algorithm>`. 
 

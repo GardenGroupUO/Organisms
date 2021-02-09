@@ -13,23 +13,34 @@ In the next article (:ref:`Helpful Programs for Gathering data and Post-processi
 What to make sure is done before running the MakeTrials.py program. 
 *******************************************************************
 
-If you installed the Organisms program using``pip3``, you do not need to do anything extra, you are all good to go. 
+If you installed Organisms through pip3
+=======================================
 
-If you have manually added this program to your computer (such as cloning this program from Github), you will need to make sure that you have included the Subsidiary_Programs folder into your ``PATH`` and ``PYTHONPATH`` in your ``~/.bashrc`` file. To execute programs in Subsidiary_Programs, you must include the following in your ``~/.bashrc``:
+If you installed the Organisms program with ``pip3``, these scripts will be installed in your bin. You do not need to add anything into your ``~/.bashrc``. You are all good to go. 
+
+If you performed a Manual installation
+======================================
+
+If you have manually added this program to your computer (such as cloning this program from Github), you will need to make sure that you have included the ``Helpful_Programs`` folder into your ``PATH`` in your ``~/.bashrc`` file. All of these program can be found in the `Helpful_Programs` folder. To execute some of these programs from the ``Helpful_Programs`` folder, you must include the following in your ``~/.bashrc``:
 
 .. code-block:: bash
 
-	export PATH=<Path_to_Organisms_Program>/Subsidiary_Programs:$PATH
-	export PYTHONPATH=<Path_to_Organisms_Program>/Subsidiary_Programs:$PYTHONPATH
+	export PATH_TO_GA="<Path_to_Organisms>" 
 
-See more about this in :ref:`Installation of the Genetic Algorithm <Installation_of_the_Genetic_Algorithm>`
+where ``<Path_to_Organisms>"`` is the path to get to the genetic algorithm program. Also include somewhere before this in your ``~/.bashrc``:
+
+.. code-block:: bash
+
+	export PATH="$PATH_TO_GA"/Organisms/Helpful_Programs:$PATH
+
+See more about this in :ref:`Installation of the Genetic Algorithm <Installation_of_the_Genetic_Algorithm>`. 
 
 How does MakeTrials.py work?
 ****************************
 
-MakeTrials.py is a script which uses the ``MakeTrialsProgram`` class in ``SubsidiaryPrograms.MakeTrialsProgram`` (found in SubsidiaryPrograms/MakeTrialsProgram.py) to make all the files that one would need to make to perform a set of repeated the genetic algorithm upon a cluster system. This will create lots of the same genetic algorithm files (Run.py and RunMinimisation.py) and put them into folders called Trials. 
+MakeTrials.py is a script which uses the ``MakeTrialsProgram`` class in ``Organisms.SubsidiaryPrograms.MakeTrialsProgram`` (found in Organisms/SubsidiaryPrograms/MakeTrialsProgram.py) to make all the files that one would need to make to perform a set of repeated the genetic algorithm upon a cluster system. This will create lots of the same genetic algorithm files (Run.py and RunMinimisation.py) and put them into folders called Trials. 
 
-You can find another example of a ``Run.py`` file at `github.com/GardenGroupUO/Organisms <https://github.com/GardenGroupUO/Organisms>`_ under ``Examples\Playground``.
+You can find another example of a ``MakeTrials.py`` file and other associated files at `github.com/GardenGroupUO/Organisms <https://github.com/GardenGroupUO/Organisms>`_ under ``Examples\CreateSets``.
 
 Setting up MakeTrials.py
 ************************
@@ -64,8 +75,8 @@ An example of these parameters in MakeTrials.py is given below:
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 63
-	:lines: 63-69
+	:lineno-start: 62
+	:lines: 62-68
 
 1.1) ``making_files_for``: How files are created for running multiple genetic algorithm trials
 ----------------------------------------------------------------------------------------------
@@ -129,8 +140,8 @@ An example of these parameters in MakeTrials.py is given below:
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 71
-	:lines: 71-80
+	:lineno-start: 70
+	:lines: 70-79
 
 3) Time to Run the MakeTrials Program
 =====================================
@@ -142,7 +153,7 @@ Now all there is to do is to run this program!
 	:tab-width: 4
 	:linenos:
 	:lineno-start: 82
-	:lines: 83-114
+	:lines: 82-112
 
 Can I make writing trials easily for many types of system.
 **********************************************************

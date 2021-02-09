@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-#alias delALL='rm -rf Population GA_Run_Details.txt __pycache__ Recorded_Data Initial_Population Saved_Points_In_GA_Run epoch_data epoch_data.backup Memory_Operator_Data'
-
-rm -rf Population GA_Run_Details.txt __pycache__ Recorded_Data Initial_Population Saved_Points_In_GA_Run epoch_data epoch_data.backup Memory_Operator_Data
+rm -rf GA_Run_Details.txt epoch_data epoch_data.backup ga_running.lock
+rm -rf Population Recorded_Data Initial_Population Saved_Points_In_GA_Run Memory_Operator_Data Diversity_Information
+rm -rf __pycache__

@@ -147,7 +147,7 @@ class MakeTrialsProgram:
 
     def makeRunPY(self,path_to,cluster_makeup,pop_size,generations,no_offspring_per_generation,creating_offspring_mode,crossover_type,mutation_types,chance_of_mutation,r_ij,vacuum_to_add_length,RunMinimisation_filename,Minimisation_Function_name,surface_details,epoch_settings,cell_length,memory_operator_information,predation_information,fitness_information,ga_recording_information,force_replace_pop_clusters_with_offspring,user_initialised_population_folder,rounding_criteria,print_details,no_of_cpus,finish_algorithm_if_found_cluster_energy,total_length_of_running_time):
         with open(path_to+'/Run.py','w+') as RunPY:
-            print('from GA.GA_Program import GA_Program',file=RunPY)
+            print('from Organisms import GA_Program',file=RunPY)
             print('',file=RunPY)
             print('# This details the elemental and number of atom composition of cluster that the user would like to investigate',file=RunPY)
             print('',file=RunPY)

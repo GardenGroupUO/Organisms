@@ -270,3 +270,18 @@ dmypy.json
 Documentation/yml_files
 pushing_to_github.sh
 .fuse_hidden*
+
+# Dont include files obtained during running of Run.py file
+
+GA_Run_Details.txt 
+epoch_data 
+epoch_data.backup 
+ga_running.lock
+
+Population Recorded_Data 
+Initial_Population 
+Saved_Points_In_GA_Run 
+Memory_Operator_Data 
+Diversity_Information
+
+__pycache__

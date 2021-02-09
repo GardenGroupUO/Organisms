@@ -8,7 +8,7 @@ There are also a few other programs that have been designed that may be helpful 
 
 The scripts and programs that we will be mentioned here are:
 
-*  The ``delALL`` command
+*  The ``delALL.sh`` command
 
 What to make sure is done before running any of these scripts. 
 **************************************************************
@@ -21,7 +21,7 @@ If you installed the Organisms program with ``pip3``, these scripts will be inst
 If you performed a Manual installation
 --------------------------------------
 
-If you have manually added this program to your computer (such as cloning this program from Github), you will need to make sure that you have included the ``Helpful_Programs`` folder into your ``PATH`` and ``PYTHONPATH`` in your ``~/.bashrc`` file. All of these program can be found in the `Helpful_Programs` folder. To execute some of these programs from the ``Helpful_Programs`` folder, you must include the following in your ``~/.bashrc``:
+If you have manually added this program to your computer (such as cloning this program from Github), you will need to make sure that you have included the ``Helpful_Programs`` folder into your ``PATH`` in your ``~/.bashrc`` file. All of these program can be found in the `Helpful_Programs` folder. To execute some of these programs from the ``Helpful_Programs`` folder, you must include the following in your ``~/.bashrc``:
 
 .. code-block:: bash
 
@@ -31,20 +31,21 @@ where ``<Path_to_Organisms>"`` is the path to get to the genetic algorithm progr
 
 .. code-block:: bash
 
-	export PATH=<Path_to_Organisms>/Helpful_Programs:$PATH
-	export PYTHONPATH=<Path_to_Organisms>/Helpful_Programs:$PYTHONPATH
+	export PATH="$PATH_TO_GA"/Organisms/Helpful_Programs:$PATH
 
 See more about this in :ref:`Installation of the Genetic Algorithm <Installation_of_the_Genetic_Algorithm>`. 
 
 The ``delALL`` command
 **********************
 
-The ``delALL`` command will remove all the files that are created during a genetic algorithm. This command only removes the following files (see bash code below)
+The ``delALL.sh`` command will remove all the files that are created during a genetic algorithm. This command only removes the following files (see bash code below)
 
 .. code-block:: bash
 
-	rm -rf Population GA_Run_Details.txt __pycache__ Recorded_Data Initial_Population Saved_Points_In_GA_Run epoch_data epoch_data.backup Memory_Operator_Data ga_running.lock
+	rm -rf GA_Run_Details.txt epoch_data epoch_data.backup ga_running.lock
+	rm -rf Population Recorded_Data Initial_Population Saved_Points_In_GA_Run Memory_Operator_Data Diversity_Information
+	rm -rf __pycache__
 
-Run this command by typing ``delALL`` into the terminal where you have run your genetic algorithm trial (in the path where the ``Run.py`` file is).
+Run this command by typing ``delALL.sh`` into the terminal where you have run your genetic algorithm trial (in the path where the ``Run.py`` file is).
 
 

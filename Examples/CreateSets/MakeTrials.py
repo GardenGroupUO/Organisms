@@ -1,4 +1,3 @@
-import os, inspect
 from Organisms import MakeTrialsProgram
 
 ''' ---------------- '''
@@ -10,7 +9,7 @@ from Run import cluster_makeup, surface_details, pop_size, generations, no_offsp
 dir_name = 'ThisIsTheFolderThatScriptsWillBeWrittenTo'
 NoOfTrials = 100
 Condense_Single_Mention_Experiments = True
-making_files_for = 'slurm_JobArrays'
+making_files_for = 'slurm_JobArrays_full'
 
 ''' ---------------- '''
 # These are the details that are used to create the Job Array for slurm

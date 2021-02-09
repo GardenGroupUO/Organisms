@@ -208,7 +208,7 @@ This will give you the path to the Organisms program. You want to enter the resu
 
 .. code-block:: bash
 
-	export PATH_TO_GA="<path_to_Organisms>" 
+	export PATH_TO_GA="<Path_to_Organisms>" 
 	export PYTHONPATH="$PATH_TO_GA":$PYTHONPATH
 
 where ``"<path_to_Organisms>"`` is the directory path that you place Organisms (Enter in here the result you got from the ``pwd`` command). Once you have run ``source ~/.bashrc``, the genetic algorithm should be all ready to go!
@@ -223,9 +223,9 @@ This genetic algorithm contains many programs that can help you create and run t
 
 .. code-block:: bash
 
-	export PATH="$PATH_TO_GA"/Subsidiary_Programs:$PATH
-	export PATH="$PATH_TO_GA"/Postprocessing_Programs:$PATH
-	export PATH="$PATH_TO_GA"/Helpful_Programs:$PATH
+	export PATH="$PATH_TO_GA"/Organisms/Subsidiary_Programs:$PATH
+	export PATH="$PATH_TO_GA"/Organisms/Postprocessing_Programs:$PATH
+	export PATH="$PATH_TO_GA"/Organisms/Helpful_Programs:$PATH
 
 See :ref:`Helpful Programs to Create and Run the Genetic Algorithm <HelpfulPrograms_CreatingAndRunningGA>`, :ref:`How Organisms Works <How_Organisms_Works>` for more information about the programs that are available in the ``Subsidiary_Programs`` and ``Postprocessing_Programs`` folders respectively. You can also see :ref:`Other Helpful Programs for Gathering data and Post-processing Data <HelpfulPrograms_Others>` for information on how to use the scripts found in the ``Helpful_Programs`` folder.
 
@@ -248,12 +248,12 @@ You want to have the following in your ``~/.bashrc``:
 	#########################################################
 	# Paths and Pythonpaths for the genetic algorithm
 
-	export PATH_TO_GA="<Path_to_ga>" 
+	export PATH_TO_GA="<Path_to_Organisms>" 
 	export PYTHONPATH="$PATH_TO_GA":$PYTHONPATH
 
-	export PATH="$PATH_TO_GA"/Subsidiary_Programs:$PATH
-	export PATH="$PATH_TO_GA"/Postprocessing_Programs:$PATH
-	export PATH="$PATH_TO_GA"/Helpful_Programs:$PATH
+	export PATH="$PATH_TO_GA"/Organisms/Subsidiary_Programs:$PATH
+	export PATH="$PATH_TO_GA"/Organisms/Postprocessing_Programs:$PATH
+	export PATH="$PATH_TO_GA"/Organisms/Helpful_Programs:$PATH
 
 	alias qme='squeue -o "%.20i %.9P %.5Q %.50j %.8u %.8T %.10M %.11l %.6D %.4C %.6b %.20S %.20R %.8q" -u $USER --sort=+i'
 

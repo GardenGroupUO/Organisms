@@ -1,4 +1,3 @@
-import os, inspect
 from Organisms import MakeTrialsProgram
 
 # This details the elemental and number of atom composition of cluster that the user would like to investigate
@@ -104,12 +103,11 @@ MakeTrialsProgram(cluster_makeup=cluster_makeup,
 	rounding_criteria=rounding_criteria,
 	print_details=print_details,
 	no_of_cpus=no_of_cpus,
-	dir_name=dir_name+'/'+epoch_settings_name+'/'+directory_path,
+	dir_name=dir_name,
 	NoOfTrials=NoOfTrials,
 	Condense_Single_Mention_Experiments=Condense_Single_Mention_Experiments,
 	JobArraysDetails=JobArraysDetails,
 	making_files_for=making_files_for,
 	finish_algorithm_if_found_cluster_energy=finish_algorithm_if_found_cluster_energy,
-	total_length_of_running_time=total_length_of_running_time,
-	no_of_packets_to_make=no_of_packets_to_make)
+	total_length_of_running_time=total_length_of_running_time)
 ''' ---------------- '''
