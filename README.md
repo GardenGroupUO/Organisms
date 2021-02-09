@@ -13,7 +13,7 @@ The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Meth
 
 **If you are new to the Organisms program, it is recommended try it out by running Organisms live on our interactive Jupyter+Binder page before you download it. On Jupyter+Binder, you can play around with the Organisms program on the web. You do not need to install anything to try Organisms out on Jupyter+Binder.** 
 
-**Click the Binder button below to try Organisms out on the web! (The Binder page may load quicky or may take 1 or 2 minutes to load)**
+**Click the Binder button below to try Organisms out on the web! (The Binder page may load quickly or may take 1 or 2 minutes to load)**
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Jupyter_Examples/main?urlpath=lab)
 
