@@ -27,8 +27,6 @@ https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Jupyter_Examples/main?urlpath
 
 .. Also you can try out live examples of the Organisms program that can be accessed through the web on Jupyter+Binder. See :ref:`Examples of Running the Organisms Program <Examples_of_Running_GA>` to find out how to access this live version of the Organisms program on Jupyter+Binder.
 
-Examples_of_Running_GA
-
 .. sectionauthor:: Dr. Anna Garden <anna.garden@otago.ac.nz>
 .. sectionauthor:: Geoffrey Weal <geoffrey.weal@gmail.com>
 
