@@ -51,7 +51,7 @@ def Introducing_Remarks(self):
 	print('#'*line_length)
 	print('#'*line_length)
 	print('#'*line_length)
-	print('The Garden Group Genetic Algorithm for Clusters')
+	print('The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) Program')
 	GA_Program_Logo()
 	print('Version: '+str(version_no()))
 	print('#'*line_length)
