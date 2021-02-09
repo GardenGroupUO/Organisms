@@ -15,7 +15,7 @@ Along with this Jupyter notebook, we have also implemented this Jupyter notebook
 
 The Binder webpage can be found at: 
 
-https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Jupyter_Examples/main?filepath=Notebooks%2FOrganisms_Jupyter_Example.ipynb
+https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Jupyter_Examples/main?urlpath=lab
 
 This will load a Binder page that will allow you to play about with the Organisms program interactively in Binder. This will take about 1 to 2 minutes to load. Don't refresh the page as Binder takes a good amount of time to load. Get a coffee or a cup of tea while you wait. Once this is done you will see a Jupyter notebook that you can interact with. Mess around with it as much as you want!
 
