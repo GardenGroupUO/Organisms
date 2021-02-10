@@ -1,5 +1,10 @@
 #!/usr/bin/python
+'''
+Geoffrey Weal, Run_mass_submitSL_slurm.py, 10/02/2021
 
+This program is designed to submit all sl files called mass_submit.sl to slurm
+
+'''
 print('###########################################################################')
 print('###########################################################################')
 print('Run_mass_submitSl_slurm.py')
@@ -12,6 +17,7 @@ import os, time, sys
 import subprocess
 
 # ------------------------------------------------------
+# These variables can be changed by the user.
 Max_jobs_in_queue_at_any_one_time = 10000
 time_to_wait_before_next_submission = 20.0
 time_to_wait_max_queue = 60.0
@@ -55,10 +61,6 @@ def countdown(t):
         t -= 1
     print('Resuming Pan Submissions.\n')
 
-#counter = 0
-#max_counter = 200
-number_of_jobs_that_have_been_submitted = 0
-
 def myrun(cmd):
     proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout_lines = [line for line in iter(proc.stdout.readline,'')]
@@ -82,22 +84,39 @@ def myrun(cmd):
 ###########################################################################################
 
 def get_number_to_trials_that_will_be_submitted_by_mass_submitSL(dirpath):
-    with open(dirpath+'/mass_submit.sl','r') as mass_submitSL:
+    path_to_mass_submitSL = dirpath+'/mass_submit.sl'
+    with open(path_to_mass_submitSL,'r') as mass_submitSL:
         for line in mass_submitSL:
             if '#SBATCH --array=' in line:
                 trials = line.replace('#SBATCH --array=','')
-                trial_limits = trials.strip().split()[0].split('-')
-                trial_limits = [int(trial) for trial in trial_limits]
-                if len(trial_limits) == 1:
-                    no_of_trials_that_will_be_submitted = 1
+                no_of_trials_that_will_be_submitted = 0
+                worked_successfully = True
+                trial_limits_commands = trials.rstrip().split(',')
+                for trial_limits in trial_limits_commands:
+                    if trial_limits.count('-') == 1:
+                        trial_limits = trial_limits.split('-')
+                        if len(trial_limits) == 2 and trial_limits[0].isdigit() and trial_limits[1].isdigit():
+                            no_of_trials_that_will_be_submitted =+ int(trial_limits[1]) - int(trial_limits[0]) + 1
+                        else:
+                            worked_successfully = False
+                            break
+                    elif trial_limits.isdigit():
+                        no_of_trials_that_will_be_submitted += 1
+                    else:
+                        worked_successfully = False
+                        break
+                if worked_successfully:
+                    return no_of_trials_that_will_be_submitted
                 else:
-                    no_of_trials_that_will_be_submitted = trial_limits[1] - trial_limits[0] + 1
-                return no_of_trials_that_will_be_submitted
-            #elif 'number_of_divides=' in line:
-            #    number_of_divides = int(line.replace('number_of_divides=',''))
-            #    break
-        #no_of_trials_that_will_be_submitted *= number_of_divides
-        #return no_of_trials_that_will_be_submitted
+                    print('========================================================')
+                    print('Error in submitting: '+str(path_to_mass_submitSL))
+                    print('One of the clusters in the array to be submitted is not a integer or is entered incorrectly.')
+                    print()
+                    print(line)
+                    print()
+                    print('Check this line in your submit.sl script')
+                    print('This program will now exit')
+                    exit ('========================================================')         
     print('Error in def get_number_to_trials_that_will_be_submitted_by_mass_submitSL, in Run_mass_submitSl_slurm.py script, found in the folder SubsidiaryPrograms in this GA program.')
     print('The mass_submit.sl script found in '+str(dirpath)+' does not have the line that starts with "#SBATCH --array=" in the script.')
     print('Just check this script to make sure everything is all good.')

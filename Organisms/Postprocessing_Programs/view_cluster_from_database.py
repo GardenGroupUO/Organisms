@@ -1,5 +1,9 @@
 #!/usr/bin/python
+'''
+Geoffrey Weal, view_cluster_from_database.py, 10/02/2021
 
+This program is designed to show the user a cluster from the database with the desired id.
+'''
 import sys
 from ase.io import read
 from ase.visualize import view

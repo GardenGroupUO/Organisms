@@ -82,15 +82,14 @@ def get_LoD_database(cluster_info):
 
 def check_if_two_clusters_are_identical_LoD(both_clusters):
 	cluster_1_name, cluster_2_name, cluster_1, cluster_2, similarity_settings = both_clusters
-	#print cluster_1_name, cluster_2_name, eps_r
-	#print 'Comparing '+str(cluster_1.name)+' with '+str(cluster_2.name)
+	#print((cluster_1_name, cluster_2_name, eps_r))
+	#print('Comparing '+str(cluster_1.name)+' with '+str(cluster_2.name))
 	percentage_diff = similarity_settings['percentage_diff']
 	the_same_cluster = LoD_compare_two_structures(cluster_1, cluster_2, percentage_diff)
 	return ((cluster_1_name, cluster_2_name), the_same_cluster)
 
 def remove_duplicates(duplicate): 
     final_list = [] 
-
     for num in duplicate: 
         if num not in final_list: 
             final_list.append(num) 
@@ -454,7 +453,7 @@ class IDCM_Predation_Operator(Predation_Operator):
 
 		"""
 		if self.print_details:
-			print ('------------------------------------------------------')
+			print('------------------------------------------------------')
 			print('Assessing the clusters in the offspring to decide if:')
 			print('\t* offspring are geometrically similar to other offspring.')
 			print('\t* offspring are geometrically similar to clusters in the population.')

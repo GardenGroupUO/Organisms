@@ -1,3 +1,11 @@
+'''
+Geoffrey Weal, MakeTrialsProgram.py, 10/02/2021
+
+This program is designed to create all the Run.py files and submit.sl/mass_submit.sl that you desire.
+
+This files are ordered into not subdirectories.
+'''
+
 import os, sys, inspect
 from math import ceil, sqrt
 from shutil import copyfile

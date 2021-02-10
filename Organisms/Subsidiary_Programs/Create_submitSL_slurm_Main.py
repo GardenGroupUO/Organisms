@@ -1,3 +1,9 @@
+'''
+Geoffrey Weal, Create_submitSL_slurm_Main.py, 10/02/2021
+
+This program is designed to create the various forms of submit.sl/mass_submit.sl files that could be used to submit genetic algorithm trials to slurm.
+'''
+
 import os
 
 def make_submitSL(local_path,project,time,nodes,ntasks_per_node,mem,partition='large',email='',python_version='Python/3.6.3-gimkl-2017a'):

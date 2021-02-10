@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Geoffrey Weal, delALL, 10/02/2021
+#
+# This program will run delALL.sh. This will remove all Organisms files that were made during the running of the program.
+#
+bash delALL.sh

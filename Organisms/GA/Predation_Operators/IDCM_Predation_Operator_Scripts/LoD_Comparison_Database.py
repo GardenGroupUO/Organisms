@@ -301,7 +301,7 @@ class LoD_Comparison_Database:
 		all_cluster_names = population.get_cluster_names(order=True)
 		all_cluster_names_in_database = self.get_cluster_names(order=True)
 		if not all_cluster_names == all_cluster_names_in_database: 
-			print ("The lists are not identical, check_for_issues, LoD Database") 
+			print("The lists are not identical, check_for_issues, LoD Database") 
 			import pdb; pdb.set_trace()
 			exit()
 

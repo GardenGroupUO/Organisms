@@ -41,13 +41,13 @@ def remove_end_lines_from_text(file, number_of_lines_to_remove):
 			print(f.tell())
 			char = f.read(1)
 			if char != b'\n' and f.tell() == end:
-				print ("No change: file does not end with a newline")
+				print("No change: file does not end with a newline")
 				exit(1)
 			if char == b'\n':
 				count += 1
 			if count == number_of_lines_to_remove + 1:
 				f.truncate()
-				print ("Removed " + str(number_of_lines_to_remove) + " lines from end of file")
+				print("Removed " + str(number_of_lines_to_remove) + " lines from end of file")
 				return
 			f.seek(-1, os.SEEK_CUR)
 	if count < number_of_lines_to_remove + 1:

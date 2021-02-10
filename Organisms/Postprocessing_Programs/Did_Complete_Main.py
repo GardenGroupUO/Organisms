@@ -1,3 +1,8 @@
+'''
+Did_Find_LES.py, Geoffrey Weal, 08/03/2019
+
+This program will determine which of your genetic algorithm trials have completed up to a certain generation. 
+'''
 import os, sys
 import subprocess
 
@@ -75,7 +80,21 @@ def has_all_trials_finished(dirpath, dirnames):
     for index in range(number_of_dirnames):
         dirname = dirnames[index]
         trial_no = int(dirname.replace('Trial',''))
-        did_trial_finish_successfully, current_gen = Did_Trial_finish_successfully(dirpath+'/'+dirname)
+        try:
+            did_trial_finish_successfully, current_gen = Did_Trial_finish_successfully(dirpath+'/'+dirname)
+        except Exception as expection:
+            print('===================================================================')
+            print('Error in def has_all_trials_finished in Did_Complete_Main.py')
+            print('Something weird is happening with Trial '+str(trial_no))
+            print('Getting the following expection:')
+            print()
+            print('------------->')
+            print(expection)
+            print('------------->')
+            print()
+            print('Check this out and then repeat your program again')
+            print('This program will finish here.')
+            exit ('===================================================================')
         if did_trial_finish_successfully:
             completed_Trials.append(trial_no)
         else:

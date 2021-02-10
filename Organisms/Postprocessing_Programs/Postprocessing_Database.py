@@ -1,11 +1,9 @@
 #!/usr/bin/python
+'''
+Postprocessing_Database.py, Geoffrey Weal, 26/9/2020
 
-# Postprocessing_Database.py, Geoffrey Weal, 26/9/2020
-#
-# This program is designed to break down the database from the GA_Recording_System into manageable chunks if the original database was too large to process.
-
-# ----------------------------------------------------------------------------------------------------------------------------
-
+This program is designed to break down the database from the GA_Recording_System into manageable chunks if the original database was too large to process.
+'''
 import os, sys
 import numpy as np
 from ase.db.row import row2dct

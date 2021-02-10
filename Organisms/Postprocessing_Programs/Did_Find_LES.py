@@ -1,5 +1,9 @@
 #!/usr/bin/python
+'''
+Did_Find_LES.py, Geoffrey Weal, 08/03/2019
 
+This program Will determine which of your genetic algorithm trials have found the cluster with the energy given to a certain decimal place.
+'''
 import os, sys
 from Organisms.Postprocessing_Programs.Did_Find_LES_Main import has_all_trials_found_LES
 

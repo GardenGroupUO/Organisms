@@ -1,5 +1,9 @@
-#!/usr/bin/python3
+#!/usr/bin/python
+'''
+Did_Find_LES.py, Geoffrey Weal, 08/03/2019
 
+This program will determine which of your genetic algorithm trials have completed up to a certain generation. 
+'''
 import os
 from Organisms.Postprocessing_Programs.Did_Complete_Main import has_all_trials_finished
 

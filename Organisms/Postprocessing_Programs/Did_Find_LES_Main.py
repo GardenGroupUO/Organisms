@@ -1,16 +1,8 @@
-#!/usr/bin/python
+'''
+Did_Find_LES_Main.py, Geoffrey Weal, 08/03/2019
 
-# HasCompletedUpToGeneration.py, Geoffrey Weal, 08/03/2019
-#
-# Will determine if the program has completed up to a certain generation. 
-
-
-################################################################################################################################
-################################################################################################################################
-################################################################################################################################
-################################################################################################################################
-################################################################################################################################
-
+This program Will determine which of your genetic algorithm trials have found the cluster with the energy given to a certain decimal place.
+'''
 import os, sys
 import numpy as np
 import scipy.stats
@@ -27,8 +19,8 @@ def Rounding_Method(number,rounding_criteria):
     
     """
     if rounding_criteria > 12:
-        print 'Error, the maximum decimal place rounding, to avoid numerical errors, is 12'
-        print 'rounding_criteria: '+str(rounding_criteria)
+        print('Error, the maximum decimal place rounding, to avoid numerical errors, is 12')
+        print('rounding_criteria: '+str(rounding_criteria))
         exit('Check this out')
     number = round(number,rounding_criteria)
     return number
@@ -82,7 +74,6 @@ class has_all_trials_found_LES:
             if any([(dirname.startswith('Trial') and dirname.replace('Trial','').isdigit()) for dirname in dirnames]):
                 print('Getting LES data for '+str(dirpath))
                 LES_Details = self.get_found_LES_Details(dirpath, dirnames, self.energy_LES, self.max_generation_to_survey, self.set_rounding)
-                #import pdb; pdb.set_trace()
                 toString = ''
                 toString += '******************************************************************************\n'
                 toString += '******************************************************************************\n'

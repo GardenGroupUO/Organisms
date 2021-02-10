@@ -58,7 +58,6 @@ def LoD_compare_two_structures(LoD_1, LoD_2, percentage_diff):
         distance1 = LoD_1[index]
         distance2 = LoD_2[index]
         distance_difference_percentage = (float(abs(distance1 - distance2))/float(min([distance1,distance2])))*100.0
-        #print distance_difference_percentage
         if abs(distance_difference_percentage) <= float(percentage_diff):
             pass
         else:

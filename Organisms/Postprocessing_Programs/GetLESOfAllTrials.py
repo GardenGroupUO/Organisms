@@ -1,9 +1,14 @@
 #!/usr/bin/python
+'''
+HasCompletedUpToGeneration.py, Geoffrey Weal, 08/03/2019
 
-# HasCompletedUpToGeneration.py, Geoffrey Weal, 08/03/2019
-#
-# Will determine if the program has completed up to a certain generation. 
+This program will determine if your genetic algorithm trials has completed up to a certain generation. 
 
+This program will also determine how many genetic algorithm trials have found th eputative global minimum from across all the trials, as well as the average number of minimisations required to obtain the putative global minimum up to the generation specified
+
+If you want to get the most complete average number of generations required to obtain the putative global minimum, make sure you run all your genetic algorithm trials so that they have all found the true global minimum, then set the generation to search up to to infinity (you do not need to enter a generation, the default setting is infinity).
+
+'''
 import sys
 from Organisms.Postprocessing_Programs.GetLESOfAllTrials_Main_v3 import GetLESOfAllTrials_Main
 

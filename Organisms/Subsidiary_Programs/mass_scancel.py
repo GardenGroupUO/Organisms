@@ -1,5 +1,9 @@
 #!/usr/bin/python
+'''
+Geoffrey Weal, mass_scancel.py, 10/02/2021
 
+This program is designed to cancel all the jobs between id_low and id_high in slurm.
+'''
 import os, sys
 from subprocess import call, Popen
 

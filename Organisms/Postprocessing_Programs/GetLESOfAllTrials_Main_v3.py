@@ -1,16 +1,13 @@
 #!/usr/bin/python
+'''
+HasCompletedUpToGeneration.py, Geoffrey Weal, 08/03/2019
 
-# HasCompletedUpToGeneration.py, Geoffrey Weal, 08/03/2019
-#
-# Will determine if the program has completed up to a certain generation. 
+This program will determine if the genetic algorithm has completed up to a certain generation. 
 
+This program will also return the success of your genetic algorithm trials in obtaining the putative global minimum as well as the average number of minimisations required to obtain the putative global minimum.
 
-################################################################################################################################
-################################################################################################################################
-################################################################################################################################
-################################################################################################################################
-################################################################################################################################
-
+To get the proper average number of minimisations, you want to enter your generations value to infinity. You can do this by not entering in a value of the generation. The default is set to infinity.
+'''
 import os, sys
 import numpy as np
 import scipy.stats
@@ -27,8 +24,8 @@ def Rounding_Method(number,rounding_criteria):
     
     """
     if rounding_criteria > 12:
-        print 'Error, the maximum decimal place rounding, to avoid numerical errors, is 12'
-        print 'rounding_criteria: '+str(rounding_criteria)
+        print('Error, the maximum decimal place rounding, to avoid numerical errors, is 12')
+        print('rounding_criteria: '+str(rounding_criteria))
         exit('Check this out')
     number = round(number,rounding_criteria)
     return number
