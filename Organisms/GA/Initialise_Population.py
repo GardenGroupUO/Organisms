@@ -2,7 +2,7 @@ from Organisms.GA.Lock import Lock_Remove
 
 def Check_Population_against_predation_operator(population,predation_operator):
 	"""
-	Checks that all the clusters in this newly initalised population obey the predation operator
+	Checks that all the clusters in this newly initialised population obey the predation operator
 
 	:param population: The population
 	:type  population: Organisms.GA.Population
@@ -126,7 +126,7 @@ def Place_Already_Created_Clusters_In_Population(population,cluster_makeup,Minim
 			cluster_names.append(int(cluster_name))
 		else:
 			print('Error in def Place_Already_Created_Clusters_In_Population of class Population, in Population.py.')
-			print('Check the Initalised Population folder '+str(population.user_initialised_population_folder)+'. There is a folder which is not an integer')
+			print('Check the Initialised Population folder '+str(population.user_initialised_population_folder)+'. There is a folder which is not an integer')
 			print('All folders must be called by an integer as this is how the program names each cluster.')
 			print('Check the folder in '+str(population.user_initialised_population_folder)+' to make sure all folders are clusters with integer labels.')
 			print('The folder that the GA is specifically having problems with is called '+str(cluster_name))
@@ -143,7 +143,7 @@ def Place_Already_Created_Clusters_In_Population(population,cluster_makeup,Minim
 	if cluster_names == []:
 		print('Error in def Place_Already_Created_Clusters_In_Population of class Population, in Population.py.')
 		print('There are no clusters in the Initialised Population in the path: '+str(population.user_initialised_population_folder))
-		print('Check the Initalised Population folder '+str(population.user_initialised_population_folder))
+		print('Check the Initialised Population folder '+str(population.user_initialised_population_folder))
 		print('This program will end without doing anything.')
 		exit()
 	elif not 1 in cluster_names:
@@ -250,26 +250,26 @@ def Place_Already_Created_Clusters_In_Population(population,cluster_makeup,Minim
 			from ase.visualize import view; view(Opt_Cluster)
 			print('This program will end without doing anything.')
 			exit()	
-		initalised_cluster = Cluster(Opt_Cluster)
-		initalised_cluster.verify_cluster(cluster_name,0,vacuum_to_add_length,rounding_criteria)
-		initalised_cluster.remove_calculator()
+		initialised_cluster = Cluster(Opt_Cluster)
+		initialised_cluster.verify_cluster(cluster_name,0,vacuum_to_add_length,rounding_criteria)
+		initialised_cluster.remove_calculator()
 		# Set some of the details about the cluster that are needed for the population collection to save data to the population database.
-		initalised_cluster.ever_in_population = True
-		initalised_cluster.excluded_because_violates_predation_operator = False
-		initalised_cluster.initial_population = True
-		initalised_cluster.removed_by_memory_operator = False
+		initialised_cluster.ever_in_population = True
+		initialised_cluster.excluded_because_violates_predation_operator = False
+		initialised_cluster.initial_population = True
+		initialised_cluster.removed_by_memory_operator = False
 		# Make sure this imported cluster has the correct chemical makeup for this genetic algorithm run.
-		if not initalised_cluster.get_elemental_makeup() == cluster_makeup:
+		if not initialised_cluster.get_elemental_makeup() == cluster_makeup:
 			print('Error in def Place_Already_Created_Clusters_In_Population of class Population, in Population.py.')
 			print('Cluster '+str(cluster_name)+' does not contain the correct chemical makeup.')
-			print('Cluster '+str(cluster_name)+' makeup: '+str(initalised_cluster.get_elemental_makeup()))
+			print('Cluster '+str(cluster_name)+' makeup: '+str(initialised_cluster.get_elemental_makeup()))
 			print('Desired makeup: '+str(cluster_makeup))
 			print('Check this out.')
 			print('This program will end without doing anything')
 			exit()
 		index = cluster_name - 1
 		print('Adding Cluster '+str(cluster_name)+' that the user wants to placed into the population of the GA, before the generation cycles of the GA begins.')
-		population.add(index, initalised_cluster) # Place the initalised cluster into the population ## self.Add_ClusterToPopulation(initalised_cluster,index,UnOpt_Cluster=UnOpt_Cluster,Optimisation_Information=opt_information) 
+		population.add(index, initialised_cluster) # Place the initialised cluster into the population ## self.Add_ClusterToPopulation(initialised_cluster,index,UnOpt_Cluster=UnOpt_Cluster,Optimisation_Information=opt_information) 
 	print('*****************************')
 	##############################################################################################################################################
 	# Check to make sure that the clusters that have been entered in by the user do not violate the diversity scheme.
@@ -462,7 +462,7 @@ def Initialise_Population_with_Randomly_Generated_Clusters(population,cluster_ma
 			Opt_Cluster.excluded_because_violates_predation_operator = False
 			Opt_Cluster.initial_population = True
 			Opt_Cluster.removed_by_memory_operator = False
-			population.add(index,Opt_Cluster) # Place the initalised cluster into the population
+			population.add(index,Opt_Cluster) # Place the initialised cluster into the population
 		#except:
 		#	print('Weird error happening here? 2')
 		#	import pdb; pdb.set_trace()
@@ -548,7 +548,7 @@ def Initialise_Population(population,cluster_makeup,surface,Minimisation_Functio
 			print('Error in def Initialise_Population in Initialise_Population.py')
 			print('Your initial population without any generations somehow has epoched? Not sure how? Check this out')
 			exit('Program will finish without completing')
-	print('The population has been successfully initalised.')
+	print('The population has been successfully initialised.')
 	print('################################################################################################################')
 	print('################################################################################################################')
 	population.add_to_history_file(generation,is_epoch=is_epoch,epoch_due_to_population_energy_convergence=epoch_due_to_population_energy_convergence)

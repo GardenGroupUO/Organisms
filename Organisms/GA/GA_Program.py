@@ -336,7 +336,7 @@ class GA_Program():
 		for cluster, toString in offsprings:
 			if not toString == '':
 				print(toString)
-			self.offspring_pool.add('End',cluster) # Place the initalised cluster into the population
+			self.offspring_pool.add('End',cluster) # Place the initialised cluster into the population
 		end_time = time()
 		print('Time taken to add offspring to Offspring_Pool: '+str(end_time-start_time)+' s.')
 		print('-----------------------')
