@@ -1,4 +1,4 @@
-.. The Genetic Algorithm for Research and Development on Nanoclusters (Organisms) documentation master file, created by
+.. The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) documentation master file, created by
    sphinx-quickstart on Mon Oct  1 08:10:30 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.

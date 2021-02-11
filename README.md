@@ -1,5 +1,4 @@
-The Genetic Algorithm for Research and Development on Nanoclusters (Organisms) Program: A Genetic Algorithm for Nanoclusters
-=========================================================================================================================
+# The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) Program: A Genetic Algorithm for Nanoclusters
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Organisms)
 ![PyPI](https://img.shields.io/pypi/v/Organisms)

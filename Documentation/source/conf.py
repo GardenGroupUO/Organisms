@@ -248,7 +248,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'Organisms.tex', u'The Genetic Algorithm for Research and Development on Nanoclusters Documentation',
+    (master_doc, 'Organisms.tex', u'The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity Documentation',
      u'Geoffrey Weal', 'manual'),
 ]
 
@@ -258,7 +258,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'Organisms', u'The Genetic Algorithm for Research and Development on Nanoclusters Documentation',
+    (master_doc, 'Organisms', u'The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity Documentation',
      [author], 1)
 ]
 
@@ -269,7 +269,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'Organisms', u'The Genetic Algorithm for Research and Development on Nanoclusters Documentation',
+    (master_doc, 'Organisms', u'The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity Documentation',
      author, 'Organisms', 'This program is designed to perform the genetic algorithm in search of the global minimum nanocluster.',
      'Research'),
 ]

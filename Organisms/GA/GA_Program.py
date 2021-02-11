@@ -15,7 +15,7 @@ from Organisms.GA.exitting_procedure import add_to_exitting_procedure
 
 class GA_Program():
 	"""
-	The Genetic Algorithm for Research and Development on Nanoclusters (Organisms) program has been designed to perform a genetic algorithm for a nanoparticle of any composition and any size. 
+	The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) program has been designed to perform a genetic algorithm for a nanoparticle of any composition and any size. 
 
 	It has been designed for that it can be modified by others in the Garden group after I have left. Hopefully the code is readable and can be tuned, however I have tried to note what is happening during the code and why.
 	More notes can be found in the 
