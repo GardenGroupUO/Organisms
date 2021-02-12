@@ -1,9 +1,9 @@
 # The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) Program: A Genetic Algorithm for Nanoclusters
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Organisms)
-![PyPI](https://img.shields.io/pypi/v/Organisms)
-![Conda](https://img.shields.io/conda/v/gardengroupuo/organisms)
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/GardenGroupUO/Organisms)
+[![PyPI](https://img.shields.io/pypi/v/Organisms)](https://pypi.org/project/Organisms/)
+[![Conda](https://img.shields.io/conda/v/gardengroupuo/organisms)](https://anaconda.org/GardenGroupUO/organisms)
+[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/GardenGroupUO/Organisms)](https://github.com/GardenGroupUO/Organisms)
 [![Documentation Status](https://readthedocs.org/projects/organisms/badge/?version=latest)](https://organisms.readthedocs.io/en/latest/)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Jupyter_Examples/main?urlpath=lab)
 ![GitHub](https://img.shields.io/github/license/GardenGroupUO/Organisms)
