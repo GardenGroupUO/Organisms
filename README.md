@@ -1,12 +1,12 @@
 # The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) Program: A Genetic Algorithm for Nanoclusters
 
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Organisms)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Organisms)](https://docs.python.org/3/)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/GardenGroupUO/Organisms)](https://github.com/GardenGroupUO/Organisms)
 [![PyPI](https://img.shields.io/pypi/v/Organisms)](https://pypi.org/project/Organisms/)
 [![Conda](https://img.shields.io/conda/v/gardengroupuo/organisms)](https://anaconda.org/GardenGroupUO/organisms)
 [![Documentation Status](https://readthedocs.org/projects/organisms/badge/?version=latest)](https://organisms.readthedocs.io/en/latest/)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Jupyter_Examples/main?urlpath=lab)
-![GitHub](https://img.shields.io/github/license/GardenGroupUO/Organisms)
+[![GitHub](https://img.shields.io/github/license/GardenGroupUO/Organisms)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 
 The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) program is designed to perform a genetic algorithm global optimisation for nanoclusters. It has been designed with inspiration from the Birmingham Cluster Genetic Algorithm and the Birmingham Parallel Genetic Algorithm from the Roy Johnston Group (see ``J. B. A. Davis, A. Shayeghi, S. L. Horswell, R. L. Johnston, Nanoscale, 2015,7, 14032`` ([https://doi.org/10.1039/C5NR03774C](https://doi.org/10.1039/C5NR03774C) or [link to pdf here](https://pubs.rsc.org/en/content/articlepdf/2015/nr/c5nr03774c)), ``R. L. Johnston,Dalton Trans., 2003, 4193–4207`` ([https://doi.org/10.1039/B305686D](https://doi.org/10.1039/B305686D) or [link to pdf here](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.124.6813&rep=rep1&type=pdf)
 
