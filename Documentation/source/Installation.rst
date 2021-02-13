@@ -9,8 +9,8 @@ In this article, we will look at how to install the genetic algorithm and all re
 Pre-requisites
 ==============
 
-Python 3 and Pip3
------------------
+Python 3 and ``pip3``
+---------------------
 
 This program is designed to work with **Python 3**. While this program has been designed to work with Python 3.6, it should work with any version of Python 3 that is the same or later than 3.6.
 
@@ -27,13 +27,13 @@ If you have Python 3 on your computer, you will get the version of python you ha
 	geoffreyweal@Geoffreys-Mini Documentation % python3 --version
 	Python 3.6.3
 
-If you have Python 3, you may have pip3 installed on your computer as well. Pip3 is a python package installation tool that is recommended by Python for installing Python packages. To see if you have pip3 installed, type into the terminal
+If you have Python 3, you may have ``pip3`` installed on your computer as well. ``pip3`` is a python package installation tool that is recommended by Python for installing Python packages. To see if you have ``pip3`` installed, type into the terminal
 
 .. code-block:: bash
 
 	pip3 list
 
-If you get back a list of python packages install on your computer, you have pip3 installed. E.g.
+If you get back a list of python packages install on your computer, you have ``pip3`` installed. E.g.
 
 .. code-block:: bash
 
@@ -87,7 +87,7 @@ If you get back a list of python packages install on your computer, you have pip
 	wheel                         0.33.1
 	xlrd                          1.2.0
 
-If you do not see this, you probably do not have pip3 installed on your computer. If this is the case, check out `PIP Installation <https://pip.pypa.io/en/stable/installing/>`_
+If you do not see this, you probably do not have ``pip3`` installed on your computer. If this is the case, check out `PIP Installation <https://pip.pypa.io/en/stable/installing/>`_
 
 Atomic Simulation Environment
 -----------------------------
@@ -102,7 +102,7 @@ To install ASE using pip, perform the following in your terminal.
 
 	pip3 install --upgrade --user ase
 
-Installing using pip3 ensures that ASE is being installed to be used by Python 3, and not Python 2. Installing ASE like this will also install all the requisite program needed for ASE. This installation includes the use of features such as viewing the xyz files of structure and looking at ase databases through a website. These should be already assessible, which you can test by entering into the terminal:
+Installing using ``pip3`` ensures that ASE is being installed to be used by Python 3, and not Python 2. Installing ASE like this will also install all the requisite program needed for ASE. This installation includes the use of features such as viewing the xyz files of structure and looking at ase databases through a website. These should be already assessible, which you can test by entering into the terminal:
 
 .. code-block:: bash
 
@@ -170,16 +170,27 @@ Setting up Organisms
 
 There are two ways to install Organisms on your system. These ways are described below:
 
-Install Organisms through pip3
-------------------------------
+Install Organisms through ``pip3``
+----------------------------------
 
-To install the Organisms program using pip, perform the following in your terminal.
+To install the Organisms program using ``pip3``, perform the following in your terminal.
 
 .. code-block:: bash
 
 	pip3 install --upgrade --user Organisms
 
 You should be able to access the genetic algorithm as well as run the scripts and commands described in :ref:`Helpful Programs to Create and Run the Genetic Algorithm <HelpfulPrograms_CreatingAndRunningGA>`, :ref:`Helpful Programs for Gathering data and Post-processing Data <HelpfulPrograms_GatherAndPostprocessingData>`, and :ref:`Other Helpful Programs for Gathering data and Post-processing Data <HelpfulPrograms_Others>` in the terminal.
+
+Install Organisms through ``conda``
+-----------------------------------
+
+You can also install Organisms through ``conda``, however I am not as versed on this as using ``pip3``. See `docs.conda.io <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html>`_ to see more information about this. Once you have installed anaconda on your computer, I believe you install the Organisms program using ``conda`` by performing the following in your terminal.
+
+.. code-block:: bash
+
+	conda install ase
+	conda install asap3
+	conda install organisms
 
 Manual installation
 -------------------
