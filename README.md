@@ -26,6 +26,6 @@ This genetic algorithm has been designed with Atomic Simulation Environment (ASE
 
 The CNA has been implemented using ASAP3 (As Soon As Possible). See https://wiki.fysik.dtu.dk/asap for more information about ASAP3. 
 
-All the information about this program is found online at [organisms.readthedocs.io/en/latest/](https://organisms.readthedocs.io/en/latest/). It is recommended to read the installation page before using the algorithm ([organisms.readthedocs.io/en/latest/Installation.html](https://organisms.readthedocs.io/en/latest/Installation.html)). Note that you can install Organisms through ``pip`` and ``conda``. See the instruction about how to do this. 
+All the information about this program is found online at [organisms.readthedocs.io/en/latest/](https://organisms.readthedocs.io/en/latest/). It is recommended to read the installation page before using the algorithm ([organisms.readthedocs.io/en/latest/Installation.html](https://organisms.readthedocs.io/en/latest/Installation.html)). Note that you can install Organisms through ``pip`` and ``conda``. See the installation instructions on how to do this. 
 
 Have fun!
