@@ -57,7 +57,7 @@ setup(name='Organisms',
       download_url = 'https://github.com/GardenGroupUO/Organisms/archive/v'+str(get_version_number())+'.tar.gz',
       license='GNU AFFERO GENERAL PUBLIC LICENSE',
       zip_safe=False,
-      keywords = ['nanoclusters', 'nanoparticles', 'optimisation', 'genetic_algorithm'],
+      keywords = ['nanoclusters', 'nanoparticles', 'clusters', 'optimisation', 'genetic_algorithm'],
       install_requires=[
           'numpy','scipy','ase>=3.21.1','asap3>=3.11.10',
           'Sphinx','sphinx-rtd-theme','sphinx-tabs','sphinxcontrib-applehelp','sphinxcontrib-devhelp',

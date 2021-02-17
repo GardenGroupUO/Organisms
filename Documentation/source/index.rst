@@ -9,6 +9,8 @@ Welcome to the Otago Research Genetic Algorithm for Nanoclusters, Including Stru
 .. raw:: html
     :file: Images/pypi_python_version.svg
 .. raw:: html
+    :file: Images/github_release.svg
+.. raw:: html
     :file: Images/pypi_version.svg
 .. raw:: html
     :file: Images/conda_version.svg
