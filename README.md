@@ -28,4 +28,4 @@ The CNA has been implemented using ASAP3 (As Soon As Possible). See https://wiki
 
 All the information about this program is found online at [organisms.readthedocs.io/en/latest/](https://organisms.readthedocs.io/en/latest/). It is recommended to read the installation page before using the algorithm ([organisms.readthedocs.io/en/latest/Installation.html](https://organisms.readthedocs.io/en/latest/Installation.html)). Note that you can install Organisms through ``pip3`` and ``conda``. See the [installation instructions](https://organisms.readthedocs.io/en/latest/Installation.html) on how to do this. 
 
-Have fun! 
+Have fun!
