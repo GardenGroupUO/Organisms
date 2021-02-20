@@ -8,7 +8,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Jupyter_Examples/main?urlpath=lab)
 [![GitHub](https://img.shields.io/github/license/GardenGroupUO/Organisms)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 
-Authors: Geoffrey R. Weal, Dr. Anna L. Garden; University of Otago, Dunedin
+Authors: Geoffrey R. Weal and Dr. Anna L. Garden (University of Otago, Dunedin, New Zealand)
 
 Group page: https://blogs.otago.ac.nz/annagarden/
 
