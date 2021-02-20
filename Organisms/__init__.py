@@ -3,7 +3,7 @@ if sys.version_info[0] == 2:
 	raise ImportError('The Organisms program requires Python3. This is Python2.')
 
 __name__    = 'The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) Program'
-__version__ = '3.2.4'
+__version__ = '3.2.5'
 __author__  = 'Geoffrey Weal and Dr. Anna Garden'
 
 __author_email__ = 'anna.garden@otago.ac.nz'
