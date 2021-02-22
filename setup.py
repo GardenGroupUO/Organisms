@@ -42,6 +42,14 @@ def find_scripts():
         if file.endswith('.py') and not 'Main' in file:
           filepath = os.path.relpath(os.path.join(root, file))
           scripts.append(filepath)
+      dirs[:] = []
+      '''
+      for index in range(len(dirs)-1,-1,-1):
+        directory = dirs[index]
+        if not 'Main' in directory:
+          del dirs[index]
+      '''
+
   return sorted(scripts)
 
 setup(name='Organisms',
@@ -57,7 +65,7 @@ setup(name='Organisms',
       download_url = 'https://github.com/GardenGroupUO/Organisms/archive/v'+str(get_version_number())+'.tar.gz',
       license='GNU AFFERO GENERAL PUBLIC LICENSE',
       zip_safe=False,
-      keywords = ['nanoclusters', 'nanoparticles', 'clusters', 'optimisation', 'genetic_algorithm'],
+      keywords = ['nanoclusters', 'nanoparticles', 'clusters', 'optimisation', 'genetic-algorithm', 'ase', 'university-of-otago', 'asap3', 'atomic-simulation-environment', 'jupyter-binder', 'predation-operator', 'fitness-operator', 'otago-university', 'common-neighbor-analysis', 'common-neighbour-analysis'],
       install_requires=[
           'numpy','scipy','ase>=3.21.1','asap3>=3.11.10',
           'Sphinx','sphinx-rtd-theme','sphinx-tabs','sphinxcontrib-applehelp','sphinxcontrib-devhelp',
