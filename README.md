@@ -12,7 +12,7 @@ Authors: Geoffrey R. Weal and Dr. Anna L. Garden (University of Otago, Dunedin, 
 
 Group page: https://blogs.otago.ac.nz/annagarden/
 
-Page to cite with work from: In submission stages
+Page to cite with work from: *Development of a Structural Comparison Method to Promote Exploration of the Potential Energy Surface in the Global Optimisation of Nanoclusters*; Geoffrey R. Weal, Samantha M. McIntyre, and Anna L. Garden; JCIM; in submission stage. 
 
 The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) program is designed to perform a genetic algorithm global optimisation for nanoclusters. It has been designed with inspiration from the Birmingham Cluster Genetic Algorithm and the Birmingham Parallel Genetic Algorithm from the Roy Johnston Group (see ``J. B. A. Davis, A. Shayeghi, S. L. Horswell, R. L. Johnston, Nanoscale, 2015,7, 14032`` ([https://doi.org/10.1039/C5NR03774C](https://doi.org/10.1039/C5NR03774C) or [link to pdf here](https://pubs.rsc.org/en/content/articlepdf/2015/nr/c5nr03774c)), ``R. L. Johnston,Dalton Trans., 2003, 4193–4207`` ([https://doi.org/10.1039/B305686D](https://doi.org/10.1039/B305686D) or [link to pdf here](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.124.6813&rep=rep1&type=pdf)
 
