@@ -21,3 +21,8 @@ def get_energy_limits(all_energies):
 	all_max_energy += energy_lim_offset
 	all_min_energy -= energy_lim_offset
 	return all_max_energy, all_min_energy
+
+
+
+def plotting_genetic_algorithm_data():
+	pass

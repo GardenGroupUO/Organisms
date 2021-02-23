@@ -1,14 +1,12 @@
-#!/usr/bin/python
-
 import sys
 import numpy as np
-
+#from check_LJ_Sims_Get_results_v3 import get_data
+#from check_LJ_Sims_Process_results_v4 import process_data
+from check_Sims_Get_results_v2 import get_data
+from check_Sims_Process_results_v2 import process_data
 from asap3.Internal.BuiltinPotentials import Gupta
 from asap3.Internal.BuiltinPotentials import LennardJones
-
-from make_energy_vs_similarity_results_Main_Programs.processing_methods import processing_genetic_algorithm_data
-from make_energy_vs_similarity_results_Main_Programs.plotting_methods   import plotting_genetic_algorithm_data
-
+#python run_birdpoo_plotter.py Population GM.xyz LJ -543.67 2
 
 data_path = sys.argv[1]
 gm_min_XYZ = sys.argv[2]
@@ -39,29 +37,7 @@ def get_rCuts():
 rCuts = get_rCuts()
 print('rCuts: '+str(rCuts))
 
-
-def make_file():
-	LJ_gm_cluster = Atoms()
-	with open(LJ_gm_minTXT,'r') as LJ_positions:
-		for line in LJ_positions:
-			xx, yy, zz = line.rstrip().split()
-			atom = Atom(symbol='Au', position=(xx, yy, zz))
-			LJ_gm_cluster.append(atom)
-
-
-
-
-
-
-
-cluster_to_compare_against = ?
-calculator = ?
-rCuts,energy_of_global_minimum,energy_decimal_places
-all_similarities, all_energies, all_generations = processing_genetic_algorithm_data(path_to_ga_trial, cluster_to_compare_against)
-exit()
-plotting_genetic_algorithm_data(path_to_ga_trial, all_similarities, all_energies, all_generations)
-
-
-
-
-
+get_data(data_path,gm_min_XYZ,cluster_type,calculator,rCuts,energy_of_global_minimum,energy_decimal_places)
+process_data(data_path,gm_min_XYZ,cluster_type,calculator,rCuts,energy_of_global_minimum,energy_decimal_places)
+#get_data(data_path,gm_min_XYZ,cluster_type)
+#process_data(data_path,gm_min_XYZ,cluster_type)
