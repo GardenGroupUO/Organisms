@@ -60,7 +60,6 @@ def place_genetic_algorithm_data_in_memory(path_to_ga_trial, clusters_to_compare
 		similarity_data_filename = folder_path+'/similarity_data_cluster_'+str(cluster_number)+'.txt'
 		similarity_datum = get_similarity_data_from_file(similarity_data_filename,cluster_number)
 		similarity_data.append(similarity_datum)
-
 	print('-----------------------------------------------------------------------------------------------------------')
 	return energy_and_ga_data, similarity_data
 
@@ -93,8 +92,7 @@ def make_animations_no_offspring(cluster_folder_path, plotting_datum, name_clust
 	perform_animations_no_offspring(populations_Per_generation, cluster_folder_path)
 
 # ------------------------------------------------------------------------------------------------------------------------- %
-# Processing the data
-
+# Setting up the plotting setting for this program
 def get_setting(plotting_settings,key,default_value):
 	return plotting_settings.setdefault(key,default_value)
 
@@ -106,16 +104,17 @@ def get_plotting_settings(plotting_settings):
 	make_svg_files = get_setting(plotting_settings,'make_svg_files',False)
 	return make_epoch_plots, get_animations, get_animations_do_not_include_offspring, make_svg_files
 
-def make_energy_vs_similarity_results_Main(path_to_ga_trial, rCut, clusters_to_compare_against, calculator=None, plotting_settings={}):
-	make_epoch_plots, get_animations, get_animations_do_not_include_offspring, make_svg_files = get_plotting_settings(plotting_settings)
-	# Check the setting of get_animations based on the setting for process_over_generations
-	# check_plotting_settings(process_over_generations,get_animations)
+# ------------------------------------------------------------------------------------------------------------------------- %
+# Processing the data
+def make_energy_vs_similarity_results_Main(path_to_ga_trial, rCut, clusters_to_compare_against, calculator=None, no_of_cpus=1, plotting_settings={}):
+	# Get the plotting setting for this program
+	make_epoch_plots, get_animations, get_animations_do_not_include_offspring, make_svg_files, no_of_cpus = get_plotting_settings(plotting_settings)
 	# make similarity folder to place data into
 	folder_path = path_to_ga_trial+'/Similarity_Investigation_Data'
 	make_dir(folder_path)
 	# Processing data methods
 	clusters_to_compare_against = minimise_cluster(clusters_to_compare_against, calculator)
-	processing_genetic_algorithm_data(path_to_ga_trial, rCut, clusters_to_compare_against, calculator, folder_path, no_of_cpus=1)
+	processing_genetic_algorithm_data(path_to_ga_trial, rCut, clusters_to_compare_against, calculator, folder_path, no_of_cpus)
 	energy_and_ga_data, similarity_data = place_genetic_algorithm_data_in_memory(path_to_ga_trial, clusters_to_compare_against, folder_path)
 	# plotting data methods
 	for index in range(len(similarity_data)):
