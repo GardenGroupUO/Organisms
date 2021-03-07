@@ -1,0 +1,33 @@
+{% set version = "3.2.5" %}
+
+package:
+  name: organisms
+  version: {{ version }}
+
+source:
+  git_rev: {{ version }}
+  git_url: https://github.com/GardenGroupUO/Organisms.git
+
+build:
+  number: 1
+  skip: true  # [win and py27 or win32]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pip
+  run:
+    - python
+    - numpy
+    - scipy
+    - ase
+    - asap3 3.11.10
+
+about:
+  home: https://github.com/GardenGroupUO/Organisms
+  license: AGPL-3.0
+  summary: "The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) program is a genetic algorithm designed to globally optimise nanoclusters (also known as clusters or nanoparticles)"
+
+# Build using: conda build .
