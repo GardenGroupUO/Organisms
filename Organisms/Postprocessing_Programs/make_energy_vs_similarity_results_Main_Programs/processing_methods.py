@@ -232,6 +232,7 @@ def get_energy_and_CNA_profile_data_from_file(path_to_ga_trial):
 				print(str(name)+', ', end='')
 			del datum['name']
 			data[name] = datum
+	print()
 	print('==========================================================================================================')
 	return data
 
@@ -249,6 +250,7 @@ def get_similarity_data_from_file(similarity_data_filename,cluster_to_compare_nu
 				print(str(name)+', ', end='')
 			similarity = float(similarity)
 			similarity_data[name] = similarity
+	print()
 	print('==========================================================================================================')
 	return similarity_data
 

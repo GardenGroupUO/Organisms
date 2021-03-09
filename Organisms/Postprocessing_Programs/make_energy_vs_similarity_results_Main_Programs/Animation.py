@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
+from math import ceil
 from matplotlib.animation import FuncAnimation
 from matplotlib import animation, rc
 #animation.rcParams['animation.writer'] = 'ffmpeg'
@@ -46,14 +47,23 @@ def get_energy_limits(all_energies):
 	all_min_energy -= energy_lim_offset
 	return all_max_energy, all_min_energy
 
-def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, keep_past_population=False):
+def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=2, max_time=None, keep_past_population=False):
 	"""An animated scatter plot using matplotlib.animations.FuncAnimation."""
 	all_similarities_pop, all_energies_pop = get_similarities_and_energies_per_generation(Population_Per_generation)
 	all_similarities_off, all_energies_off = get_similarities_and_energies_per_generation(Offspring_Per_generation)
 
-	print(len(all_similarities_pop+all_similarities_off))
-	print(len(all_similarities_pop))
-	print(len(all_similarities_off))
+	len_full = len(all_similarities_pop+all_similarities_off)
+	len_pop  = len(all_similarities_pop)
+	len_off  = len(all_similarities_off)
+	print('--------------------------------------------------------------------------------')
+	print('Obtaining anuimation of genetic algorithm that shows the population and offspring.')
+	print('Total number of frames: '+str(len_full)+'; Number of population frames (no of generations): '+str(len_pop)+'; Number of offspring frames (should also be no of generations): '+str(len_off))
+	if not max_time == None:
+		gps = ceil(float(len_full)/(max_time*60.0))
+		print('The program will restrict the animation of the genetic algorithm to '+str(max_time)+' minutes (gps = '+str(gps)+').')
+	else:
+		gps = gps*2 # time this by two as a generation here needs to show the population with offspring first, then population without offspring
+	print('--------------------------------------------------------------------------------')
 
 	global counter_pop
 	counter_pop = 0
@@ -99,7 +109,8 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	def update(frame):
 		global counter_pop
 		global counter_off
-		print((frame,counter_pop,counter_off))
+		if frame%100 == 0:
+			print(str(frame)+', ', end='')
 		similarities_pop = all_similarities_pop[counter_pop]
 		energies_pop = all_energies_pop[counter_pop]
 		if keep_past_population:
@@ -122,20 +133,27 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 		return ln,
 
 	frames = range(len(all_similarities_pop+all_similarities_off))
+	print('Frame ', end='')
 	ani = FuncAnimation(fig, update, frames=frames, init_func=init, blit=True, repeat=False)
 
 	# Set up formatting for the movie files
 	Writer = animation.writers['ffmpeg']
-	writer = Writer(fps=2, metadata=dict(artist='Me'), bitrate=1800)
+	writer = Writer(fps=gps, metadata=dict(artist='Me'), bitrate=1800)
 	ani.save(cluster_folder_path+'/GA_over_generation.mp4', writer=writer)
+	print()
 
-
-
-def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, keep_past_population=False):
+def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, gps=2, max_time=None, keep_past_population=False):
 	"""An animated scatter plot using matplotlib.animations.FuncAnimation."""
 	all_similarities_pop, all_energies_pop = get_similarities_and_energies_per_generation(Population_Per_generation)
 
-	print(len(all_similarities_pop))
+	len_pop  = len(all_similarities_pop)
+	print('--------------------------------------------------------------------------------')
+	print('Obtaining anuimation of genetic algorithm with only the population.')
+	print('Number of population frames (no of generations): '+str(len_pop))
+	if not max_time == None:
+		gps = ceil(float(len_pop)/(max_time*60.0))
+		print('The program will restrict the animation of the genetic algorithm to '+str(max_time)+' minutes (gps = '+str(gps)+').')
+	print('--------------------------------------------------------------------------------')
 
 	global counter_pop
 	counter_pop = 0
@@ -175,7 +193,8 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 
 	def update(frame):
 		global counter_pop
-		print((frame,counter_pop))
+		if counter_pop%100 == 0:
+			print(str(counter_pop)+', ', end='')
 		similarities_pop = all_similarities_pop[counter_pop]
 		energies_pop = all_energies_pop[counter_pop]
 		if keep_past_population:
@@ -188,9 +207,10 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 		return ln,
 
 	frames = range(len(all_similarities_pop))
+	print('Frame ', end='')
 	ani = FuncAnimation(fig, update, frames=frames, init_func=init, blit=True, repeat=False)
-
 	# Set up formatting for the movie files
 	Writer = animation.writers['ffmpeg']
-	writer = Writer(fps=2, metadata=dict(artist='Me'), bitrate=1800)
+	writer = Writer(fps=gps, metadata=dict(artist='Me'), bitrate=1800)
 	ani.save(cluster_folder_path+'/GA_over_generation_only_population.mp4', writer=writer)
+	print()

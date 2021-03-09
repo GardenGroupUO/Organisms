@@ -34,8 +34,12 @@ get_animations = True
 get_animations_do_not_include_offspring = True
 # This setting will indicate if you want to make svg files along with the png files that are made during this program
 make_svg_files = False
+# This is the number of generations that will be shown per second (gps) in your animation (if you choose to make animations of your genetic algorithm run.)
+gps = 60
+# You can also set the maximum amount of time that you would like your movie to run in minutes. You only need to give a value either for gps or max_time.
+max_time = None
 # place all these settings into the plotting_settings dictionary. 
-plotting_settings = {'make_epoch_plots': make_epoch_plots, 'get_animations': get_animations, 'get_animations_do_not_include_offspring': get_animations_do_not_include_offspring, 'make_svg_files': make_svg_files}
+plotting_settings = {'make_epoch_plots': make_epoch_plots, 'get_animations': get_animations, 'get_animations_do_not_include_offspring': get_animations_do_not_include_offspring, 'make_svg_files': make_svg_files, 'gps': gps, 'max_time': max_time}
 # ===========================================================================================================
 
 # ===========================================================================================================
