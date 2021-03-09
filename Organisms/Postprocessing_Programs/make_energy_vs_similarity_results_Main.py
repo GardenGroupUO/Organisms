@@ -97,7 +97,6 @@ def make_animations(cluster_folder_path, plotting_datum, name_cluster, gps=2, ma
 	all_similarities, all_energies, all_generations, populations_Per_generation, offspring_Per_generation, restart_gens, between_restart_gens, runs_between_epochs = plotting_datum
 	if label_no_of_epochs:
 		label_no_of_epochs = restart_gens
-	import pdb; pdb.set_trace()
 	perform_animations(populations_Per_generation, offspring_Per_generation, cluster_folder_path, gps=gps, max_time=max_time, label_no_of_epochs=label_no_of_epochs)
 	print('-----------------------------------------------------------------------------------------------------------')
 

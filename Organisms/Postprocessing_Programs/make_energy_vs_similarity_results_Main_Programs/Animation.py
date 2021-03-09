@@ -61,8 +61,8 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	if not max_time == None:
 		gps = ceil(float(len_full)/(max_time*60.0))
 		print('The program will restrict the animation of the genetic algorithm to '+str(max_time)+' minutes (gps = '+str(gps)+').')
-	else:
-		gps = gps*2 # time this by two as a generation here needs to show the population with offspring first, then population without offspring
+	gps = gps*2 # time this by two as a generation here needs to show the population with offspring first, then population without offspring
+	gps = gps*4 # dont know why you have to do this but it make sure you do not exceed the time
 	print('--------------------------------------------------------------------------------')
 
 	global counter_pop
@@ -81,10 +81,18 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	#ln, = plt.plot([], [], 'bo' , marker=".", markersize=2)
 	ln = ax.scatter([], [], s=4)
 	if not label_no_of_epochs:
+		global era_value
+		global no_of_epoches
+		global restarts_list_index
+		global restarts_list_len
 		era_value = 1
 		no_of_epoches = 0
+		restarts_list_index = 0
+		restarts_list_len = len(restarts_list_len)
 		era_text   = ax.text(0.02, 0.95, '', transform=ax.transAxes)
 		epoch_text = ax.text(0.02, 0.90, '', transform=ax.transAxes)
+		global restart_gens
+		restart_gens = label_no_of_epochs
 
 	if keep_past_population:
 		global past_population_similarities
@@ -110,6 +118,8 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 		#ln.set_data(similarities_pop, energies)
 		ln.set_color(['b']*len(similarities_pop))
 		if not label_no_of_epochs:
+			global era_value
+			global no_of_epoches
 			era_text.set_text('Era: '+str(era_value))
 			epoch_text.set_text('# epoches: '+str(no_of_epoches))
 		return ln,
@@ -121,6 +131,9 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 			print(str(frame)+', ', end='')
 		similarities_pop = all_similarities_pop[counter_pop]
 		energies_pop = all_energies_pop[counter_pop]
+		if not label_no_of_epochs:
+			global era_value
+			global no_of_epoches
 		if keep_past_population:
 			global past_population_similarities
 			global past_population_energies
@@ -131,6 +144,13 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 		if frame%2 == 0:
 			ln.set_offsets(np.c_[similarities_pop, energies_pop])
 			#ln.set_color(['b']*len(similarities_pop))
+			if not label_no_of_epochs:
+				global restarts_list_index
+				global restarts_list_len
+				global restart_gens
+				if (not restarts_list_len == restarts_list_index) and counter_pop == restart_gens[restarts_list_index]+1:
+					era_value += 1
+					no_of_epoches += 1
 			counter_pop += 1
 		else:
 			similarities_off = all_similarities_off[counter_off]
@@ -138,6 +158,9 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 			ln.set_offsets(np.c_[similarities_pop+similarities_off, energies_pop+energies_off])
 			ln.set_color(['b']*len(similarities_pop)+['orange']*len(similarities_off))
 			counter_off += 1
+		if not label_no_of_epochs:
+			era_text.set_text('Era: '+str(era_value))
+			epoch_text.set_text('# epoches: '+str(no_of_epoches))
 		return ln,
 
 	frames = range(len(all_similarities_pop+all_similarities_off))
@@ -161,6 +184,7 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 	if not max_time == None:
 		gps = ceil(float(len_pop)/(max_time*60.0))
 		print('The program will restrict the animation of the genetic algorithm to '+str(max_time)+' minutes (gps = '+str(gps)+').')
+	gps = gps*4 # dont know why you have to do this but it make sure you do not exceed the time
 	print('--------------------------------------------------------------------------------')
 
 	global counter_pop
@@ -175,6 +199,19 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 	xdata, ydata = [], []
 	#ln, = plt.plot([], [], 'bo' , marker=".", markersize=2)
 	ln = ax.scatter([], [], s=4)
+	if not label_no_of_epochs:
+		global era_value
+		global no_of_epoches
+		global restarts_list_index
+		global restarts_list_len
+		era_value = 1
+		no_of_epoches = 0
+		restarts_list_index = 0
+		restarts_list_len = len(restarts_list_len)
+		era_text   = ax.text(0.02, 0.95, '', transform=ax.transAxes)
+		epoch_text = ax.text(0.02, 0.90, '', transform=ax.transAxes)
+		global restart_gens
+		restart_gens = label_no_of_epochs
 
 	if keep_past_population:
 		global past_population_similarities
@@ -190,6 +227,8 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 		ax.set_xlabel('Similarity (%)')
 		ax.set_ylabel('Energy (eV)')
 		if keep_past_population:
+			global past_population_similarities
+			global past_population_energies
 			past_population_similarities += deepcopy(similarities_pop)
 			past_population_energies += deepcopy(energies_pop)
 			similarities_pop = past_population_similarities
@@ -197,6 +236,11 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 		ln.set_offsets(np.c_[similarities_pop, energies_pop])
 		#ln.set_data(similarities_pop, energies)
 		ln.set_color(['b']*len(similarities_pop))
+		if not label_no_of_epochs:
+			global era_value
+			global no_of_epoches
+			era_text.set_text('Era: '+str(era_value))
+			epoch_text.set_text('# epoches: '+str(no_of_epoches))
 		return ln,
 
 	def update(frame):
@@ -206,11 +250,24 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 		similarities_pop = all_similarities_pop[counter_pop]
 		energies_pop = all_energies_pop[counter_pop]
 		if keep_past_population:
+			global past_population_similarities
+			global past_population_energies
 			past_population_similarities += deepcopy(similarities_pop)
 			past_population_energies += deepcopy(energies_pop)
 			similarities_pop = past_population_similarities
 			energies_pop = past_population_energies
 		ln.set_offsets(np.c_[similarities_pop, energies_pop])
+		if not label_no_of_epochs:
+			global era_value
+			global no_of_epoches
+			global restarts_list_index
+			global restarts_list_len
+			global restart_gens
+			if (not restarts_list_len == restarts_list_index) and counter_pop == restart_gens[restarts_list_index]+1:
+				era_value += 1
+				no_of_epoches += 1
+			era_text.set_text('Era: '+str(era_value))
+			epoch_text.set_text('# epoches: '+str(no_of_epoches))
 		counter_pop += 1
 		return ln,
 
