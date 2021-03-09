@@ -80,6 +80,7 @@ There are several variables required that determine how data from the genetic al
 * **make_svg_files**  (*bool*): If this is set to ``True``, this program will make svg files of plots that are created. These svg files allow the plots to be customised using programs like inkscape. If this is set to ``False``, svg files of plots will not be created. Note that png files of plots are always created by this progrom no matter what you choose this setting to be. Default = ``False``. 
 
 You can also set the animation variables in the ``plotting_settings`` dictionary. You only need to set either **gps** or **max_time** in this dictionary. 
+
 * **gps**  (*int*): This is the number of generations that are filmed per second. This is equivalent to the frame per second or the rate rate of the animation. Default = ``2``. 
 * **max_time**  (*float*): This is the maximum amount of time that your animations will run for. Default = ``None``. 
 
