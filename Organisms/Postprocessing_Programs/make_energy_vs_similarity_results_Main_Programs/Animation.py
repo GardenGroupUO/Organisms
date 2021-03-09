@@ -56,7 +56,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	len_pop  = len(all_similarities_pop)
 	len_off  = len(all_similarities_off)
 	print('--------------------------------------------------------------------------------')
-	print('Obtaining anuimation of genetic algorithm that shows the population and offspring.')
+	print('Obtaining animation of genetic algorithm that shows the population and offspring.')
 	print('Total number of frames: '+str(len_full)+'; Number of population frames (no of generations): '+str(len_pop)+'; Number of offspring frames (should also be no of generations): '+str(len_off))
 	if not max_time == None:
 		gps = ceil(float(len_full)/(max_time*60.0))
@@ -148,7 +148,7 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 
 	len_pop  = len(all_similarities_pop)
 	print('--------------------------------------------------------------------------------')
-	print('Obtaining anuimation of genetic algorithm with only the population.')
+	print('Obtaining animation of genetic algorithm with only the population.')
 	print('Number of population frames (no of generations): '+str(len_pop))
 	if not max_time == None:
 		gps = ceil(float(len_pop)/(max_time*60.0))

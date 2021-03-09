@@ -67,29 +67,44 @@ def place_genetic_algorithm_data_in_memory(path_to_ga_trial, clusters_to_compare
 # Further process data from files
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.processing_methods import get_information_about_when_clusters_were_created_during_the_GA
 def process_genetic_algorithm_data_in_memory_into_other_pieces_of_data(path_to_ga_trial, energy_and_ga_data, similarity_datum):
+	print('-----------------------------------------------------------------------------------------------------------')
+	print('Processing data for plots')
 	plotting_datum = get_information_about_when_clusters_were_created_during_the_GA(path_to_ga_trial,energy_and_ga_data,similarity_datum)
+	print('-----------------------------------------------------------------------------------------------------------')
 	return plotting_datum
 
 # ------------------------------------------------------------------------------------------------------------------------- %
 # Plotting Data
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.plotting_methods import make_energy_vs_similatity_plot_without_generations
 def plotting_genetic_algorithm_data(cluster_folder_path, energy_and_ga_data, similarity_datum, name_cluster, make_svg_files):
+	print('-----------------------------------------------------------------------------------------------------------')
+	print('Make energy vs similarity plots that do not involve generations')
 	make_energy_vs_similatity_plot_without_generations(cluster_folder_path, energy_and_ga_data, similarity_datum, name_cluster, make_svg_files)
+	print('-----------------------------------------------------------------------------------------------------------')
 
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.plotting_methods import get_plots_for_each_epoch
 def plotting_genetic_algorithm_data_over_generations(cluster_folder_path, plotting_datum, name_cluster, make_svg_files):
+	print('-----------------------------------------------------------------------------------------------------------')
+	print('Make energy vs similarity plots that do involve generations. These include separate epoch plots.')
 	all_similarities, all_energies, all_generations, populations_Per_generation, offspring_Per_generation, restart_gens, between_restart_gens, runs_between_epochs = plotting_datum
 	get_plots_for_each_epoch(populations_Per_generation, restart_gens, cluster_folder_path, 'plotting_data_cluster_'+str(name_cluster), make_svg_files)
+	print('-----------------------------------------------------------------------------------------------------------')
 
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.plotting_methods import perform_animations
 def make_animations(cluster_folder_path, plotting_datum, name_cluster, gps=2, max_time=None):
+	print('-----------------------------------------------------------------------------------------------------------')
+	print('Making animated energy vs similarity plots of the population and offspring over generations')
 	all_similarities, all_energies, all_generations, populations_Per_generation, offspring_Per_generation, restart_gens, between_restart_gens, runs_between_epochs = plotting_datum
 	perform_animations(populations_Per_generation, offspring_Per_generation, cluster_folder_path, gps=gps, max_time=max_time)
+	print('-----------------------------------------------------------------------------------------------------------')
 
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.plotting_methods import perform_animations_no_offspring
 def make_animations_no_offspring(cluster_folder_path, plotting_datum, name_cluster, gps=2, max_time=None):
+	print('-----------------------------------------------------------------------------------------------------------')
+	print('Making animated energy vs similarity plots of the population over generations. Offspring are not included in this animation')
 	all_similarities, all_energies, all_generations, populations_Per_generation, offspring_Per_generation, restart_gens, between_restart_gens, runs_between_epochs = plotting_datum
 	perform_animations_no_offspring(populations_Per_generation, cluster_folder_path, gps=gps, max_time=max_time)
+	print('-----------------------------------------------------------------------------------------------------------')
 
 # ------------------------------------------------------------------------------------------------------------------------- %
 # Setting up the plotting setting for this program
