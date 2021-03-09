@@ -151,7 +151,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 				global restarts_list_index
 				global restarts_list_len
 				global restart_gens
-				if (not restarts_list_index == restarts_list_len) and counter_pop == restart_gens[restarts_list_index]+1:
+				if (not restarts_list_index == restarts_list_len) and counter_pop == restart_gens[restarts_list_index]:
 					era_value += 1
 					no_of_epoches += 1
 					restarts_list_index += 1
@@ -268,7 +268,7 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 			global restarts_list_index
 			global restarts_list_len
 			global restart_gens
-			if (not restarts_list_index == restarts_list_len) and counter_pop == restart_gens[restarts_list_index]+1:
+			if (not restarts_list_index == restarts_list_len) and counter_pop == restart_gens[restarts_list_index]:
 				era_value += 1
 				no_of_epoches += 1
 				restarts_list_index += 1

@@ -134,6 +134,8 @@ def make_energy_vs_similarity_results_Main(path_to_ga_trial, rCut, clusters_to_c
 	folder_path = path_to_ga_trial+'/Similarity_Investigation_Data'
 	make_dir(folder_path)
 	# Processing data methods
+	if not isinstance(clusters_to_compare_against,list):
+		clusters_to_compare_against = [clusters_to_compare_against.copy()]
 	clusters_to_compare_against_optimised = []
 	for cluster_to_compare_against in clusters_to_compare_against:
 		cluster_to_compare_against_optimised = minimise_cluster(cluster_to_compare_against, calculator)

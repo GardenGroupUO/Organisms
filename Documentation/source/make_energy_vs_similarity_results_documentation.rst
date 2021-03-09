@@ -56,7 +56,7 @@ There are three variables required that determine how data from the genetic algo
 * **rCut** (*float*): This is the rCut value for the common neighbour analysis in Angstroms. This value determines which pairs of atoms are within bonding distance: 
 	- If a pair of atoms have an interatomic distance less than or equal to rCut, that pair of atoms is considered neighbours/bonded. 
 	- If a pair of atoms have an interatomic distance greater than rCut, that pair of atoms is not considered neighbours/bonded. 
-* **clusters_to_compare_against** (*ase.Atoms*): This is the cluster that you want to compare clusters to. This variable must be given as an ASE Atoms object. You can import most types of files using the ase.io.read function. See `File input and output <https://wiki.fysik.dtu.dk/ase/ase/io/io.html?highlight=read#ase.io.read>`_ to read more about the read function in ASE. 
+* **clusters_to_compare_against** (*ase.Atoms or [list of ase.Atoms]*): These are all the clusters that you want to compare clusters to. Generally, you will only want to compared to genetic algorithm clusters to one reference cluster, such as the global minimum. However, if you need to do some checks, you can compare your genetic algorithm clusters to a few reference clusters. If you only want to give one reference cluster, assign **clusters_to_compare_against** to the ``ase.Atoms`` object for your cluster. If you have several reference clusters, put their ``ase.Atoms`` objects into a list. You can import most types of files as ``ase.Atoms`` object using the ase.io.read function. See `File input and output <https://wiki.fysik.dtu.dk/ase/ase/io/io.html?highlight=read#ase.io.read>`_ to read more about the read function in ASE. 
 * **calculator** (*ase calculator*): If you want to locally minimise the cluster you gave for **clusters_to_compare_against** before this algorithms begins, set the calculator to the calculator you used in your genetic algorithm. This will not locally minimise any of the clusters that you created during the genetic algorithm, it will only be used to locally minimise **clusters_to_compare_against**. If you set the calculator to ``None``, **clusters_to_compare_against** will not be locally optimised and will be used as is in this program. Default: ``None``
 * **no_of_cpus** (*int*): This is the number of cpus that are used to gather information that is used for making these energy vs similarity plots. Default: ``1``
 
@@ -108,10 +108,27 @@ You have got to the end of all the parameter setting stuff. Now you can run the 
 	:lineno-start: 47
 	:lines: 47-50
 
+Data files that are made during this program
+********************************************
+
+Within the ``Similarity_Investigation_Data`` folder that is created by this program are three txt files. There are:
+
+* ``energy_and_GA_data.txt``: This contains all the information about the clusters created during the genetic algorithm, including the generation when the cluster was created. 
+* ``CNA_Profile_data.txt``: This contains all the total CNA profiles for each cluster created during the genetic algorithm as measured with the ``rCut`` value you gave
+* ``similarity_data_cluster_NNN.txt``: This contains all the similarity data for each cluster as compared to the cluster you gave in ``clusters_to_compare_against``. There are a number of files given for each cluster that you are comparing in this program. ``NNN`` is the number given to each of your inputted reference clusters. This number is given in the order that you placed clusters in the ``clusters_to_compare_against`` list. If you only gave an ``ase.Atoms`` object, ``NNN`` will just be given as 1. 
+
+It is possible to restart this program if it fails midway through, or if you want to change one of the setting of your plots. These files are needed if you want to restart your program. **Do not delete these files if you want to restart this program**.
 
 What plots do you get from the *make_energy_vs_similarity_results.py* program?
 ******************************************************************************
 
-Get a bunch of plots
+As well as the data files described above, this program also gives plots and movie files of your genetic algorithm in a folder inside the ``Similarity_Investigation_Data`` folder called ``Ref_Cluster_NNN``, where ``NNN`` is the number given to each of your inputted reference clusters. This number is given in the order that you placed clusters in the ``clusters_to_compare_against`` list. If you only gave an ``ase.Atoms`` object, ``NNN`` will just be given as 1. 
 
-For example, we get the following plots from running the *make_energy_vs_similarity_results.py* program on a 98-atom Lennard Jones cluster: 
+In this folder you will find the following plots and movies (depending on the settings you gave in the ``plotting_settings`` dictionary). There are (with examples for locally optimising a LJ98 cluster using the energy predation operator, structure + energy fitness operator, and the population epoch operator where nepoch = 1): 
+
+
+
+
+
+
+
