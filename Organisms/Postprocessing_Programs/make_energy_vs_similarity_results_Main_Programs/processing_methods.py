@@ -292,9 +292,9 @@ def get_information_about_when_clusters_were_created_during_the_GA(path_to_ga_tr
 	all_similarities = []
 	all_energies = []
 	all_generations = []
-	print('Generations: ', end='')
+	#print('Generations: ', end='')
 	for generation in range(len(populations_Per_generation)):
-		print(str(generation)+', ',end='')
+		#print(str(generation)+', ',end='')
 		population_data = populations_Per_generation[generation]
 		similarities = [cluster['sim'] for cluster in population_data]
 		energies = [cluster['energy'] for cluster in population_data]
@@ -305,6 +305,6 @@ def get_information_about_when_clusters_were_created_during_the_GA(path_to_ga_tr
 		all_similarities += similarities
 		all_energies += energies
 		all_generations += generations
-	print()
+	#print()
 	print('==========================================================================================================')
 	return all_similarities, all_energies, all_generations, populations_Per_generation, offspring_Per_generation, restart_gens, between_restart_gens, runs_between_epochs
