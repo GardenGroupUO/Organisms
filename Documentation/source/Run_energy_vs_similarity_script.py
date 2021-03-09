@@ -38,10 +38,12 @@ make_svg_files = False
 gps = 60
 # You can also set the maximum amount of time that you would like your movie to run in minutes. You only need to give a value either for gps or max_time.
 max_time = None
+# You can include a label in your animations that will count the number of genrations that have past
+label_generation_no = True
 # You can include a label in your animations that will count the number of times an epoch occurs, i.e. will indicate the era value during the genetic algorithm
 label_no_of_epochs = True
 # place all these settings into the plotting_settings dictionary. 
-plotting_settings = {'make_epoch_plots': make_epoch_plots, 'get_animations': get_animations, 'get_animations_do_not_include_offspring': get_animations_do_not_include_offspring, 'make_svg_files': make_svg_files, 'gps': gps, 'max_time': max_time, 'label_no_of_epochs': label_no_of_epochs}
+plotting_settings = {'make_epoch_plots': make_epoch_plots, 'get_animations': get_animations, 'get_animations_do_not_include_offspring': get_animations_do_not_include_offspring, 'make_svg_files': make_svg_files, 'gps': gps, 'max_time': max_time, 'label_generation_no': label_generation_no, 'label_no_of_epochs': label_no_of_epochs}
 # ===========================================================================================================
 
 # ===========================================================================================================

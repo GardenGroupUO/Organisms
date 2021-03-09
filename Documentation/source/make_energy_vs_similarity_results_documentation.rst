@@ -81,8 +81,9 @@ There are several variables required that determine how data from the genetic al
 
 You can also set the animation variables in the ``plotting_settings`` dictionary. You only need to set either **gps** or **max_time** in this dictionary. 
 
-* **gps**  (*int*): This is the number of generations that are filmed per second. This is equivalent to the frame per second or the rate rate of the animation. Default = ``1``. 
-* **max_time**  (*float*): This is the maximum amount of time that your animations will run for. Default = ``None``. 
+* **gps** (*int*): This is the number of generations that are filmed per second. This is equivalent to the frame per second or the rate rate of the animation. Default = ``1``. 
+* **max_time** (*float*): This is the maximum amount of time that your animations will run for. Default = ``None``. 
+* **label_generation_no** (*bool*): If ``label_generation_no`` is set to ``True``, the number of generations that have past will be shown. Default = ``False``.  
 * **label_no_of_epochs** (*bool*): If ``label_no_of_epochs`` is set to ``True``, the era value and the number of epoches that have occur will be labelled in your animation. Default = ``False``.  
 
 **IMPORTANT NOTE**: In you give a value for ``max_time`` that is not ``None``, this program will make sure that your movies only run for at most this amount of time. If you do not give a value for ``max_time``, it will be set to ``None`` by default, which will tell the program to take your value of ``gps`` for the equivalent of the frames per second that the movie will run at. 
@@ -94,7 +95,7 @@ An example of these parameters in Run.py is given below:
 	:tab-width: 4
 	:linenos:
 	:lineno-start: 23
-	:lines: 23-45
+	:lines: 23-47
 
 3) Running the *make_energy_vs_similarity_results.py* program
 =============================================================
@@ -105,8 +106,8 @@ You have got to the end of all the parameter setting stuff. Now you can run the 
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 47
-	:lines: 47-50
+	:lineno-start: 49
+	:lines: 49-52
 
 Data files that are made during this program
 ********************************************

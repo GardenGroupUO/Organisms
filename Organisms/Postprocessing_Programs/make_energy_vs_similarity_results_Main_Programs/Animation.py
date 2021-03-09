@@ -1,3 +1,4 @@
+import time
 import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
@@ -47,7 +48,22 @@ def get_energy_limits(all_energies):
 	all_min_energy -= energy_lim_offset
 	return all_max_energy, all_min_energy
 
-def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=1, max_time=None, label_no_of_epochs=False, keep_past_population=False):
+TIME_DURATION_UNITS = (('week', 60*60*24*7),('day', 60*60*24),('hour', 60*60),('min', 60),('sec', 1))
+def human_time_duration(seconds):
+    if seconds == 0:
+        return 'inf'
+    parts = []
+    for unit, div in TIME_DURATION_UNITS:
+        amount, seconds = divmod(int(seconds), div)
+        if amount > 0:
+            parts.append('{} {}{}'.format(amount, unit, "" if amount == 1 else "s"))
+    return ', '.join(parts)
+
+def get_estimated_max_time(fps,len_full):
+	estimated_max_time = float(len_full)/float(fps)
+	return estimated_max_time
+
+def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False, keep_past_population=False):
 	"""An animated scatter plot using matplotlib.animations.FuncAnimation."""
 	all_similarities_pop, all_energies_pop = get_similarities_and_energies_per_generation(Population_Per_generation)
 	all_similarities_off, all_energies_off = get_similarities_and_energies_per_generation(Offspring_Per_generation)
@@ -63,6 +79,9 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 		print('The program will restrict the animation of the genetic algorithm to '+str(max_time)+' minutes (gps = '+str(gps)+').')
 	else:
 		gps = gps*2 # time this by two as a generation here needs to show the population with offspring first, then population without offspring
+		estimated_max_time = get_estimated_max_time(fps=gps,len_full=len_full)
+		estimated_max_time = human_time_duration(estimated_max_time)
+		print('This animation will have an esitmated duration (time length) of '+str(estimated_max_time))
 	print('--------------------------------------------------------------------------------')
 
 	global counter_pop
@@ -80,22 +99,34 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	xdata, ydata = [], []
 	#ln, = plt.plot([], [], 'bo' , marker=".", markersize=2)
 	ln = ax.scatter([], [], s=4)
+
+	if isinstance(label_generation_no,list):
+		gen_text = ax.text(0.02, 0.95, '', transform=ax.transAxes)
+		global restarts_list_for_gens_index
+		restarts_list_for_gens_index = 0
+		global restarts_list_for_gens
+		restarts_list_for_gens = list(label_generation_no)
+		global restarts_list_for_gens_len
+		restarts_list_for_gens_len = len(restarts_list_for_gens)
+		label_generation_no = True
 	if isinstance(label_no_of_epochs,list):
 		global era_value
 		global no_of_epoches
 		global restarts_list_index
-		global restarts_list_len
 		era_value = 1
 		no_of_epoches = 0
 		restarts_list_index = 0
 		global restart_gens
 		restart_gens = list(label_no_of_epochs)
+		global restarts_list_len
 		restarts_list_len = len(restart_gens)
 		label_no_of_epochs = True
-		diff = all_max_energy - all_min_energy 
-		era_text   = ax.text(0.02, 0.95, '', transform=ax.transAxes)
-		epoch_text = ax.text(0.02, 0.90, '', transform=ax.transAxes)
-
+		if label_generation_no:
+			era_text   = ax.text(0.02, 0.90, '', transform=ax.transAxes)
+			epoch_text = ax.text(0.02, 0.85, '', transform=ax.transAxes)		
+		else:
+			era_text   = ax.text(0.02, 0.95, '', transform=ax.transAxes)
+			epoch_text = ax.text(0.02, 0.90, '', transform=ax.transAxes)
 
 	if keep_past_population:
 		global past_population_similarities
@@ -120,6 +151,10 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 		ln.set_offsets(np.c_[similarities_pop, energies_pop])
 		#ln.set_data(similarities_pop, energies)
 		ln.set_color(['b']*len(similarities_pop))
+		if label_generation_no:
+			global generation_no
+			generation_no = 0
+			gen_text.set_text('Generation: '+str(generation_no))
 		if label_no_of_epochs:
 			global era_value
 			global no_of_epoches
@@ -155,6 +190,16 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 					era_value += 1
 					no_of_epoches += 1
 					restarts_list_index += 1
+			if label_generation_no:
+				global generation_no
+				global restarts_list_for_gens_index
+				global restarts_list_for_gens
+				global restarts_list_for_gens_len
+				if (not restarts_list_for_gens_index == restarts_list_for_gens_len) and counter_pop == restarts_list_for_gens[restarts_list_for_gens_index]:
+					restarts_list_for_gens_index += 1
+				else:
+					generation_no += 1
+				gen_text.set_text('Generation: '+str(generation_no))
 			counter_pop += 1
 		else:
 			similarities_off = all_similarities_off[counter_off]
@@ -177,7 +222,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	ani.save(cluster_folder_path+'/GA_over_generation.mp4', writer=writer)
 	print()
 
-def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, gps=1, max_time=None, label_no_of_epochs=False, keep_past_population=False):
+def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False, keep_past_population=False):
 	"""An animated scatter plot using matplotlib.animations.FuncAnimation."""
 	all_similarities_pop, all_energies_pop = get_similarities_and_energies_per_generation(Population_Per_generation)
 
@@ -188,6 +233,10 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 	if not max_time == None:
 		gps = ceil(float(len_pop)/(max_time*60.0))
 		print('The program will restrict the animation of the genetic algorithm to '+str(max_time)+' minutes (gps = '+str(gps)+').')
+	else:
+		estimated_max_time = get_estimated_max_time(fps=gps,len_full=len_full)
+		estimated_max_time = human_time_duration(estimated_max_time)
+		print('This animation will have an esitmated duration (time length) of '+str(estimated_max_time))
 	print('--------------------------------------------------------------------------------')
 
 	global counter_pop
@@ -202,6 +251,15 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 	xdata, ydata = [], []
 	#ln, = plt.plot([], [], 'bo' , marker=".", markersize=2)
 	ln = ax.scatter([], [], s=4)
+	if isinstance(label_generation_no,list):
+		gen_text = ax.text(0.02, 0.95, '', transform=ax.transAxes)
+		global restarts_list_for_gens_index
+		restarts_list_for_gens_index = 0
+		global restarts_list_for_gens
+		restarts_list_for_gens = list(label_generation_no)
+		global restarts_list_for_gens_len
+		restarts_list_for_gens_len = len(restarts_list_for_gens)
+		label_generation_no = True
 	if isinstance(label_no_of_epochs,list):
 		global era_value
 		global no_of_epoches
@@ -214,9 +272,12 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 		restart_gens = list(label_no_of_epochs)
 		restarts_list_len = len(restart_gens)
 		label_no_of_epochs = True
-		diff = all_max_energy - all_min_energy 
-		era_text   = ax.text(0.02, 0.95, '', transform=ax.transAxes)
-		epoch_text = ax.text(0.02, 0.90, '', transform=ax.transAxes)
+		if label_generation_no:
+			era_text   = ax.text(0.02, 0.90, '', transform=ax.transAxes)
+			epoch_text = ax.text(0.02, 0.85, '', transform=ax.transAxes)		
+		else:
+			era_text   = ax.text(0.02, 0.95, '', transform=ax.transAxes)
+			epoch_text = ax.text(0.02, 0.90, '', transform=ax.transAxes)
 
 	if keep_past_population:
 		global past_population_similarities
@@ -241,6 +302,10 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 		ln.set_offsets(np.c_[similarities_pop, energies_pop])
 		#ln.set_data(similarities_pop, energies)
 		ln.set_color(['b']*len(similarities_pop))
+		if label_generation_no:
+			global generation_no
+			generation_no = 0
+			gen_text.set_text('Generation: '+str(generation_no))
 		if label_no_of_epochs:
 			global era_value
 			global no_of_epoches
@@ -274,6 +339,16 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 				restarts_list_index += 1
 			era_text.set_text('Era: '+str(era_value))
 			epoch_text.set_text('# epoches: '+str(no_of_epoches))
+		if label_generation_no:
+			global generation_no
+			global restarts_list_for_gens_index
+			global restarts_list_for_gens
+			global restarts_list_for_gens_len
+			if (not restarts_list_for_gens_index == restarts_list_for_gens_len) and counter_pop == restarts_list_for_gens[restarts_list_for_gens_index]:
+				restarts_list_for_gens_index += 1
+			else:
+				generation_no += 1
+			gen_text.set_text('Generation: '+str(generation_no))
 		counter_pop += 1
 		return ln,
 
