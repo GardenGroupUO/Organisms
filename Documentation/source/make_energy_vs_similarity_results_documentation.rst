@@ -83,6 +83,7 @@ You can also set the animation variables in the ``plotting_settings`` dictionary
 
 * **gps**  (*int*): This is the number of generations that are filmed per second. This is equivalent to the frame per second or the rate rate of the animation. Default = ``2``. 
 * **max_time**  (*float*): This is the maximum amount of time that your animations will run for. Default = ``None``. 
+* **label_no_of_epochs** (*bool*): If ``label_no_of_epochs`` is set to ``True``, the era value and the number of epoches that have occur will be labelled in your animation. Default = ``False``.  
 
 **IMPORTANT NOTE**: In you give a value for ``max_time`` that is not ``None``, this program will make sure that your movies only run for at most this amount of time. If you do not give a value for ``max_time``, it will be set to ``None`` by default, which will tell the program to take your value of ``gps`` for the equivalent of the frames per second that the movie will run at. 
 
@@ -93,7 +94,7 @@ An example of these parameters in Run.py is given below:
 	:tab-width: 4
 	:linenos:
 	:lineno-start: 23
-	:lines: 23-43
+	:lines: 23-45
 
 3) Running the *make_energy_vs_similarity_results.py* program
 =============================================================
@@ -104,8 +105,8 @@ You have got to the end of all the parameter setting stuff. Now you can run the 
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 45
-	:lines: 45-48
+	:lineno-start: 47
+	:lines: 47-50
 
 
 What plots do you get from the *make_energy_vs_similarity_results.py* program?

@@ -47,7 +47,7 @@ def get_energy_limits(all_energies):
 	all_min_energy -= energy_lim_offset
 	return all_max_energy, all_min_energy
 
-def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=2, max_time=None, keep_past_population=False):
+def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=2, max_time=None, label_no_of_epochs=False, keep_past_population=False):
 	"""An animated scatter plot using matplotlib.animations.FuncAnimation."""
 	all_similarities_pop, all_energies_pop = get_similarities_and_energies_per_generation(Population_Per_generation)
 	all_similarities_off, all_energies_off = get_similarities_and_energies_per_generation(Offspring_Per_generation)
@@ -80,6 +80,11 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	xdata, ydata = [], []
 	#ln, = plt.plot([], [], 'bo' , marker=".", markersize=2)
 	ln = ax.scatter([], [], s=4)
+	if not label_no_of_epochs:
+		era_value = 1
+		no_of_epoches = 0
+		era_text   = ax.text(0.02, 0.95, '', transform=ax.transAxes)
+		epoch_text = ax.text(0.02, 0.90, '', transform=ax.transAxes)
 
 	if keep_past_population:
 		global past_population_similarities
@@ -104,6 +109,9 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 		ln.set_offsets(np.c_[similarities_pop, energies_pop])
 		#ln.set_data(similarities_pop, energies)
 		ln.set_color(['b']*len(similarities_pop))
+		if not label_no_of_epochs:
+			era_text.set_text('Era: '+str(era_value))
+			epoch_text.set_text('# epoches: '+str(no_of_epoches))
 		return ln,
 
 	def update(frame):
@@ -142,7 +150,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	ani.save(cluster_folder_path+'/GA_over_generation.mp4', writer=writer)
 	print()
 
-def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, gps=2, max_time=None, keep_past_population=False):
+def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, gps=2, max_time=None, label_no_of_epochs=False, keep_past_population=False):
 	"""An animated scatter plot using matplotlib.animations.FuncAnimation."""
 	all_similarities_pop, all_energies_pop = get_similarities_and_energies_per_generation(Population_Per_generation)
 

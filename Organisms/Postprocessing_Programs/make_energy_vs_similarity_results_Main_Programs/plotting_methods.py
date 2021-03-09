@@ -318,16 +318,16 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 
 
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.Animation import AnimatedScatter
-def perform_animations(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=2, max_time=None):
+def perform_animations(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=2, max_time=None, label_no_of_epoch=False):
 	print('============================== MAKING PLOTTING ANIMATIONS ================================================')
-	AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=gps, max_time=max_time)
+	AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=gps, max_time=max_time, label_no_of_epochs=label_no_of_epochs)
 	print('==========================================================================================================')
 
 
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.Animation import AnimatedScatter_no_offspring
-def perform_animations_no_offspring(Population_Per_generation, cluster_folder_path, gps=2, max_time=None):
+def perform_animations_no_offspring(Population_Per_generation, cluster_folder_path, gps=2, max_time=None, label_no_of_epochs=False):
 	print('============================== MAKING PLOTTING ANIMATIONS ================================================')
-	AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, gps=gps, max_time=max_time)
+	AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, gps=gps, max_time=max_time, label_no_of_epochs=label_no_of_epochs)
 	print('==========================================================================================================')
 
 
