@@ -92,7 +92,7 @@ An example of these parameters in Run.py is given below:
 	:tab-width: 4
 	:linenos:
 	:lineno-start: 23
-	:lines: 23-39
+	:lines: 23-43
 
 3) Running the *make_energy_vs_similarity_results.py* program
 =============================================================
@@ -103,8 +103,8 @@ You have got to the end of all the parameter setting stuff. Now you can run the 
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 41
-	:lines: 41-44
+	:lineno-start: 45
+	:lines: 45-48
 
 
 What plots do you get from the *make_energy_vs_similarity_results.py* program?
