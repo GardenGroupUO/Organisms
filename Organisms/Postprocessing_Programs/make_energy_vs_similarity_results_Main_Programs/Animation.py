@@ -81,7 +81,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 		gps = gps*2 # time this by two as a generation here needs to show the population with offspring first, then population without offspring
 		estimated_max_time = get_estimated_max_time(fps=gps,len_full=len_full)
 		estimated_max_time = human_time_duration(estimated_max_time)
-		print('This animation will have an esitmated duration (time length) of '+str(estimated_max_time))
+		print('This animation will have an estimated duration (time length) of '+str(estimated_max_time))
 	print('--------------------------------------------------------------------------------')
 
 	global counter_pop
@@ -108,6 +108,8 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 		restarts_list_for_gens = list(label_generation_no)
 		global restarts_list_for_gens_len
 		restarts_list_for_gens_len = len(restarts_list_for_gens)
+		global no_of_epoches_gen
+		no_of_epoches_gen = 0
 		label_generation_no = True
 	if isinstance(label_no_of_epochs,list):
 		global era_value
@@ -186,7 +188,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 				global restarts_list_index
 				global restarts_list_len
 				global restart_gens
-				if (not restarts_list_index == restarts_list_len) and counter_pop == restart_gens[restarts_list_index]:
+				if (not restarts_list_index == restarts_list_len) and (counter_pop == (restart_gens[restarts_list_index] - no_of_epoches)):
 					era_value += 1
 					no_of_epoches += 1
 					restarts_list_index += 1
@@ -195,8 +197,10 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 				global restarts_list_for_gens_index
 				global restarts_list_for_gens
 				global restarts_list_for_gens_len
-				if (not restarts_list_for_gens_index == restarts_list_for_gens_len) and counter_pop == restarts_list_for_gens[restarts_list_for_gens_index]:
+				global no_of_epoches_gen
+				if (not restarts_list_for_gens_index == restarts_list_for_gens_len) and (counter_pop == (restarts_list_for_gens[restarts_list_for_gens_index] - no_of_epoches_gen)):
 					restarts_list_for_gens_index += 1
+					no_of_epoches_gen += 1
 				else:
 					generation_no += 1
 				gen_text.set_text('Generation: '+str(generation_no))
@@ -234,9 +238,9 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 		gps = ceil(float(len_pop)/(max_time*60.0))
 		print('The program will restrict the animation of the genetic algorithm to '+str(max_time)+' minutes (gps = '+str(gps)+').')
 	else:
-		estimated_max_time = get_estimated_max_time(fps=gps,len_full=len_full)
+		estimated_max_time = get_estimated_max_time(fps=gps,len_full=len_pop)
 		estimated_max_time = human_time_duration(estimated_max_time)
-		print('This animation will have an esitmated duration (time length) of '+str(estimated_max_time))
+		print('This animation will have an estimated duration (time length) of '+str(estimated_max_time))
 	print('--------------------------------------------------------------------------------')
 
 	global counter_pop
@@ -259,6 +263,8 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 		restarts_list_for_gens = list(label_generation_no)
 		global restarts_list_for_gens_len
 		restarts_list_for_gens_len = len(restarts_list_for_gens)
+		global no_of_epoches_gen
+		no_of_epoches_gen = 0
 		label_generation_no = True
 	if isinstance(label_no_of_epochs,list):
 		global era_value
@@ -333,7 +339,7 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 			global restarts_list_index
 			global restarts_list_len
 			global restart_gens
-			if (not restarts_list_index == restarts_list_len) and counter_pop == restart_gens[restarts_list_index]:
+			if (not restarts_list_index == restarts_list_len) and (counter_pop == (restart_gens[restarts_list_index] - no_of_epoches)):
 				era_value += 1
 				no_of_epoches += 1
 				restarts_list_index += 1
@@ -344,8 +350,10 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 			global restarts_list_for_gens_index
 			global restarts_list_for_gens
 			global restarts_list_for_gens_len
-			if (not restarts_list_for_gens_index == restarts_list_for_gens_len) and counter_pop == restarts_list_for_gens[restarts_list_for_gens_index]:
+			global no_of_epoches_gen
+			if (not restarts_list_for_gens_index == restarts_list_for_gens_len) and (counter_pop == (restarts_list_for_gens[restarts_list_for_gens_index] - no_of_epoches_gen)):
 				restarts_list_for_gens_index += 1
+				no_of_epoches_gen += 1
 			else:
 				generation_no += 1
 			gen_text.set_text('Generation: '+str(generation_no))

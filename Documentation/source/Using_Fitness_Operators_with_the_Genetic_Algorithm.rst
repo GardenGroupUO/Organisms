@@ -174,7 +174,7 @@ Linear Function
 
 This will use a linear function to obtain the fitness value. 
 
-:math:`f(i) = \rm{gradient} \times rho(i) + \rm{constant}]` 
+:math:`f(i) = \rm{gradient} \times rho(i) + \rm{constant}` 
 
 The input required is the value of :math:`\rm{gradient}` and :math:`\rm{constant}` 
 
