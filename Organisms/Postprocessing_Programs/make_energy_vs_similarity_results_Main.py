@@ -21,9 +21,9 @@ def make_dir(folder_path):
 
 # ------------------------------------------------------------------------------------------------------------------------- %
 # Minimise cluster if so desired
-from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.data_from_genetic_algorithm_methods import minimise_cluster
+from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.data_from_genetic_algorithm_methods import minimise_cluster as minimise_cluster_function
 def minimise_cluster(cluster_to_compare_against,calculator):
-	cluster_to_compare_against = minimise_cluster(cluster_to_compare_against,calculator)
+	cluster_to_compare_against = minimise_cluster_function(cluster_to_compare_against,calculator)
 	return cluster_to_compare_against
 
 # ------------------------------------------------------------------------------------------------------------------------- %
@@ -37,15 +37,15 @@ def processing_genetic_algorithm_data(path_to_ga_trial,rCut,clusters_to_compare_
 	print('Getting energy and similarity data from the GA_Recording_Database')
 	# process energy and CNA Profile data from the GA_Recording_Database
 	energy_and_GA_data_filename, CNA_Profile_data_filename, databaseDB_filename = get_filenames(path_to_ga_trial)
-	no_issues,next_cluster_line_counter=check_energy_and_CNA_profile_data_in_file(energy_and_GA_data_filename, CNA_Profile_data_filename)
-	get_energy_and_CNA_profile_data_from_GA_Recording_Database(energy_and_GA_data_filename,CNA_Profile_data_filename,databaseDB_filename,rCut,no_issues=no_issues,start_from=next_cluster_line_counter,no_of_cpus=no_of_cpus)
+	no_issues,next_cluster_line_counter_energy_and_GA=check_energy_and_CNA_profile_data_in_file(energy_and_GA_data_filename, CNA_Profile_data_filename)
+	get_energy_and_CNA_profile_data_from_GA_Recording_Database(energy_and_GA_data_filename,CNA_Profile_data_filename,databaseDB_filename,rCut,no_issues=no_issues,start_from=next_cluster_line_counter_energy_and_GA,no_of_cpus=no_of_cpus)
 	# process similarity data from the GA_Recording_Database
 	for index in range(len(clusters_to_compare_against)):
 		cluster_to_compare_against = clusters_to_compare_against[index]
 		cluster_to_compare_number = index+1
 		similarity_data_filename = folder_path+'/similarity_data_cluster_'+str(cluster_to_compare_number)+'.txt'
-		no_issues, next_cluster_line_counter = check_similarity_data_in_file(similarity_data_filename)
-		get_similarity_data(path_to_ga_trial,cluster_to_compare_against,rCut,similarity_data_filename,no_issues=no_issues,start_from=next_cluster_line_counter)
+		no_issues, next_cluster_line_counter_similarity = check_similarity_data_in_file(similarity_data_filename)
+		get_similarity_data(path_to_ga_trial,cluster_to_compare_against,rCut,similarity_data_filename,no_issues=no_issues,start_from=next_cluster_line_counter_similarity)
 
 # ------------------------------------------------------------------------------------------------------------------------- %
 # Place data in memory
@@ -108,14 +108,17 @@ def get_plotting_settings(plotting_settings):
 # Processing the data
 def make_energy_vs_similarity_results_Main(path_to_ga_trial, rCut, clusters_to_compare_against, calculator=None, no_of_cpus=1, plotting_settings={}):
 	# Get the plotting setting for this program
-	make_epoch_plots, get_animations, get_animations_do_not_include_offspring, make_svg_files, no_of_cpus = get_plotting_settings(plotting_settings)
+	make_epoch_plots, get_animations, get_animations_do_not_include_offspring, make_svg_files = get_plotting_settings(plotting_settings)
 	# make similarity folder to place data into
 	folder_path = path_to_ga_trial+'/Similarity_Investigation_Data'
 	make_dir(folder_path)
 	# Processing data methods
-	clusters_to_compare_against = minimise_cluster(clusters_to_compare_against, calculator)
-	processing_genetic_algorithm_data(path_to_ga_trial, rCut, clusters_to_compare_against, calculator, folder_path, no_of_cpus)
-	energy_and_ga_data, similarity_data = place_genetic_algorithm_data_in_memory(path_to_ga_trial, clusters_to_compare_against, folder_path)
+	clusters_to_compare_against_optimised = []
+	for cluster_to_compare_against in clusters_to_compare_against:
+		cluster_to_compare_against_optimised = minimise_cluster(cluster_to_compare_against, calculator)
+		clusters_to_compare_against_optimised.append(cluster_to_compare_against_optimised)
+	processing_genetic_algorithm_data(path_to_ga_trial, rCut, clusters_to_compare_against_optimised, folder_path, no_of_cpus)
+	energy_and_ga_data, similarity_data = place_genetic_algorithm_data_in_memory(path_to_ga_trial, clusters_to_compare_against_optimised, folder_path)
 	# plotting data methods
 	for index in range(len(similarity_data)):
 		ref_cluster_name = index+1	

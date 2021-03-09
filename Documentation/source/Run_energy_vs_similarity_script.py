@@ -1,4 +1,5 @@
 from ase.io import read
+from asap3.Internal.BuiltinPotentials import LennardJones
 from Organisms import make_energy_vs_similarity_results
 
 # ===========================================================================================================
@@ -15,6 +16,8 @@ clusters_to_compare_against = read('LJ98_GM.xyz')
 # just to make sure this cluster is a local minimum. 
 elements = [10]; epsilon = [1]; sigma = [1]; rCut = 1000
 calculator = LennardJones(elements, epsilon, sigma, rCut=rCut, modified=True)
+# Specify the number of cores you want to use.
+no_of_cpus = 1
 # ===========================================================================================================
 
 # ===========================================================================================================
@@ -37,5 +40,5 @@ plotting_settings = {'make_epoch_plots': make_epoch_plots, 'get_animations': get
 
 # ===========================================================================================================
 # Run the make_energy_vs_similarity_results program
-make_energy_vs_similarity_results(path_to_ga_trial, rCut, clusters_to_compare_against, calculator, plotting_settings=plotting_settings)
+make_energy_vs_similarity_results(path_to_ga_trial, rCut, clusters_to_compare_against, calculator, no_of_cpus=no_of_cpus, plotting_settings=plotting_settings)
 # ===========================================================================================================

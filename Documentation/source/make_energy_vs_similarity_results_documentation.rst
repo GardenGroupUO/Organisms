@@ -58,6 +58,7 @@ There are three variables required that determine how data from the genetic algo
 	- If a pair of atoms have an interatomic distance greater than rCut, that pair of atoms is not considered neighbours/bonded. 
 * **clusters_to_compare_against** (*ase.Atoms*): This is the cluster that you want to compare clusters to. This variable must be given as an ASE Atoms object. You can import most types of files using the ase.io.read function. See `File input and output <https://wiki.fysik.dtu.dk/ase/ase/io/io.html?highlight=read#ase.io.read>`_ to read more about the read function in ASE. 
 * **calculator** (*ase calculator*): If you want to locally minimise the cluster you gave for **clusters_to_compare_against** before this algorithms begins, set the calculator to the calculator you used in your genetic algorithm. This will not locally minimise any of the clusters that you created during the genetic algorithm, it will only be used to locally minimise **clusters_to_compare_against**. If you set the calculator to ``None``, **clusters_to_compare_against** will not be locally optimised and will be used as is in this program. Default: ``None``
+* **no_of_cpus** (*int*): This is the number of cpus that are used to gather information that is used for making these energy vs similarity plots. Default: ``1``
 
 An example of these parameters in Run.py is given below:
 
@@ -65,8 +66,8 @@ An example of these parameters in Run.py is given below:
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 4
-	:lines: 4-18
+	:lineno-start: 5
+	:lines: 5-21
 
 2) Variables for plotting data
 ==============================
@@ -84,8 +85,8 @@ An example of these parameters in Run.py is given below:
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 20
-	:lines: 20-36
+	:lineno-start: 23
+	:lines: 23-39
 
 3) Running the *make_energy_vs_similarity_results.py* program
 =============================================================
@@ -96,8 +97,8 @@ You have got to the end of all the parameter setting stuff. Now you can run the 
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 38
-	:lines: 38-41
+	:lineno-start: 41
+	:lines: 41-44
 
 
 What plots do you get from the *make_energy_vs_similarity_results.py* program?

@@ -49,6 +49,7 @@ def get_energy_and_CNA_profile_data_from_GA_Recording_Database_single(row,rCut,s
 	signaller.raise_counter()
 
 from ase.db import connect
+from multiprocessing import Pool 
 def get_energy_and_CNA_profile_data_from_GA_Recording_Database(energy_and_GA_data_filename,CNA_Profile_data_filename,databaseDB_filename,rCut,no_issues=False,start_from=1,no_of_cpus=1):
 	if no_issues:
 		return
@@ -64,20 +65,17 @@ def get_energy_and_CNA_profile_data_from_GA_Recording_Database(energy_and_GA_dat
 				row = databaseDB.get(id=id_index)
 				id_index = int(row['id'])
 				name = int(row['name'])
-				#if name%100 == 0:
-				#	print(str(name)+', ', end='')
 				if not id_index == name:
 					exit('Error. make a proper thing here')
 				get_energy_and_CNA_profile_data_from_GA_Recording_Database_single(row,rCut,signaller,energy_and_GA_data_filename,CNA_Profile_data_filename)
 		else:
 			results = []
 			#for row in databaseDB.select():
+			pool = Pool(no_of_cpus)
 			for name in range(start_from,length_of_database+1):
 				row = databaseDB.get(name=name)
 				id_index = int(row['id'])
 				name = int(row['name'])
-				#if name%100 == 0:
-				#	print(str(name)+', ', end='')
 				if not id_index == name:
 					exit('Error. make a proper thing here')
 				# Run processes in parallel
@@ -97,7 +95,7 @@ def get_energy_and_CNA_profile_data_from_GA_Recording_Database(energy_and_GA_dat
 	print('==========================================================================================================')
 
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.data_from_genetic_algorithm_methods import get_CNA_Profile_custom, get_similarity_value_for_half
-def get_similarity_data(path_to_ga_trial,cluster_to_compare_against,rCut,calculator,similarity_data_filename,no_issues=False,start_from=1):
+def get_similarity_data(path_to_ga_trial,cluster_to_compare_against,rCut,similarity_data_filename,no_issues=False,start_from=1):
 	if no_issues:
 		return
 	cluster_to_compare_against_CNA_profile = get_CNA_Profile_custom(cluster_to_compare_against,rCut)
@@ -176,7 +174,6 @@ def check_energy_and_CNA_profile_data_in_file(energy_and_GA_data_filename, CNA_P
 			remove_last_line_of_text(CNA_Profile_data_filename,  next_cluster_line_counter)
 			print('==========================================================================================================')
 	else:
-		exit('Fix this')
 		if os.path.exists(energy_and_GA_data_filename):
 			shutil.rmtree(energy_and_GA_data_filename)
 		if os.path.exists(CNA_Profile_data_filename):
