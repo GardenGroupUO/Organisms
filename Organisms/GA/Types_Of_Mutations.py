@@ -142,10 +142,10 @@ def randomMutate(boxtoplaceinlength,vacuumAdd,cluster_makeup=None,cluster_to_mut
 				break
 		mutant[index].position = position
 	# Add a unit cell to the cluster. Mainly needed for VASP.
-	lengthOfCell = 2.0*InclusionRadiusOfCluster(mutant) + vacuumAdd
-	cell = [lengthOfCell,lengthOfCell,lengthOfCell]
-	mutant.set_cell(cell)
-	mutant.center() # centre the cluster within this unit cell
+	#lengthOfCell = 2.0*InclusionRadiusOfCluster(mutant) + vacuumAdd
+	#cell = [lengthOfCell,lengthOfCell,lengthOfCell]
+	#mutant.set_cell(cell)
+	mutant.center(vacuum=vacuumAdd) # centre the cluster within this unit cell
 	# return the mutant cluster.
 	#print('cluster_makeup: '+str(cluster_makeup)+'; cluster_to_mutate: '+str(cluster_to_mutate))
 	if cluster_makeup == None: 

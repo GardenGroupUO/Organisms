@@ -102,6 +102,8 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 
 	if isinstance(label_generation_no,list):
 		gen_text = ax.text(0.02, 0.95, '', transform=ax.transAxes)
+		global generation_no
+		generation_no = 0
 		global restarts_list_for_gens_index
 		restarts_list_for_gens_index = 0
 		global restarts_list_for_gens
@@ -155,7 +157,6 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 		ln.set_color(['b']*len(similarities_pop))
 		if label_generation_no:
 			global generation_no
-			generation_no = 0
 			gen_text.set_text('Generation: '+str(generation_no))
 		if label_no_of_epochs:
 			global era_value
@@ -181,6 +182,8 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 			past_population_energies += deepcopy(energies_pop)
 			similarities_pop = past_population_similarities
 			energies_pop = past_population_energies
+			if label_generation_no:
+				pass
 		if frame%2 == 0:
 			ln.set_offsets(np.c_[similarities_pop, energies_pop])
 			#ln.set_color(['b']*len(similarities_pop))
@@ -188,7 +191,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 				global restarts_list_index
 				global restarts_list_len
 				global restart_gens
-				if (not restarts_list_index == restarts_list_len) and (counter_pop == (restart_gens[restarts_list_index] - no_of_epoches)):
+				if (not restarts_list_index == restarts_list_len) and (counter_pop == (restart_gens[restarts_list_index] - 0)):
 					era_value += 1
 					no_of_epoches += 1
 					restarts_list_index += 1
@@ -198,7 +201,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 				global restarts_list_for_gens
 				global restarts_list_for_gens_len
 				global no_of_epoches_gen
-				if (not restarts_list_for_gens_index == restarts_list_for_gens_len) and (counter_pop == (restarts_list_for_gens[restarts_list_for_gens_index] - no_of_epoches_gen)):
+				if (not restarts_list_for_gens_index == restarts_list_for_gens_len) and (counter_pop == (restarts_list_for_gens[restarts_list_for_gens_index] - 0)):
 					restarts_list_for_gens_index += 1
 					no_of_epoches_gen += 1
 				else:
@@ -222,7 +225,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 
 	# Set up formatting for the movie files
 	Writer = animation.writers['ffmpeg']
-	writer = Writer(fps=gps, metadata=dict(artist='Me'), bitrate=1800)
+	writer = Writer(fps=gps, metadata=dict(artist='Me'), bitrate=-1)
 	ani.save(cluster_folder_path+'/GA_over_generation.mp4', writer=writer)
 	print()
 
@@ -257,6 +260,8 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 	ln = ax.scatter([], [], s=4)
 	if isinstance(label_generation_no,list):
 		gen_text = ax.text(0.02, 0.95, '', transform=ax.transAxes)
+		global generation_no
+		generation_no = 0
 		global restarts_list_for_gens_index
 		restarts_list_for_gens_index = 0
 		global restarts_list_for_gens
@@ -310,7 +315,6 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 		ln.set_color(['b']*len(similarities_pop))
 		if label_generation_no:
 			global generation_no
-			generation_no = 0
 			gen_text.set_text('Generation: '+str(generation_no))
 		if label_no_of_epochs:
 			global era_value
@@ -339,7 +343,7 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 			global restarts_list_index
 			global restarts_list_len
 			global restart_gens
-			if (not restarts_list_index == restarts_list_len) and (counter_pop == (restart_gens[restarts_list_index] - no_of_epoches)):
+			if (not restarts_list_index == restarts_list_len) and (counter_pop == (restart_gens[restarts_list_index] - 0)):
 				era_value += 1
 				no_of_epoches += 1
 				restarts_list_index += 1
@@ -351,7 +355,7 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 			global restarts_list_for_gens
 			global restarts_list_for_gens_len
 			global no_of_epoches_gen
-			if (not restarts_list_for_gens_index == restarts_list_for_gens_len) and (counter_pop == (restarts_list_for_gens[restarts_list_for_gens_index] - no_of_epoches_gen)):
+			if (not restarts_list_for_gens_index == restarts_list_for_gens_len) and (counter_pop == (restarts_list_for_gens[restarts_list_for_gens_index] - 0)):
 				restarts_list_for_gens_index += 1
 				no_of_epoches_gen += 1
 			else:
@@ -365,6 +369,6 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 	ani = FuncAnimation(fig, update, frames=frames, init_func=init, blit=True, repeat=False)
 	# Set up formatting for the movie files
 	Writer = animation.writers['ffmpeg']
-	writer = Writer(fps=gps, metadata=dict(artist='Me'), bitrate=1800)
+	writer = Writer(fps=gps, metadata=dict(artist='Me'), bitrate=-1)
 	ani.save(cluster_folder_path+'/GA_over_generation_only_population.mp4', writer=writer)
 	print()

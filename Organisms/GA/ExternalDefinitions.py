@@ -113,6 +113,27 @@ def InclusionRadiusOfCluster(cluster):
 				max_size = distance_between_atoms
 	return max_size/2.0
 
+def InclusionboxOfCluster(cluster):
+	"""
+	Get the cell length for a cube box to place your cluster in. 
+	
+	:param cluster: The cluster that the user would like to find the maximum radius from the centre of mass.
+	:type  cluster: ASE.Atoms
+
+	:returns: max(size): The radius of the cluster from the from the centre of mass to the most outer atom from the centre of mass (in Angstroms). This radius is for a sphere that will definitely enclose the cluster within.
+	:rtype: float
+	"""
+	x_pos = []; y_pos = []; z_pos = []
+	for index1 in range(len(cluster)):
+		x_pos.append(cluster[index1].x)
+		y_pos.append(cluster[index1].y)
+		z_pos.append(cluster[index1].z)
+	x_len = max(x_pos) - min(x_pos)
+	y_len = max(y_pos) - min(y_pos)
+	z_len = max(z_pos) - min(z_pos)
+	max_len = max([x_len, y_len, z_len])
+	return max_len
+
 '''
 def Rounding_Method(number,rounding_criteria):
 	"""
