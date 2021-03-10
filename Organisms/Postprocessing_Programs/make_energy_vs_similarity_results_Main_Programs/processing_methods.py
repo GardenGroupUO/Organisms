@@ -264,9 +264,12 @@ def get_information_about_when_clusters_were_created_during_the_GA(path_to_ga_tr
 	clusters_made_each_geneneration, restart_gens = get_EnergyProfile(path_to_ga_trial)
 	# Getting data about the clusters in the population over generations
 	original_population_history = get_Pop_history(path_to_ga_trial, give_full_info=True)
-	population_history = deepcopy(original_population_history)
-	for restart_gen in sorted(restart_gens,reverse=True):
-		del population_history[restart_gen]
+	##########################################################################################
+	#population_history = deepcopy(original_population_history)
+	#for restart_gen in sorted(restart_gens,reverse=True):
+	#	del population_history[restart_gen]
+	population_history = original_population_history
+	##########################################################################################
 	# Getting data about the population over generations
 	populations_Per_generation = get_population_data(population_history,energy_and_ga_data,similarity_datum)
 	#populations_Per_generation = [population for gen, population in populations_Per_generation]
@@ -293,9 +296,9 @@ def get_information_about_when_clusters_were_created_during_the_GA(path_to_ga_tr
 	all_energies = []
 	all_generations = []
 	#print('Generations: ', end='')
-	for generation in range(len(populations_Per_generation)):
+	for index in range(len(populations_Per_generation)):
 		#print(str(generation)+', ',end='')
-		population_data = populations_Per_generation[generation]
+		generation, population_data = populations_Per_generation[index]
 		similarities = [cluster['sim'] for cluster in population_data]
 		energies = [cluster['energy'] for cluster in population_data]
 		generations = [generation for Not_Used in range(len(population_data))]

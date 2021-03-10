@@ -83,7 +83,16 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 
 	max_energy = -float('inf')
 	min_energy = float('inf')
-	for population in populations_Per_generation:
+	last_gen = -1
+	for gen_NOT_USED, population in populations_Per_generation:
+		if gen_NOT_USED == last_gen:
+			generation -= 1
+			if not ((generation in restart_gens) and (gen_NOT_USED in restart_gens)): # and (not found_epoch):
+				print('Current epoch error')
+				import pdb; pdb.set_trace()
+				exit()
+			data_plots.append(list(populations_over_an_epoch))
+			populations_over_an_epoch = []
 		data_population = []
 		for cluster in population:
 			cluster_energy = cluster['energy']
@@ -95,9 +104,7 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 				min_energy = cluster_energy
 		data_population = tuple(data_population)
 		populations_over_an_epoch.append(data_population)
-		if (generation+1 in restart_gens): # and (not found_epoch):
-			data_plots.append(list(populations_over_an_epoch))
-			populations_over_an_epoch = []
+		last_gen = gen_NOT_USED
 		generation += 1
 	data_plots.append(list(populations_over_an_epoch))
 	for index in range(1,len(data_plots)-1):

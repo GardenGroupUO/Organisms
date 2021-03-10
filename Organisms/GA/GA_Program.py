@@ -78,6 +78,8 @@ class GA_Program():
 
 		# Check lock, and if ok to run set a program lock, then
 		Lock_Check_and_Set()
+		# Add unlocking to the exitting proceedure
+		add_to_exitting_procedure()
 		# Check to make sure that all files in the folder are readable and writeable
 		check_files_for_readable_and_writable()
 		# Set up the genetic algorithm
@@ -103,6 +105,7 @@ class GA_Program():
 		print("-----------------------------")
 		print(" ")
 		finish_because_found_cluster_energy = False
+		generation_number = 0 # This is just in case you have decided for some reason to make a population but perform no genetic algorithm, likely for tests.
 		for generation_number in range(self.starting_generation,self.generations+1):
 			start_time = time()
 			check_names_1(self.population)
@@ -301,6 +304,7 @@ class GA_Program():
 		print('Finishing the Garden Group Genetic Algorithm Successfully.')
 		print("----------------------------------------------------------")
 		print("----------------------------------------------------------")
+		#exit()
 
 	#########################################################################################################################
 	#########################################################################################################################

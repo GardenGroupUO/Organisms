@@ -83,6 +83,7 @@ def get_Pop_history(path_to, give_full_info=False):
 
 def get_population_data(collection_history,energy_and_ga_data,similarity_datum):
 	collection_Per_generation = []
+	previous_gen = -1
 	for gen, col in collection_history:
 		collection = []
 		for cluster_name in col:
@@ -93,14 +94,19 @@ def get_population_data(collection_history,energy_and_ga_data,similarity_datum):
 			datum['energy'] = datum_temp['energy']
 			datum['sim'] = similarity_datum[cluster_name] 
 			collection.append(datum)
-		#collection_Per_generation.append((gen,collection))
-		collection_Per_generation.append(collection)
+		collection_Per_generation.append((gen,collection))
+		if not (previous_gen+1 == gen or previous_gen == gen):
+			exit('process get_population_data error')
+		previous_gen = gen
 	return collection_Per_generation
 
 def get_offspring_data(clusters_made_each_geneneration,energy_and_ga_data,similarity_datum):
+	previous_gen = 0
 	generation = 1
 	offspring_Per_generation = []
 	while generation < len(clusters_made_each_geneneration):
+		if not (generation in clusters_made_each_geneneration):
+			exit('Error, offspring data is missing a generation on offspring information.')
 		off = clusters_made_each_geneneration[generation]
 		offsprings = []
 		for cluster_name in off:
@@ -111,7 +117,10 @@ def get_offspring_data(clusters_made_each_geneneration,energy_and_ga_data,simila
 			datum['energy'] = datum_temp['energy']
 			datum['sim'] = similarity_datum[cluster_name] 
 			offsprings.append(datum)
-		offspring_Per_generation.append(offsprings)
+		offspring_Per_generation.append((generation,offsprings))
+		if not (previous_gen+1 == generation or previous_gen == generation):
+			exit('process get_population_data error')
+		previous_gen = generation
 		generation += 1
 	return offspring_Per_generation
 

@@ -33,10 +33,11 @@ class Epoch:
 
 		"""
 		if epoch_settings == None:
-			epoch_settings = {'epoch mode': None}
+			epoch_settings = {'epoch mode': 'Off'}
 		self.epoch_mode = epoch_settings['epoch mode']
 		# If there is no epoch
 		if self.epoch_mode in ['Off', 'off', 'None', 'none', None, False]:
+			self.epoch_mode = 'Off'
 			self.epoch_function = self.no_epoch
 			self.perform_epoch_function = self.perform_epoch_no_epoch
 			return
@@ -95,7 +96,9 @@ class Epoch:
 	# Get data for new genetic algorithm trial
 
 	def setting_up_for_new_GA(self):
-		if self.epoch_mode in ['mean energy']:
+		if self.epoch_mode in ['Off', 'off', 'None', 'none', None, False]:
+			pass
+		elif self.epoch_mode in ['mean energy']:
 			self.initialise_mean_energy_epoch_details()
 		# import data if same population epoch method was used
 		elif self.epoch_mode in ['same population']:
@@ -103,7 +106,7 @@ class Epoch:
 		else:
 			print('Error in Epoch')
 			print('You have not chosen an available epoch method')
-			print('epoch parameter "epoch mode" should be either: "None", "mean energy", or "same population"')
+			print('epoch parameter "epoch mode" should be either: "Off", "mean energy", or "same population"')
 			print("Your Epoch's 'epoch mode': "+str(self.epoch_mode))
 			print('Check this')
 			exit('This program will exit without completing')
@@ -140,6 +143,9 @@ class Epoch:
 		"""
 		This method will load the data from the epoch data on disk in order to resume.
 		"""
+		if self.epoch_mode == 'Off':
+			del self.epoch_settings
+			return 
 		# check whether to use information from the epoch data on disk or from the backup epoch data.
 		# If an epoch method was used, make sure that data is obtained from the backup file before obtaining data from the original file. 
 		if self.does_backup_exist()               and self.is_epoch_data_of_disk_complete(self.backup_epoch_data_name,self.epoch_settings):
@@ -172,7 +178,7 @@ class Epoch:
 		else:
 			print('Error in Epoch')
 			print('You have not chosen an available epoch method')
-			print('epoch parameter "epoch mode" should be either: "None", "mean energy", or "same population"')
+			print('epoch parameter "epoch mode" should be either: "Off", "mean energy", or "same population"')
 			print("Your Epoch's 'epoch mode': "+str(self.epoch_mode))
 			print('Check this')
 			exit('This program will exit without completing')
@@ -423,7 +429,7 @@ class Epoch:
 		returns If a backup of the epoch information stored on disk exists. True for yes, False for no.
 		rtype   bool.
 		"""
-		if self.epoch_mode == None:
+		if self.epoch_mode == 'Off':
 			return
 		return os.path.exists(self.path+'/'+self.epoch_data_name)
 
@@ -440,7 +446,7 @@ class Epoch:
 		returns If the epoch information from the epoch file is for the current generation. True if yes, False if no. This value is True if no epoch method is used, as we dont need to deal with any epoch information if no epoch is used. 
 		rtype   bool.
 		"""
-		if self.epoch_mode == None:
+		if self.epoch_mode == 'Off':
 			return True
 		return self.initial_generation == generation_number
 
@@ -451,7 +457,7 @@ class Epoch:
 		returns Did the epoch information come from the backup epoch file or not. True for yes, False for no. If no epoch method was used, return False, since we dont need to deal with previous epoch information if no epoch method was used.  
 		rtype   bool.
 		"""
-		if self.epoch_mode == None:
+		if self.epoch_mode == 'Off':
 			return False
 		return self.got_data_from_backup
 
@@ -459,7 +465,7 @@ class Epoch:
 		"""
 		Make a backup of the epoch data stored on disk
 		"""
-		if self.epoch_mode == None:
+		if self.epoch_mode == 'Off':
 			return
 		copyfile(self.path+'/'+self.epoch_data_name, self.path+'/'+self.backup_epoch_data_name)
 
@@ -467,7 +473,7 @@ class Epoch:
 		"""
 		Remove the backup of the epoch data stored on disk
 		"""
-		if self.epoch_mode == None:
+		if self.epoch_mode == 'Off':
 			return
 		os.remove(self.path+'/'+self.backup_epoch_data_name)
 
@@ -478,7 +484,7 @@ class Epoch:
 		returns If a backup of the epoch information stored on disk exists. True for yes, False for no.
 		rtype   bool.
 		"""
-		if self.epoch_mode == None:
+		if self.epoch_mode == 'Off':
 			return
 		return os.path.exists(self.path+'/'+self.backup_epoch_data_name)
 
@@ -486,7 +492,7 @@ class Epoch:
 		"""
 		Checks to see that a backup exists. If not, something has gone wrong and the algorithm needs to stop. 
 		"""
-		if self.epoch_mode == None:
+		if self.epoch_mode == 'Off':
 			return
 		if not os.path.exists(self.path+'/'+self.backup_epoch_data_name):
 			print('Error in def replace_with_backup, in class Epoch, in Epoch.py')
@@ -500,7 +506,7 @@ class Epoch:
 		"""
 		Replace the current epoch data with the backup epoch data.
 		"""
-		if self.epoch_mode == None:
+		if self.epoch_mode == 'Off':
 			return
 		self.check_for_backup()
 		os.remove(self.path+'/'+self.epoch_data_name)

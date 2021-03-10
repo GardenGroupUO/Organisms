@@ -158,6 +158,7 @@ def make_energy_vs_similarity_results_Main(path_to_ga_trial, rCut, clusters_to_c
 			plotting_datum = process_genetic_algorithm_data_in_memory_into_other_pieces_of_data(path_to_ga_trial, energy_and_ga_data, similarity_datum)
 			if make_epoch_plots:
 				plotting_genetic_algorithm_data_over_generations(cluster_folder_path, plotting_datum, ref_cluster_name, make_svg_files)
+			exit()
 			if get_animations_do_not_include_offspring:
 				make_animations_no_offspring(cluster_folder_path, plotting_datum, ref_cluster_name, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs)
 			if get_animations:
