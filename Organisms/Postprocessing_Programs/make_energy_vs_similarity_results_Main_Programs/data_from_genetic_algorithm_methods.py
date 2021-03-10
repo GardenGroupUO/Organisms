@@ -68,9 +68,12 @@ def get_EnergyProfile(path_to):
 def get_Pop_history(path_to, give_full_info=False):
 	path_to_Population_history = path_to+'/Population/Population_history.txt'
 	population_history = []
+	restarts = []
 	with open(path_to_Population_history,'r') as Pop_historyTXT:
 		for line in Pop_historyTXT:
-			if line.startswith('GA Iteration:'):
+			if line.startswith('# -> Reset population as reached epoch'):
+				restarts.append(generation)
+			elif line.startswith('GA Iteration:'):
 				generation = int(line.rstrip().replace('GA Iteration: ',''))
 			elif line.startswith('Clusters in Pool'):
 				clusters_in_pop = line.strip().replace('Clusters in Pool:\t','').split('\t')

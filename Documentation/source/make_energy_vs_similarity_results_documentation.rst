@@ -127,9 +127,25 @@ As well as the data files described above, this program also gives plots and mov
 
 In this folder you will find the following plots and movies (depending on the settings you gave in the ``plotting_settings`` dictionary). There are (with examples for locally optimising a LJ98 cluster using the energy predation operator, structure + energy fitness operator, and the population epoch operator where nepoch = 1): 
 
+Troubleshooting possible issues that can arise
+**********************************************
 
+Here are some of the troubleshooting issue that have occurred in the past and possible troubleshooting solution to problem:
 
+While ANALYSE CLUSTERS AND CNA PROFILES, each cluster are taking a very long time to process
+============================================================================================
 
+I have found that sometimes the **Cluster Analysed:** does not show up while the program is running for some reason. However, something to check is what is being written to **energy_and_GA_data.txt** and **CNA_Profile_data.txt** in your **Similarity_Investigation_Data** folder and keep opening it up multiple time to see if new clusters are being written to these files. 
+
+If it is taking a while for a cluster to be written, take a look at the CNA profile that are being written to **CNA_Profile_data.txt**. The CNA profiles should contains many entries of signatures, like for example:
+
+``{'CNA_profile': [Counter({(4, 3, 3): 78, (4, 2, 2): 66, (5, 5, 5): 61, (3, 2, 2): 49, (2, 1, 1): 42, (5, 4, 4): 39, (3, 1, 1): 36, (2, 0, 0): 27, (4, 2, 1): 22, (3, 0, 0): 4, (1, 0, 0): 3, (4, 1, 1): 3})], 'name': 1}``
+
+If you have entries that look more like this
+
+``{'CNA_profile': [Counter({(113, 225, 208): 4753})], 'name': 1}``
+
+This is a sign that you have set your ``rCut`` value way to high, or somewhere in your ``Run_energy_vs_similarity_script.py`` script you have accidentally changed your ``rCut`` value to a very high value. Make sure that you set ``rCut`` to a value somewhere in between the first and second nearest neighbour values (ideally to half way between these values). 
 
 
 

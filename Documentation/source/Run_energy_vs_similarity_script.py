@@ -14,8 +14,8 @@ rCut = 1.355 # Angstroms
 clusters_to_compare_against = read('LJ98_GM.xyz')
 # This is the calculator used to initially locally minimise ONLY the clusters_to_compare_against cluster 
 # just to make sure this cluster is a local minimum. 
-elements = [10]; epsilon = [1]; sigma = [1]; rCut = 1000
-calculator = LennardJones(elements, epsilon, sigma, rCut=rCut, modified=True)
+elements = [10]; epsilon = [1]; sigma = [1]; rCut_for_LJ_potential = 1000
+calculator = LennardJones(elements, epsilon, sigma, rCut=rCut_for_LJ_potential, modified=True)
 # Specify the number of cores you want to use.
 no_of_cpus = 1
 # ===========================================================================================================

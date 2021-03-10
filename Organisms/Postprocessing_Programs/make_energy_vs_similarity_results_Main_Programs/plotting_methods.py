@@ -85,7 +85,9 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 	min_energy = float('inf')
 	last_gen = -1
 	for gen_NOT_USED, population in populations_Per_generation:
+		print(gen_NOT_USED)
 		if gen_NOT_USED == last_gen:
+			import pdb; pdb.set_trace()
 			generation -= 1
 			if not ((generation in restart_gens) and (gen_NOT_USED in restart_gens)): # and (not found_epoch):
 				print('Current epoch error')
