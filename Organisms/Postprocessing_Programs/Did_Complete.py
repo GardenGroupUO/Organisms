@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 '''
 Did_Find_LES.py, Geoffrey Weal, 08/03/2019
 

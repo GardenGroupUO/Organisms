@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 '''
 Geoffrey Weal, remove_lock_files.py, 10/02/2021
 

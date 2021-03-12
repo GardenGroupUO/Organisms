@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 '''
 HasCompletedUpToGeneration.py, Geoffrey Weal, 08/03/2019
 
@@ -27,7 +27,7 @@ def get_input_int(input_message,default_input):
         import pdb; pdb.set_trace()
         exit()
     while True:
-        get_input = str(raw_input(str(input_message)+' ['+str(default_input)+']?: '))
+        get_input = str(input(str(input_message)+' ['+str(default_input)+']?: '))
         get_input.lower()
         if get_input == '':
             get_input = str(default_input)

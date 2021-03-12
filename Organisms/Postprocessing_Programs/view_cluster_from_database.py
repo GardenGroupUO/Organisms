@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 '''
 Geoffrey Weal, view_cluster_from_database.py, 10/02/2021
 

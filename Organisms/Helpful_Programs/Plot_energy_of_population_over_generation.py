@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 EnergyProfileTXT_path = 'Population/Population_history.txt'
 recorded_current_population_no = 1

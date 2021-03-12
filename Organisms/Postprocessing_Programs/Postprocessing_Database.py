@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 '''
 Postprocessing_Database.py, Geoffrey Weal, 26/9/2020
 
@@ -6,6 +6,9 @@ This program is designed to break down the database from the GA_Recording_System
 '''
 import os, sys
 import numpy as np
+from shutil import rmtree
+from math import ceil
+
 from ase.db.row import row2dct
 from ase.db import connect
 
@@ -84,7 +87,7 @@ def get_input_int(input_message,default_input):
 		import pdb; pdb.set_trace()
 		exit()
 	while True:
-		get_input = str(raw_input(str(input_message)+' ['+str(default_input)+']?: '))
+		get_input = str(input(str(input_message)+' [Default: '+str(default_input)+']?: '))
 		get_input.lower()
 		if get_input == '':
 			get_input = str(default_input)
@@ -101,7 +104,7 @@ def get_int(given_input):
 	else:
 		return int(given_input)
 
-def get_input_str(input_message,default_input):
+def get_input_str(input_message,options,default_input):
 	if not isinstance(default_input,str):
 		print('Error')
 		print('The default_input must be an str')
@@ -110,17 +113,26 @@ def get_input_str(input_message,default_input):
 		import pdb; pdb.set_trace()
 		exit()
 	while True:
-		return str(raw_input(str(input_message)+' ['+str(default_input)+']?: '))
+		to_string = str(input_message)+', [Options: '+', '.join(options)+'], [Default: '+str(default_input)+']?: '
+		get_input = str(input(to_string))
+		get_input.lower()
+		if get_input == '':
+			return str(default_input)
+		options = [option.lower() for option in options]
+		if get_input in options:
+			return str(get_input)
+		print('Error, you must input one of the following options: '+', '.join(options))
+		pritn('Try entering in an option again.')
 
 number_of_sys_argvs = len(sys.argv)
 
 if number_of_sys_argvs == 1:
-	number_of_clusters_per_database = get_input_int('How many clusters would you like in each database?',sys.maxsize)
-	sort_clusters_by = get_input_str('What parameter would you like the clusters in the database(s) sorted by? [options: '+str(sort_cluster_keys)+']','cluster_energy')
+	number_of_clusters_per_database = get_input_int('How many clusters would you like in each database?',2000)
+	sort_clusters_by = get_input_str('What parameter would you like the clusters in the database(s) sorted by?', sort_cluster_keys,'cluster_energy')
 elif number_of_sys_argvs == 2:
 	number_of_clusters_per_database = get_int(sys.argv[1])
 	print('No. of clusters in each database: '+str(number_of_clusters_per_database))
-	sort_clusters_by = get_input_str('What parameter would you like the clusters in the database(s) sorted by? [options: '+str(sort_cluster_keys)+']','cluster_energy')
+	sort_clusters_by = get_input_str('What parameter would you like the clusters in the database(s) sorted by?',sort_cluster_keys,'cluster_energy')
 elif number_of_sys_argvs == 3:
 	number_of_clusters_per_database = get_int(sys.argv[1])
 	print('No. of clusters in each database: '+str(number_of_clusters_per_database))
@@ -140,7 +152,7 @@ database_name = 'GA_Recording_Database'
 if os.path.exists(database_name+'.db'):
 	db = connect(database_name+'.db')
 else:
-	exit('Error')
+	exit('Error. You need to be inside the Recorded_Data folder than contains the '+str(database_name)+'.db database file.')
 
 for file in os.listdir(os.getcwd()):
 	if file.startswith(database_name+'_postprocessed_') and file.endswith('.db'):
@@ -148,22 +160,45 @@ for file in os.listdir(os.getcwd()):
 
 clusters_info = []
 
+print('========================================================')
+len_db = len(db)
+number_of_smaller_databases = ceil(float(len_db)/float(number_of_clusters_per_database))
+print('Rough number of smaller databases that will be created: '+str(number_of_smaller_databases))
+print('========================================================')
+print('Making sure database is all good and all the information required is included in the database.')
+print('Number of clusters to check: '+str(len_db))
+print('Clusters checked: ')
 for row in db.select():
 	if not (sort_clusters_by in row._keys):
-		exit('Error')
-	print(row.id)
+		print('Error. issue with database for the following cluster')
+		print(row)
+		exit('Program will finish without completing')
+	if row.id%10000 == 0:
+		print(row.id)
 	clusters_info.append((row.id, row.get(sort_clusters_by)))
+print('========================================================')
 
 clusters_info.sort(key=lambda x:x[1])
 
+smaller_database_folder = 'Smaller_Database_folder'
+if os.path.exists(smaller_database_folder):
+	rmtree(smaller_database_folder)
+os.mkdir(smaller_database_folder)
+print('========================================================')
+print('Making smaller databases where clusters have been ordered by '+str(sort_clusters_by))
+print('Rough number of smaller databases that will be created: '+str(number_of_smaller_databases))
 counter = 1
 database_number = 1
-db_smaller = connect(database_name+'_postprocessed_'+str(database_number)+'.db')
+small_database_name = smaller_database_folder+'/'+database_name+'_postprocessed_'+str(database_number)+'.db'
+print('Making '+str(small_database_name))
+db_smaller = connect(small_database_name)
 for cluster_id, cluster_datum in clusters_info:
 	if counter == number_of_clusters_per_database+1:
 		counter = 1
 		database_number += 1
-		db_smaller = connect(database_name+'_postprocessed_'+str(database_number)+'.db')
+		small_database_name = smaller_database_folder+'/'+database_name+'_postprocessed_'+str(database_number)+'.db'
+		print('Making '+str(small_database_name))
+		db_smaller = connect(small_database_name)
 	row = db.get(id=cluster_id)
 	cluster = row.toatoms()
 	cluster = rotate_cluster_to_major_inertia_vector(cluster)
@@ -171,6 +206,7 @@ for cluster_id, cluster_datum in clusters_info:
 	for key in row._keys:
 		cluster_data[key] = row[key]
 	db_smaller.write(cluster, key_value_pairs=cluster_data)
-	print(counter)
+	if counter%1 == 0:
+		print(counter)
 	counter += 1
-
+print('========================================================')

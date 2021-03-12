@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 EnergyProfileTXT_path = 'Population/EnergyProfile.txt'
 up_to_name = 1

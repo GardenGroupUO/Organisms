@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 '''
 Did_Find_LES.py, Geoffrey Weal, 08/03/2019
 
@@ -13,7 +13,7 @@ path = os.getcwd()
 import re
 def get_input_energy_float(input_message):
     while True:
-        get_input = str(raw_input(str(input_message)+' [No default]?: '))
+        get_input = str(input(str(input_message)+' [No default]?: '))
         if re.match(r'^-?\d+(?:\.\d+)?$', get_input) is None:
             print('Error. Your input must be an float.')
         try:
@@ -30,7 +30,7 @@ def get_input_int(input_message,default_input):
         import pdb; pdb.set_trace()
         exit()
     while True:
-        get_input = str(raw_input(str(input_message)+' ['+str(default_input)+']?: '))
+        get_input = str(input(str(input_message)+' ['+str(default_input)+']?: '))
         get_input.lower()
         if get_input == '':
             get_input = str(default_input)

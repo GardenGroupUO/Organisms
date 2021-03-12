@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 '''
 Geoffrey Weal, Run_mass_submitSL_slurm.py, 10/02/2021
 

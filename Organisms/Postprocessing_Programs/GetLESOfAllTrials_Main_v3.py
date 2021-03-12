@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 '''
 HasCompletedUpToGeneration.py, Geoffrey Weal, 08/03/2019
 

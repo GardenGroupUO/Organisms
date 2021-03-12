@@ -125,7 +125,53 @@ What plots do you get from the *make_energy_vs_similarity_results.py* program?
 
 As well as the data files described above, this program also gives plots and movie files of your genetic algorithm in a folder inside the ``Similarity_Investigation_Data`` folder called ``Ref_Cluster_NNN``, where ``NNN`` is the number given to each of your inputted reference clusters. This number is given in the order that you placed clusters in the ``clusters_to_compare_against`` list. If you only gave an ``ase.Atoms`` object, ``NNN`` will just be given as 1. 
 
-In this folder you will find the following plots and movies (depending on the settings you gave in the ``plotting_settings`` dictionary). There are (with examples for locally optimising a LJ98 cluster using the energy predation operator, structure + energy fitness operator, and the population epoch operator where nepoch = 1): 
+In this folder you will find the following plots and movies (depending on the settings you gave in the ``plotting_settings`` dictionary). There are (with examples for locally optimising a LJ98 cluster using the energy predation operator, energy fitness operator, and the population epoch operator where nepoch = 1): 
+
+if ``make_epoch_plots = True``:
+===============================
+
+You will get two types of plots that contain each individual era (between epochs) and a collection of eras together on the same place.
+
+.. image:: Images/Energy_vs_Similarity_for_each_epoch_forward_page_1.png
+  :width: 800
+  :alt: Collection of Epoches
+  :align: center
+
+
+.. image:: Images/Energy_vs_Similarity_per_individual_epoch_forward_Epoch_1.png
+  :width: 400
+  :alt: Individial Era plot Era 1
+  :align: center
+
+
+if ``get_animations = True``:
+=============================
+
+This will create a video file that shows how the clusters changed over time in the population, including the offspring that are created in orange. 
+
+
+
+.. youtube:: fAVbxiNVcNs
+  :height: 600
+  :width: 800
+  :align: center
+
+
+
+if ``get_animations_do_not_include_offspring = True``:
+======================================================
+
+This will create a video file that shows how the clusters changed over time in the population. This video only shows the change in the population over time without including offspring created in the video. 
+
+
+
+.. youtube:: SXhnnvDRIso
+  :height: 600
+  :width: 800
+  :align: center
+
+
+
 
 Troubleshooting possible issues that can arise
 **********************************************
