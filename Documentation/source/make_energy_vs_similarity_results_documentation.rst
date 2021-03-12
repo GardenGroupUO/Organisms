@@ -131,17 +131,24 @@ In this folder you will find the following plots and movies (depending on the se
 if ``make_epoch_plots = True``:
 ===============================
 
-You will get two types of plots that contain each individual era (between epochs) and a collection of eras together on the same place.
-
-.. image:: Images/Energy_vs_Similarity_for_each_epoch_forward_page_1.png
-  :width: 800
-  :alt: Collection of Epoches
-  :align: center
-
+You will get two types of plots that contain each individual era (between epochs). Some examples are given below
 
 .. image:: Images/Energy_vs_Similarity_per_individual_epoch_forward_Epoch_1.png
   :width: 400
   :alt: Individial Era plot Era 1
+  :align: center
+
+  .. image:: Images/Energy_vs_Similarity_per_individual_epoch_forward_Epoch_12.png
+  :width: 400
+  :alt: Individial Era plot Era 12
+  :align: center
+
+
+You will also get a collection of eras that are placed together on the same page so you can print them on a page together.
+
+.. image:: Images/Energy_vs_Similarity_for_each_epoch_forward_page_1.png
+  :width: 800
+  :alt: Collection of Epoches
   :align: center
 
 
@@ -154,7 +161,7 @@ This will create a video file that shows how the clusters changed over time in t
 .. raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <iframe src="https://www.youtube.com/embed/fAVbxiNVcNs" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        <iframe src="https://www.youtube.com/embed/ADua7mCCFq0" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     </div>
 
 
@@ -167,7 +174,7 @@ This will create a video file that shows how the clusters changed over time in t
 .. raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <iframe src="https://www.youtube.com/embed/SXhnnvDRIso" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        <iframe src="https://www.youtube.com/embed/BwtTYRzpQWg" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     </div>
 
 

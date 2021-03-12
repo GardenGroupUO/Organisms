@@ -74,6 +74,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	all_similarities_pop, all_energies_pop, all_generations_pop = get_similarities_and_energies_per_generation(Population_Per_generation)
 	all_similarities_off, all_energies_off, all_generations_off = get_similarities_and_energies_per_generation(Offspring_Per_generation)
 
+	global len_full
 	len_full = len(all_similarities_pop+all_similarities_off)
 	len_pop  = len(all_similarities_pop)
 	len_off  = len(all_similarities_off)
@@ -89,6 +90,10 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 		estimated_max_time = human_time_duration(estimated_max_time)
 		print('This animation will have an estimated duration (time length) of '+str(estimated_max_time))
 	print('--------------------------------------------------------------------------------')
+	# delay the end by NN seconds
+	NN = 3
+	number_of_repeated_end_frames = gps*NN-1
+	print('Number of frames added at end to make a delay of '+str(NN)+' seconds: '+str(number_of_repeated_end_frames))
 
 	global counter_pop
 	counter_pop = 0
@@ -188,7 +193,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 			similarities_pop = past_population_similarities
 			energies_pop = past_population_energies
 
-		if looking_at_population_only:
+		elif looking_at_population_only:
 			ln.set_offsets(np.c_[similarities_pop, energies_pop])
 			#ln.set_color(['b']*len(similarities_pop))
 			global restarts_list_index
@@ -213,9 +218,13 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 			ln.set_color(['b']*len(similarities_pop)+['orange']*len(similarities_off))
 			counter_off += 1
 			looking_at_population_only = True
+		global len_full
+		if frame >= len_full-1:
+			looking_at_population_only = True
+			counter_pop -= 1
 		return ln,
 
-	frames = range(len(all_similarities_pop+all_similarities_off))
+	frames = range(len(all_similarities_pop+all_similarities_off)+number_of_repeated_end_frames)
 	print('Frame ', end='')
 	ani = FuncAnimation(fig, update, frames=frames, init_func=init, blit=True, repeat=False)
 
@@ -229,6 +238,7 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 	"""An animated scatter plot using matplotlib.animations.FuncAnimation."""
 	all_similarities_pop, all_energies_pop, all_generations_pop = get_similarities_and_energies_per_generation(Population_Per_generation)
 
+	global len_pop
 	len_pop  = len(all_similarities_pop)
 	print('--------------------------------------------------------------------------------')
 	print('Obtaining animation of genetic algorithm with only the population.')
@@ -241,6 +251,10 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 		estimated_max_time = human_time_duration(estimated_max_time)
 		print('This animation will have an estimated duration (time length) of '+str(estimated_max_time))
 	print('--------------------------------------------------------------------------------')
+	# delay the end by NN seconds
+	NN = 3
+	number_of_repeated_end_frames = gps*NN-1
+	print('Number of frames added at end to make a delay of '+str(NN)+' seconds: '+str(number_of_repeated_end_frames))
 
 	global counter_pop
 	counter_pop = 0
@@ -343,10 +357,13 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 				no_of_epoches += 1
 				restarts_list_index += 1
 		counter_pop += 1
+		global len_pop
+		if frame >= len_pop-1:
+			counter_pop -= 1
 		#sample_text2.set_text('test 2: update')
 		return ln,
 
-	frames = range(len(all_similarities_pop))
+	frames = range(len(all_similarities_pop)+number_of_repeated_end_frames)
 	print('Frame ', end='')
 	ani = FuncAnimation(fig, update, frames=frames, init_func=init, blit=True, repeat=False)
 	# Set up formatting for the movie files
