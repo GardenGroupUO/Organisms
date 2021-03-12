@@ -173,11 +173,13 @@ try:
     from source.youtube_video import Youtube
     youtube_method_imported_successfully = True
 except:
-    from Documentation.source.youtube_video import Youtube
+    #from youtube_video import Youtube
+    extensions.append('sphinxcontrib.yt')
     youtube_method_imported_successfully = True
 def setup(app):
     app.add_css_file('my_theme.css')
-    directives.register_directive('youtube', Youtube)
+    if youtube_method_imported_successfully
+        directives.register_directive('youtube', Youtube)
     #app.add_stylesheet('my_theme.css')
     #app.connect('autodoc-process-docstring', process_docstring)
     #from sphinx.highlighting import lexers
