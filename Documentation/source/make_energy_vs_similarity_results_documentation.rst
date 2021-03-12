@@ -133,10 +133,12 @@ if ``make_epoch_plots = True``:
 
 You will get two types of plots that contain each individual era (between epochs). Some examples are given below
 
+
 .. image:: Images/Energy_vs_Similarity_per_individual_epoch_forward_Epoch_1.png
   :width: 400
   :alt: Individial Era plot Era 1
   :align: center
+
 
   .. image:: Images/Energy_vs_Similarity_per_individual_epoch_forward_Epoch_12.png
   :width: 400
@@ -145,6 +147,7 @@ You will get two types of plots that contain each individual era (between epochs
 
 
 You will also get a collection of eras that are placed together on the same page so you can print them on a page together.
+
 
 .. image:: Images/Energy_vs_Similarity_for_each_epoch_forward_page_1.png
   :width: 800
