@@ -174,7 +174,7 @@ try:
     youtube_method_imported_successfully = True
 except:
     #from youtube_video import Youtube
-    extensions.append('sphinxcontrib.yt')
+    extensions.append('sphinxcontrib.youtube')
     youtube_method_imported_successfully = True
 def setup(app):
     app.add_css_file('my_theme.css')
