@@ -77,6 +77,7 @@ There are several variables required that determine how data from the genetic al
 * **make_epoch_plots** (*bool*): This plots the genetic algorithm over generations, as well as making plots over generations that are divided into era between epoches. Default = ``False``. 
 * **get_animations** (*bool*): This will make a movie file of your energy vs similarity plots as they were made over generations if you set this to ``True``. The offspring are included in this video. If you dont want these videos, set this to ``False``. Default = ``False``. 
 * **get_animations_do_not_include_offspring** (*bool*): This will make a movie file of your energy vs similarity plots as they were made over generations if you set this to ``True``. The offspring are not included in this video. If you dont want these videos, set this to ``False``. Default = ``False``. 
+* **energy_units** (*str.*): This variable allows you to give a custom unit for the energy the energy of your clusters are recorded in a units that is not eV. For example, if you are perfomring these plots on Lennard-Jones clusters, you may want to set this value to ``'LJ energy units'``. Default: ``'eV'`` 
 * **make_svg_files**  (*bool*): If this is set to ``True``, this program will make svg files of plots that are created. These svg files allow the plots to be customised using programs like inkscape. If this is set to ``False``, svg files of plots will not be created. Note that png files of plots are always created by this progrom no matter what you choose this setting to be. Default = ``False``. 
 
 You can also set the animation variables in the ``plotting_settings`` dictionary. You only need to set either **gps** or **max_time** in this dictionary. 
@@ -85,7 +86,6 @@ You can also set the animation variables in the ``plotting_settings`` dictionary
 * **max_time** (*float*): This is the maximum amount of time that your animations will run for. Default = ``None``. 
 * **label_generation_no** (*bool*): If ``label_generation_no`` is set to ``True``, the number of generations that have past will be shown. Default = ``False``.  
 * **label_no_of_epochs** (*bool*): If ``label_no_of_epochs`` is set to ``True``, the era value and the number of epoches that have occur will be labelled in your animation. Default = ``False``.  
-* **energy_units** (*str.*): This variable allows you to give a custom unit for the energy the energy of your clusters are recorded in a units that is not eV. For example, if you are perfomring these plots on Lennard-Jones clusters, you may want to set this value to ``'LJ energy units'``. Default: ``'eV'`` 
 
 **IMPORTANT NOTE**: In you give a value for ``max_time`` that is not ``None``, this program will make sure that your movies only run for at most this amount of time. If you do not give a value for ``max_time``, it will be set to ``None`` by default, which will tell the program to take your value of ``gps`` for the equivalent of the frames per second that the movie will run at. 
 
@@ -96,7 +96,7 @@ An example of these parameters in Run.py is given below:
 	:tab-width: 4
 	:linenos:
 	:lineno-start: 23
-	:lines: 23-47
+	:lines: 23-49
 
 3) Running the *make_energy_vs_similarity_results.py* program
 =============================================================
@@ -107,8 +107,8 @@ You have got to the end of all the parameter setting stuff. Now you can run the 
 	:language: python
 	:tab-width: 4
 	:linenos:
-	:lineno-start: 49
-	:lines: 49-52
+	:lineno-start: 51
+	:lines: 51-54
 
 Data files that are made during this program
 ********************************************

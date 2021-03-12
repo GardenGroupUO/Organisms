@@ -32,6 +32,8 @@ get_animations = True
 # This setting will create a video that shows only the energies and similarities of clusters in the population over generation. 
 # This setting requires process_over_generations = True to be used.
 get_animations_do_not_include_offspring = True
+# You can customise the unit that you give for the energy scale. For example, if you are wanting to obtain energy vs similarity plots for Lennard-Jones clusters, you may want to set this to 'LJ energy units'
+energy_units = 'LJ energy units'
 # This setting will indicate if you want to make svg files along with the png files that are made during this program
 make_svg_files = False
 # This is the number of generations that will be shown per second (gps) in your animation (if you choose to make animations of your genetic algorithm run.)
@@ -43,7 +45,7 @@ label_generation_no = True
 # You can include a label in your animations that will count the number of times an epoch occurs, i.e. will indicate the era value during the genetic algorithm
 label_no_of_epochs = True
 # place all these settings into the plotting_settings dictionary. 
-plotting_settings = {'make_epoch_plots': make_epoch_plots, 'get_animations': get_animations, 'get_animations_do_not_include_offspring': get_animations_do_not_include_offspring, 'make_svg_files': make_svg_files, 'gps': gps, 'max_time': max_time, 'label_generation_no': label_generation_no, 'label_no_of_epochs': label_no_of_epochs}
+plotting_settings = {'make_epoch_plots': make_epoch_plots, 'get_animations': get_animations, 'get_animations_do_not_include_offspring': get_animations_do_not_include_offspring, 'energy_units': energy_units, 'make_svg_files': make_svg_files, 'gps': gps, 'max_time': max_time, 'label_generation_no': label_generation_no, 'label_no_of_epochs': label_no_of_epochs}
 # ===========================================================================================================
 
 # ===========================================================================================================
