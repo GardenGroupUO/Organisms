@@ -69,7 +69,7 @@ def get_estimated_max_time(fps,len_full):
 	estimated_max_time = float(len_full)/float(fps)
 	return estimated_max_time
 
-def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False, keep_past_population=False):
+def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False, energy_units='eV', keep_past_population=False):
 	"""An animated scatter plot using matplotlib.animations.FuncAnimation."""
 	all_similarities_pop, all_energies_pop, all_generations_pop = get_similarities_and_energies_per_generation(Population_Per_generation)
 	all_similarities_off, all_energies_off, all_generations_off = get_similarities_and_energies_per_generation(Offspring_Per_generation)
@@ -142,7 +142,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 		ax.set_xlim(-1, 101)
 		ax.set_ylim(all_min_energy, all_max_energy)
 		ax.set_xlabel('Similarity (%)')
-		ax.set_ylabel('Energy (eV)')
+		ax.set_ylabel('Energy ('+str(energy_units)+')')
 		if keep_past_population:
 			global past_population_similarities
 			global past_population_energies
@@ -225,7 +225,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	ani.save(cluster_folder_path+'/GA_over_generation.mp4', writer=writer)
 	print()
 
-def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False, keep_past_population=False):
+def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False, energy_units='eV', keep_past_population=False):
 	"""An animated scatter plot using matplotlib.animations.FuncAnimation."""
 	all_similarities_pop, all_energies_pop, all_generations_pop = get_similarities_and_energies_per_generation(Population_Per_generation)
 
@@ -292,7 +292,7 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 		ax.set_xlim(-1, 101)
 		ax.set_ylim(all_min_energy, all_max_energy)
 		ax.set_xlabel('Similarity (%)')
-		ax.set_ylabel('Energy (eV)')
+		ax.set_ylabel('Energy ('+str(energy_units)+')')
 		if keep_past_population:
 			global past_population_similarities
 			global past_population_energies

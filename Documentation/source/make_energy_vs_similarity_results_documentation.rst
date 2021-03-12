@@ -85,6 +85,7 @@ You can also set the animation variables in the ``plotting_settings`` dictionary
 * **max_time** (*float*): This is the maximum amount of time that your animations will run for. Default = ``None``. 
 * **label_generation_no** (*bool*): If ``label_generation_no`` is set to ``True``, the number of generations that have past will be shown. Default = ``False``.  
 * **label_no_of_epochs** (*bool*): If ``label_no_of_epochs`` is set to ``True``, the era value and the number of epoches that have occur will be labelled in your animation. Default = ``False``.  
+* **energy_units** (*str.*): This variable allows you to give a custom unit for the energy the energy of your clusters are recorded in a units that is not eV. For example, if you are perfomring these plots on Lennard-Jones clusters, you may want to set this value to ``'LJ energy units'``. Default: ``'eV'`` 
 
 **IMPORTANT NOTE**: In you give a value for ``max_time`` that is not ``None``, this program will make sure that your movies only run for at most this amount of time. If you do not give a value for ``max_time``, it will be set to ``None`` by default, which will tell the program to take your value of ``gps`` for the equivalent of the frames per second that the movie will run at. 
 

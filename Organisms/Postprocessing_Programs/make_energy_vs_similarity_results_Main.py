@@ -75,22 +75,22 @@ def process_genetic_algorithm_data_in_memory_into_other_pieces_of_data(path_to_g
 # ------------------------------------------------------------------------------------------------------------------------- %
 # Plotting Data
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.plotting_methods import make_energy_vs_similatity_plot_without_generations
-def plotting_genetic_algorithm_data(cluster_folder_path, energy_and_ga_data, similarity_datum, name_cluster, make_svg_files):
+def plotting_genetic_algorithm_data(cluster_folder_path, energy_and_ga_data, similarity_datum, name_cluster, make_svg_files, energy_units='eV'):
 	print('-----------------------------------------------------------------------------------------------------------')
 	print('Make energy vs similarity plots that do not involve generations')
-	make_energy_vs_similatity_plot_without_generations(cluster_folder_path, energy_and_ga_data, similarity_datum, name_cluster, make_svg_files)
+	make_energy_vs_similatity_plot_without_generations(cluster_folder_path, energy_and_ga_data, similarity_datum, name_cluster, make_svg_files, energy_units=energy_units)
 	print('-----------------------------------------------------------------------------------------------------------')
 
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.plotting_methods import get_plots_for_each_epoch
-def plotting_genetic_algorithm_data_over_generations(cluster_folder_path, plotting_datum, name_cluster, make_svg_files):
+def plotting_genetic_algorithm_data_over_generations(cluster_folder_path, plotting_datum, name_cluster, make_svg_files, energy_units='eV'):
 	print('-----------------------------------------------------------------------------------------------------------')
 	print('Make energy vs similarity plots that do involve generations. These include separate epoch plots.')
 	all_similarities, all_energies, all_generations, populations_Per_generation, offspring_Per_generation, restart_gens, between_restart_gens, runs_between_epochs = plotting_datum
-	get_plots_for_each_epoch(populations_Per_generation, restart_gens, cluster_folder_path, 'plotting_data_cluster_'+str(name_cluster), make_svg_files)
+	get_plots_for_each_epoch(populations_Per_generation, restart_gens, cluster_folder_path, 'plotting_data_cluster_'+str(name_cluster), make_svg_files, energy_units=energy_units)
 	print('-----------------------------------------------------------------------------------------------------------')
 
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.plotting_methods import perform_animations
-def make_animations(cluster_folder_path, plotting_datum, name_cluster, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False):
+def make_animations(cluster_folder_path, plotting_datum, name_cluster, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False, energy_units='eV'):
 	print('-----------------------------------------------------------------------------------------------------------')
 	print('Making animated energy vs similarity plots of the population and offspring over generations')
 	all_similarities, all_energies, all_generations, populations_Per_generation, offspring_Per_generation, restart_gens, between_restart_gens, runs_between_epochs = plotting_datum
@@ -98,11 +98,11 @@ def make_animations(cluster_folder_path, plotting_datum, name_cluster, gps=1, ma
 		label_generation_no = restart_gens
 	if label_no_of_epochs:
 		label_no_of_epochs = restart_gens
-	perform_animations(populations_Per_generation, offspring_Per_generation, cluster_folder_path, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs)
+	perform_animations(populations_Per_generation, offspring_Per_generation, cluster_folder_path, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs, energy_units=energy_units)
 	print('-----------------------------------------------------------------------------------------------------------')
 
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.plotting_methods import perform_animations_no_offspring
-def make_animations_no_offspring(cluster_folder_path, plotting_datum, name_cluster, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False):
+def make_animations_no_offspring(cluster_folder_path, plotting_datum, name_cluster, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False, energy_units='eV'):
 	print('-----------------------------------------------------------------------------------------------------------')
 	print('Making animated energy vs similarity plots of the population over generations. Offspring are not included in this animation')
 	all_similarities, all_energies, all_generations, populations_Per_generation, offspring_Per_generation, restart_gens, between_restart_gens, runs_between_epochs = plotting_datum
@@ -110,7 +110,7 @@ def make_animations_no_offspring(cluster_folder_path, plotting_datum, name_clust
 		label_generation_no = restart_gens
 	if label_no_of_epochs:
 		label_no_of_epochs = restart_gens
-	perform_animations_no_offspring(populations_Per_generation, cluster_folder_path, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs)
+	perform_animations_no_offspring(populations_Per_generation, cluster_folder_path, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs, energy_units=energy_units)
 	print('-----------------------------------------------------------------------------------------------------------')
 
 # ------------------------------------------------------------------------------------------------------------------------- %
@@ -128,13 +128,15 @@ def get_plotting_settings(plotting_settings):
 	max_time = get_setting(plotting_settings,'max_time',None)
 	label_generation_no = get_setting(plotting_settings,'label_generation_no',False)
 	label_no_of_epochs = get_setting(plotting_settings,'label_no_of_epochs',False)
-	return make_epoch_plots, get_animations, get_animations_do_not_include_offspring, make_svg_files, gps, max_time, label_generation_no, label_no_of_epochs
+	label_no_of_epochs = get_setting(plotting_settings,'label_no_of_epochs',False)
+	energy_units = get_setting(plotting_settings,'energy_units','eV')
+	return make_epoch_plots, get_animations, get_animations_do_not_include_offspring, make_svg_files, gps, max_time, label_generation_no, label_no_of_epochs, energy_units
 
 # ------------------------------------------------------------------------------------------------------------------------- %
 # Processing the data
 def make_energy_vs_similarity_results_Main(path_to_ga_trial, rCut, clusters_to_compare_against, calculator=None, no_of_cpus=1, plotting_settings={}):
 	# Get the plotting setting for this program
-	make_epoch_plots, get_animations, get_animations_do_not_include_offspring, make_svg_files, gps, max_time, label_generation_no, label_no_of_epochs = get_plotting_settings(plotting_settings)
+	make_epoch_plots, get_animations, get_animations_do_not_include_offspring, make_svg_files, gps, max_time, label_generation_no, label_no_of_epochs, energy_units = get_plotting_settings(plotting_settings)
 	# make similarity folder to place data into
 	folder_path = path_to_ga_trial+'/Similarity_Investigation_Data'
 	make_dir(folder_path)
@@ -153,12 +155,12 @@ def make_energy_vs_similarity_results_Main(path_to_ga_trial, rCut, clusters_to_c
 		similarity_datum = similarity_data[index]
 		cluster_folder_path = path_to_ga_trial+'/Similarity_Investigation_Data/Ref_Cluster_'+str(ref_cluster_name)
 		make_dir(cluster_folder_path)
-		plotting_genetic_algorithm_data(cluster_folder_path, energy_and_ga_data, similarity_datum, ref_cluster_name, make_svg_files)
+		plotting_genetic_algorithm_data(cluster_folder_path, energy_and_ga_data, similarity_datum, ref_cluster_name, make_svg_files, energy_units=energy_units)
 		if any([make_epoch_plots,get_animations,get_animations_do_not_include_offspring]):
 			plotting_datum = process_genetic_algorithm_data_in_memory_into_other_pieces_of_data(path_to_ga_trial, energy_and_ga_data, similarity_datum)
 			if make_epoch_plots:
-				plotting_genetic_algorithm_data_over_generations(cluster_folder_path, plotting_datum, ref_cluster_name, make_svg_files)
+				plotting_genetic_algorithm_data_over_generations(cluster_folder_path, plotting_datum, ref_cluster_name, make_svg_files, energy_units=energy_units)
 			if get_animations_do_not_include_offspring:
-				make_animations_no_offspring(cluster_folder_path, plotting_datum, ref_cluster_name, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs)
+				make_animations_no_offspring(cluster_folder_path, plotting_datum, ref_cluster_name, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs, energy_units=energy_units)
 			if get_animations:
-				make_animations(cluster_folder_path, plotting_datum, ref_cluster_name, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs)
+				make_animations(cluster_folder_path, plotting_datum, ref_cluster_name, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs, energy_units=energy_units)

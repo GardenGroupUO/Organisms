@@ -25,7 +25,7 @@ def get_energy_limits(all_energies):
 	all_min_energy -= energy_lim_offset
 	return all_max_energy, all_min_energy
 
-def make_energy_vs_similatity_plot_without_generations(folder_path, energy_and_ga_data, similarity_datum, name_cluster, make_svg_files):
+def make_energy_vs_similatity_plot_without_generations(folder_path, energy_and_ga_data, similarity_datum, name_cluster, make_svg_files, energy_units='eV'):
 	print('========================= MAKING ENERGY VS SIMILARITY PLOT WITHOUT GENERATION ============================')
 	similarities = []
 	energies = []
@@ -37,7 +37,7 @@ def make_energy_vs_similatity_plot_without_generations(folder_path, energy_and_g
 	plt.scatter(similarities,energies,s=2)
 	plt.xlabel('Similarity (%)')
 	plt.xlim(-1,101)
-	plt.ylabel('Energy (eV)')
+	plt.ylabel('Energy ('+str(energy_units)+')')
 	all_max_energy, all_min_energy = get_energy_limits([energies])
 	plt.ylim((all_min_energy, all_max_energy))
 	plt.savefig(folder_path+'/energy_vs_sim_ref_cluster_'+str(name_cluster)+'.png')
@@ -49,7 +49,7 @@ def make_energy_vs_similatity_plot_without_generations(folder_path, energy_and_g
 	plt.scatter(similarities,energies,s=2,)
 	plt.xlabel('Similarity (%)')
 	plt.xlim(-1,101)
-	plt.ylabel('Energy (eV)')
+	plt.ylabel('Energy ('+str(energy_units)+')')
 	all_max_energy, all_min_energy = get_energy_limits([energies])
 	plt.ylim((all_min_energy, all_max_energy))
 	plt.savefig(folder_path+'/energy_vs_sim_with_colour_ref_cluster_'+str(name_cluster)+'.png')
@@ -58,7 +58,7 @@ def make_energy_vs_similatity_plot_without_generations(folder_path, energy_and_g
 	plt.clf()
 	print('==========================================================================================================')
 
-def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, folder_name, make_svg_files):
+def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, folder_name, make_svg_files, energy_units='eV'):
 	'''
 	print('-------------------------------------------------------------------')
 	print('Making population plots per epoch')
@@ -130,7 +130,7 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 	#print(energy_diff)
 	#print(energy_point)
 
-	def making_plots(data_plots, Per_epoch_folder_path, reverse=False, make_svg_files=False):
+	def making_plots(data_plots, Per_epoch_folder_path, reverse=False, make_svg_files=False, energy_units='eV'):
 		if os.path.exists(Per_epoch_folder_path):
 			shutil.rmtree(Per_epoch_folder_path)
 		os.makedirs(Per_epoch_folder_path)
@@ -175,7 +175,7 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 				axs[plots_length_no, plots_width_no].set_aspect(1.0*abs(101.0--1.0)/abs(float(max_energy) - float(min_energy)))
 				axs[plots_length_no, plots_width_no].text(6.0, energy_point, 'Epoch '+str(data_plot_counter) , fontsize=16)
 				if plots_width_no == 0:
-					axs[plots_length_no, plots_width_no].set_ylabel('Energy (eV)')
+					axs[plots_length_no, plots_width_no].set_ylabel('Energy ('+str(energy_units)+')')
 				else:
 					axs[plots_length_no, plots_width_no].set_yticklabels(['']*len(axs[plots_length_no, plots_width_no].get_yticklabels()))
 				if plots_length_no+1 == no_of_plots_length:
@@ -190,7 +190,7 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 				axs[plots_width_no].set_aspect(1.0*abs(101.0--1.0)/abs(float(max_energy) - float(min_energy)))
 				axs[plots_width_no].text(6.0, energy_point, 'Epoch '+str(data_plot_counter) , fontsize=16)
 				if plots_width_no == 0:
-					axs[plots_width_no].set_ylabel('Energy (eV)')
+					axs[plots_width_no].set_ylabel('Energy ('+str(energy_units)+')')
 				else:
 					axs[plots_width_no].set_yticklabels(['']*len(axs[plots_width_no].get_yticklabels()))
 				if plots_length_no+1 == no_of_plots_length:
@@ -221,7 +221,7 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 					axs[plots_length_no, plots_width_no].set_xlim((-1,101))
 					axs[plots_length_no, plots_width_no].set_aspect(1.0*abs(101.0--1.0)/abs(float(max_energy) - float(min_energy)))
 					if plots_width_no == 0:
-						axs[plots_length_no, plots_width_no].set_ylabel('Energy (eV)')
+						axs[plots_length_no, plots_width_no].set_ylabel('Energy ('+str(energy_units)+')')
 					else:
 						axs[plots_length_no, plots_width_no].set_yticklabels(['']*len(axs[plots_length_no, plots_width_no].get_yticklabels()))
 					if plots_length_no+1 == no_of_plots_length:
@@ -235,7 +235,7 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 					axs[plots_width_no].set_xlim((-1,101))
 					axs[plots_width_no].set_aspect(1.0*abs(101.0--1.0)/abs(float(max_energy) - float(min_energy)))
 					if plots_width_no == 0:
-						axs[plots_width_no].set_ylabel('Energy (eV)')
+						axs[plots_width_no].set_ylabel('Energy ('+str(energy_units)+')') 
 					else:
 						axs[plots_width_no].set_yticklabels(['']*len(axs[plots_width_no].get_yticklabels()))
 					if plots_length_no+1 == no_of_plots_length:
@@ -252,7 +252,7 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 		print('Making population plots per epoch')
 		print('-------------------------------------------------------------------')
 
-	def make_individual_plots(data_plots, Per_epoch_folder_path_individual, reverse=False, save_data=False, make_svg_files=False):
+	def make_individual_plots(data_plots, Per_epoch_folder_path_individual, reverse=False, save_data=False, make_svg_files=False, energy_units='eV'):
 		if os.path.exists(Per_epoch_folder_path_individual):
 			shutil.rmtree(Per_epoch_folder_path_individual)
 		os.makedirs(Per_epoch_folder_path_individual)
@@ -291,7 +291,7 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 			plt.xlim((-1,101))
 			plt.gca().set_aspect(1.0*abs(101.0--1.0)/abs(float(max_energy) - float(min_energy)), adjustable='box')
 			#plt.text(6.0, energy_point, 'Epoch '+str(data_plot_counter) , fontsize=16)
-			plt.ylabel('Energy (eV)')
+			plt.ylabel('Energy ('+str(energy_units)+')')
 			plt.xlabel('Similarity (%)')
 			plt.tight_layout()
 			plt.savefig(Per_epoch_folder_path_individual+'/Energy_vs_Similarity_per_individual_epoch_'+str(plotting_direction)+'_Epoch_'+str(epoch_no+1)+'.png')
@@ -313,27 +313,27 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 
 	#import pdb; pdb.set_trace()
 	Per_epoch_folder_path = path+'/'+folder_name+'/'+'energy_per_similarity_for_each_epoch'
-	making_plots(data_plots, Per_epoch_folder_path, reverse=False, make_svg_files=make_svg_files)
+	making_plots(data_plots, Per_epoch_folder_path, reverse=False, make_svg_files=make_svg_files, energy_units=energy_units)
 
 	Per_epoch_folder_path = path+'/'+folder_name+'/'+'energy_per_similarity_for_each_epoch_reversed'
-	making_plots(data_plots, Per_epoch_folder_path, reverse=True, make_svg_files=make_svg_files)
+	making_plots(data_plots, Per_epoch_folder_path, reverse=True, make_svg_files=make_svg_files, energy_units=energy_units)
 
 	Per_epoch_folder_path_individual = path+'/'+folder_name+'/'+'energy_per_similarity_for_each_epoch_individual_plots'
-	make_individual_plots(data_plots, Per_epoch_folder_path_individual, reverse=False, save_data=True, make_svg_files=make_svg_files)
+	make_individual_plots(data_plots, Per_epoch_folder_path_individual, reverse=False, save_data=True, make_svg_files=make_svg_files, energy_units=energy_units)
 
 	Per_epoch_folder_path_individual = path+'/'+folder_name+'/'+'energy_per_similarity_for_each_epoch_individual_plots_reversed'
-	make_individual_plots(data_plots, Per_epoch_folder_path_individual, reverse=True, make_svg_files=make_svg_files)
+	make_individual_plots(data_plots, Per_epoch_folder_path_individual, reverse=True, make_svg_files=make_svg_files, energy_units=energy_units)
 
 
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.Animation import AnimatedScatter
-def perform_animations(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False):
+def perform_animations(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False, energy_units='eV'):
 	print('============================== MAKING PLOTTING ANIMATIONS ================================================')
-	AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs)
+	AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster_folder_path, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs, energy_units=energy_units)
 	print('==========================================================================================================')
 
 
 from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main_Programs.Animation import AnimatedScatter_no_offspring
-def perform_animations_no_offspring(Population_Per_generation, cluster_folder_path, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False):
+def perform_animations_no_offspring(Population_Per_generation, cluster_folder_path, gps=1, max_time=None, label_generation_no=False, label_no_of_epochs=False, energy_units='eV'):
 	print('============================== MAKING PLOTTING ANIMATIONS ================================================')
-	AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs)
+	AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path, gps=gps, max_time=max_time, label_generation_no=label_generation_no, label_no_of_epochs=label_no_of_epochs, energy_units=energy_units)
 	print('==========================================================================================================')
