@@ -150,12 +150,11 @@ if ``get_animations = True``:
 This will create a video file that shows how the clusters changed over time in the population, including the offspring that are created in orange. 
 
 
+.. raw:: html
 
-.. youtube:: fAVbxiNVcNs
-  :height: 600
-  :width: 800
-  :align: center
-
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe src="https://www.youtube.com/embed/fAVbxiNVcNs" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
 
 
 if ``get_animations_do_not_include_offspring = True``:
@@ -164,13 +163,11 @@ if ``get_animations_do_not_include_offspring = True``:
 This will create a video file that shows how the clusters changed over time in the population. This video only shows the change in the population over time without including offspring created in the video. 
 
 
+.. raw:: html
 
-.. youtube:: SXhnnvDRIso
-  :height: 600
-  :width: 800
-  :align: center
-
-
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe src="https://www.youtube.com/embed/SXhnnvDRIso" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
 
 
 Troubleshooting possible issues that can arise

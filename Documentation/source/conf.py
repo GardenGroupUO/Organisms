@@ -168,18 +168,18 @@ def process_docstring(app, what, name, obj, options, lines):
         ll.append(spaces_pat.sub("    ",l))
     lines[:] = ll
 
-try:
-    from docutils.parsers.rst import directives
-    from source.youtube_video import Youtube
-    youtube_method_imported_successfully = True
-except:
-    #from youtube_video import Youtube
-    extensions.append('sphinxcontrib.youtube')
-    youtube_method_imported_successfully = True
+#try:
+#    from docutils.parsers.rst import directives
+#    from source.youtube_video import Youtube
+#    youtube_method_imported_successfully = True
+#except:
+#    #from youtube_video import Youtube
+#    extensions.append('sphinxcontrib.youtube')
+#    youtube_method_imported_successfully = True
 def setup(app):
     app.add_css_file('my_theme.css')
-    if youtube_method_imported_successfully:
-        directives.register_directive('youtube', Youtube)
+    #if youtube_method_imported_successfully:
+    #    directives.register_directive('youtube', Youtube)
     #app.add_stylesheet('my_theme.css')
     #app.connect('autodoc-process-docstring', process_docstring)
     #from sphinx.highlighting import lexers
