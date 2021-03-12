@@ -189,6 +189,3 @@ If you have entries that look more like this
 ``{'CNA_profile': [Counter({(113, 225, 208): 4753})], 'name': 1}``
 
 This is a sign that you have set your ``rCut`` value way to high, or somewhere in your ``Run_energy_vs_similarity_script.py`` script you have accidentally changed your ``rCut`` value to a very high value. Make sure that you set ``rCut`` to a value somewhere in between the first and second nearest neighbour values (ideally to half way between these values). 
-
-
-
