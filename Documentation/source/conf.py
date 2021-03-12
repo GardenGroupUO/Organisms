@@ -169,7 +169,10 @@ def process_docstring(app, what, name, obj, options, lines):
     lines[:] = ll
 
 from docutils.parsers.rst import directives
-from source.youtube_video import Youtube
+try:
+    from source.youtube_video import Youtube
+except:
+    from youtube_video import Youtube
 def setup(app):
     app.add_css_file('my_theme.css')
     directives.register_directive('youtube', Youtube)
