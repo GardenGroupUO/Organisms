@@ -178,7 +178,7 @@ except:
     youtube_method_imported_successfully = True
 def setup(app):
     app.add_css_file('my_theme.css')
-    if youtube_method_imported_successfully
+    if youtube_method_imported_successfully:
         directives.register_directive('youtube', Youtube)
     #app.add_stylesheet('my_theme.css')
     #app.connect('autodoc-process-docstring', process_docstring)
