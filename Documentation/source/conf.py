@@ -168,11 +168,13 @@ def process_docstring(app, what, name, obj, options, lines):
         ll.append(spaces_pat.sub("    ",l))
     lines[:] = ll
 
-from docutils.parsers.rst import directives
 try:
+    from docutils.parsers.rst import directives
     from source.youtube_video import Youtube
+    youtube_method_imported_successfully = True
 except:
-    from youtube_video import Youtube
+    from Documentation.source.youtube_video import Youtube
+    youtube_method_imported_successfully = True
 def setup(app):
     app.add_css_file('my_theme.css')
     directives.register_directive('youtube', Youtube)
