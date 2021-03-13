@@ -49,7 +49,12 @@ class Similarity_Profile:
 		elif name_1 > name_2:
 			self.name_1 = name_2; self.name_2 = name_1; 
 		else:
-			exit('Error')
+			print('Error in setting up Similarity_Profile')
+			print('The names of the clusters you have given are the same')
+			print('name_1: '+str(name_1))
+			print('name_2: '+str(name_2))
+			print('Check this out')
+			exit('This program will finish without completing.')
 		self.similarity_profile = similarity_profile
 		self.get_results()
 

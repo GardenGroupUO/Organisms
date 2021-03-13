@@ -505,7 +505,7 @@ class Collection:
 			if self.check_clusters_in_database(cluster_dict, clusters_in_resumed_population, clusters_in_resumed_population_energies, decimal_place):
 				self.add_clusters_into_RAM(cluster_dict, clusters_in_resumed_population)
 			else:
-				print('Error')
+				print('Error with loading into ram in Collection.py')
 				import pdb; pdb.set_trace()
 		# If the backup database exists, will gather all clusters from the backup, since this likely means that the last generation did not complete. 
 		# Otherwise, will get clusters from the current database.

@@ -391,8 +391,25 @@ def convert_to_bytes(size):
 	elif data_size_type == 'TB':
 		data_size *= (1024.0 ** 4)
 	else:
-		exit('Error')
+		print('Error in convert_to_bytes in GA_Recording_System.py')
+		print('size is too big, or incorrect input given')
+		pritn(data_size_type)
+		print('Check this out')
+		exit('This program will finish without completing.')
 	return data_size
+
+ga_recording_scheme_options = ['All', 'Limit_energy_height', 'Set_higher_limit', 'Set_energy_limits', 'None', None]
+def check_ga_recording_scheme_input(ga_recording_scheme):
+	if not ga_recording_scheme in ga_recording_scheme_options:
+		print('========================================================================================')
+		print('Error in setting up the GA_Recording_System.')
+		print('You have entered an invalid scheme for the GA_Recording_System')
+		print('The possible scheme you could use are: '+str(ga_recording_scheme_options[:-1]))
+		print('You have enter for the scheme: '+str(ga_recording_scheme))
+		print('Check your input for "ga_recording_scheme" in the ga_recording_information dictionary.')
+		print('This program will finish without completing.')
+		print('========================================================================================')
+		exit()
 
 class GA_Recording_System:
 	"""
@@ -411,6 +428,9 @@ class GA_Recording_System:
 		if self.ga_recording_information['ga_recording_scheme'] in ['None', 'none', None]:
 			self.ga_recording_information = {'ga_recording_scheme': 'None'}
 		self.ga_recording_scheme = self._get_parameter('ga_recording_scheme',if_not_given_response='None')
+		if self.ga_recording_scheme == None:
+			self.ga_recording_scheme = 'None'
+		check_ga_recording_scheme_input(self.ga_recording_scheme)
 		# Determine the name of this recording instance. THis is the name of the folder clusters will be recorded into.
 		self.ga_recording_system_name = 'Recorded_Data'
 		self.path_to_write_to = os.getcwd()+'/'+self.ga_recording_system_name
@@ -461,7 +481,11 @@ class GA_Recording_System:
 		elif self.ga_recording_scheme == 'None':
 			pass
 		else:
-			exit('Error')
+			print('Error in __init__ in class GA_Recording_System, in GA_Recording_System.py')
+			print("You have given an invalid GA recording scheme into your ga_recording_information['ga_recording_scheme'] dictionary")
+			print('Your input: '+str(self.ga_recording_scheme))
+			print('Check this out.')
+			exit('This prgram will finish without completing.')
 		####################################################################################################
 		# make recording system folder
 		if not self.ga_recording_scheme == 'None':

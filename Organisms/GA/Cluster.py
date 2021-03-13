@@ -31,6 +31,7 @@ def import_surface(surface):
 	elif surface == None:
 		surface = None
 	else:
+		print('Surface error in Cluster')
 		exit('Error')
 	for index in range(len(surface)):
 		surface[index].type = 'surface'
