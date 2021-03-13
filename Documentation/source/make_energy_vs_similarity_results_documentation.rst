@@ -135,13 +135,13 @@ You will get two types of plots that contain each individual era (between epochs
 
 
 .. image:: Images/Energy_vs_Similarity_per_individual_epoch_forward_Epoch_1.png
-  :width: 400
+  :width: 200
   :alt: Individial Era plot Era 1
   :align: center
 
 
   .. image:: Images/Energy_vs_Similarity_per_individual_epoch_forward_Epoch_12.png
-  :width: 400
+  :width: 200
   :alt: Individial Era plot Era 12
   :align: center
 
