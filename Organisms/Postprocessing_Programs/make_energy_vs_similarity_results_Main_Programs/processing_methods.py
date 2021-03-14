@@ -1,5 +1,3 @@
-import os, sys, shutil
-from copy import deepcopy
 from collections import Counter
 
 # ------------------------------------------------------------------------------------------------------------------------- %
@@ -200,7 +198,13 @@ def check_similarity_data_in_file(similarity_data_filename):
 						break
 					if next_cluster_line_counter%5000 == 0:
 						print(str(next_cluster_line_counter)+', ', end='')
-					similarity = float(similarity)
+					if not isinstance(similarity,float):
+						print('Error in check_similarity_data_in_file in processing_methods.py')
+						print('A similarity is not given as a float in '+str(similarity_data_filename))
+						print('Cluster name: '+str(name))
+						print('Similarity: 'str(similarity))
+						print('Check this out.')
+						exit('This program will finish without completing.')
 					next_cluster_line_counter += 1
 				except:
 					break

@@ -128,7 +128,6 @@ def get_plotting_settings(plotting_settings):
 	max_time = get_setting(plotting_settings,'max_time',None)
 	label_generation_no = get_setting(plotting_settings,'label_generation_no',False)
 	label_no_of_epochs = get_setting(plotting_settings,'label_no_of_epochs',False)
-	label_no_of_epochs = get_setting(plotting_settings,'label_no_of_epochs',False)
 	energy_units = get_setting(plotting_settings,'energy_units','eV')
 	return make_epoch_plots, get_animations, get_animations_do_not_include_offspring, make_svg_files, gps, max_time, label_generation_no, label_no_of_epochs, energy_units
 

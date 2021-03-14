@@ -107,7 +107,7 @@ class GA_Program():
 		finish_because_found_cluster_energy = False
 		generation_number = 0 # This is just in case you have decided for some reason to make a population but perform no genetic algorithm, likely for tests.
 		for generation_number in range(self.starting_generation,self.generations+1):
-			start_time = time()
+			#start_time = time()
 			check_names_1(self.population)
 			#if if_to_finish_because_found_cluster_energy(self):
 			#	finish_because_found_cluster_energy = True

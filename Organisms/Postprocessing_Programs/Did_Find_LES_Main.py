@@ -94,8 +94,8 @@ class has_all_trials_found_LES:
                 toString += '******************************************************************************\n'
                 #with open(dirpath+'/DidFind_LESOfTrials.txt','w') as LESOfTrials:
                 #    LESOfTrials.write(toString)
-                name = dirpath.replace(path+'/','')
-                name = name.replace('/','_')
+                #name = dirpath.replace(path+'/','')
+                #name = name.replace('/','_')
                 #with open(path+'/'+ name+'_DidFind_LESOfTrials.txt','w') as LESOfTrials:
                 #    LESOfTrials.write(toString)
                 dirnames[:] = []
@@ -131,7 +131,7 @@ class has_all_trials_found_LES:
                             got_to_trial = True
                             to_string = 'Error: You have found the message "Finished prematurely as LES energy found." in your energyprofile.txt, but you didnt locate the cluster energy you entered. Check that the energy you put in is the energy of the LES, and run this program again. This error occurred for dirpath: '+str(filepath)
                             raise Exception(to_string)
-                            break
+                            #break
                         clu_dir, gen, energy = line.rstrip().split()
                         clu_dir = int(clu_dir); gen = int(gen)
                         if gen == 0:

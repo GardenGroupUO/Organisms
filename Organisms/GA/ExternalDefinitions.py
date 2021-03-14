@@ -166,18 +166,6 @@ def get_elemental_makeup(cluster):
 	"""
 	elements = Counter(cluster.get_chemical_symbols())
 	return elements
-	'''
-	if len(cluster) == 0:
-		return [['',0]]
-	elements = {}
-	for atom in cluster:
-		if atom.symbol not in elements:
-			elements[atom.symbol] = 1
-		else:
-			elements[atom.symbol] += 1
-	#elements = sorted([[element,number] for element,number in elements.iteritems()], key=lambda x:x[0], reverse=False)
-	return elements
-	'''
 
 def isinstance_of_dict(dictionary,name_of_dictionary):
 	if not isinstance(dictionary,dict):

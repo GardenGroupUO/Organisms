@@ -17,6 +17,7 @@ from time import time
 
 from Organisms.GA.ExternalDefinitions import InclusionRadiusOfCluster
 
+test_Atoms = Atoms()
 def import_surface(surface):
 	"""
 	This method is designed to import the surface into the genetic algorithm
@@ -25,7 +26,7 @@ def import_surface(surface):
 	:type  surface: str/ASE.Atoms.
 	"""
 	if isinstance(surface, test_Atoms):
-		surface = surface
+		pass
 	elif isinstance(surface, str):
 		surface = ase_read(surface)
 	elif surface == None:

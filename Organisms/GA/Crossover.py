@@ -53,7 +53,7 @@ class Crossover:
 			self.half_index = self.half_index_half_method()
 			self.mating_method = self.Cut_and_Splice_Devon_and_Ho
 		elif "CAS_custom_" in self.crossover_type:
-			self.half_index = self.half_index_custom_method()
+			self.half_index = self.half_index_custom_method(self.crossover_type)
 			self.mating_method = self.Cut_and_Splice_Devon_and_Ho
 		else:
 			print("Error in def mating in class MatingProcedure, in MatingProcedure.py: No Mating method selected")
@@ -404,7 +404,7 @@ class Crossover:
 		:returns: The atom number in the cluster to cut the atom.
 		:rtype: int
 		"""
-		percentage = cross_type.replace('custom_','')
+		percentage = cross_type.replace('CAS_custom_','')
 		try:
 			percentage = float(percentage)
 		except ValueError:

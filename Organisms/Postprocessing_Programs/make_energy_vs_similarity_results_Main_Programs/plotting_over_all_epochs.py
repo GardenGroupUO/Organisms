@@ -18,14 +18,14 @@ def process_data(data_path,gm_min_XYZ,cluster_type,calculator,rCuts,energy_of_gl
 	if not os.path.exists(data_path+'/'+folder_name):
 		exit('Error')
 
-	LJ_dataTXT = data_path+'/'+str(folder_name)+'/population_results_'+str(cluster_type)+'.txt'
-	databaseDB = data_path+'/'+str(folder_name)+'/Recorded_Data/GA_Recording_Database.db'
+	#LJ_dataTXT = data_path+'/'+str(folder_name)+'/population_results_'+str(cluster_type)+'.txt'
+	#databaseDB = data_path+'/'+str(folder_name)+'/Recorded_Data/GA_Recording_Database.db'
 
 	LJ_gm_cluster = read(gm_min_XYZ)
 	LJ_gm_cluster = minimise(LJ_gm_cluster,calculator)
-	tetrahedral_energy = LJ_gm_cluster.get_potential_energy()
+	#tetrahedral_energy = LJ_gm_cluster.get_potential_energy()
 	#rCuts = get_rCuts()
-	LJ_gm_cluster_CNA_profile = get_CNA_profile(LJ_gm_cluster, rCuts)
+	#LJ_gm_cluster_CNA_profile = get_CNA_profile(LJ_gm_cluster, rCuts)
 
 	# ---------------------------------------------------------------------------- %
 	#from ase.db import connect
@@ -164,7 +164,7 @@ def process_data(data_path,gm_min_XYZ,cluster_type,calculator,rCuts,energy_of_gl
 	# ------------------------------------------------------------------------------------------ #
 	
 	n_pop = len(populations_Per_generation[0])
-	n_off = len(offspring_Per_generation[0])
+	#n_off = len(offspring_Per_generation[0])
 	restart_points = [0] + [n_pop*(gen) for gen in restart_gens] + [len(all_energies)]
 	max_restart_length = 0
 	for index in range(len(restart_points)-1):
@@ -194,7 +194,7 @@ def process_data(data_path,gm_min_XYZ,cluster_type,calculator,rCuts,energy_of_gl
 	# ------------------------------------------------------------------------------------------ #
 
 	n_pop = len(populations_Per_generation[0])
-	n_off = len(offspring_Per_generation[0])
+	#n_off = len(offspring_Per_generation[0])
 	color_range = cm.rainbow(np.linspace(1, 0.1, len(restart_points),endpoint=True))
 	colors_to_use = []
 	counter = 0

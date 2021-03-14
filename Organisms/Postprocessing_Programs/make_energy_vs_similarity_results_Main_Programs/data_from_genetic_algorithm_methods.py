@@ -1,5 +1,3 @@
-import os, sys, io
-from copy import deepcopy
 from Organisms.GA.SCM_Scripts.T_SCM_Methods import get_CNA_profile, get_CNA_similarities
 
 # ------------------------------------------------------------------------------------------------------------------------- %
@@ -30,7 +28,7 @@ def minimise(cluster,calculator):
 
 def minimise_cluster(cluster_to_compare_against,calculator=None):
 	# get the CNA prfile of the cluster to compare against
-	if not calculator == None:
+	if not calculator is None:
 		cluster_to_compare_against = minimise(cluster_to_compare_against,calculator)
 	return cluster_to_compare_against
 

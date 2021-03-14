@@ -558,7 +558,7 @@ class GA_Recording_System:
 		:type  offspring_to_remove: list of int
 		"""
 		if self.exclude_recording_cluster_screened_by_diversity_scheme:
-			offspring_to_remove = offspring_to_remove
+			pass #offspring_to_remove = offspring_to_remove
 		else:
 			offspring_to_remove = []
 		if self.ga_recording_scheme in ['All','Limit_energy_height','Set_higher_limit','Set_energy_limits']:

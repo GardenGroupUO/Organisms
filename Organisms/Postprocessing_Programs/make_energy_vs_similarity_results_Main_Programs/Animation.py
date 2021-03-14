@@ -1,10 +1,9 @@
-import time
 import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
 from math import ceil
 from matplotlib.animation import FuncAnimation
-from matplotlib import animation, rc
+from matplotlib import animation#, rc
 #animation.rcParams['animation.writer'] = 'ffmpeg'
 plt.rcParams['animation.writer'] = 'ffmpeg'
 from matplotlib.lines import Line2D
@@ -81,7 +80,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	print('--------------------------------------------------------------------------------')
 	print('Obtaining animation of genetic algorithm that shows the population and offspring.')
 	print('Total number of frames: '+str(len_full)+'; Number of population frames (no of generations): '+str(len_pop)+'; Number of offspring frames (should also be no of generations): '+str(len_off))
-	if not max_time == None:
+	if not max_time is None:
 		gps = ceil(float(len_full)/(max_time*60.0))
 		print('The program will restrict the animation of the genetic algorithm to '+str(max_time)+' minutes (gps = '+str(gps)+').')
 	else:
@@ -243,7 +242,7 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 	print('--------------------------------------------------------------------------------')
 	print('Obtaining animation of genetic algorithm with only the population.')
 	print('Number of population frames (no of generations): '+str(len_pop))
-	if not max_time == None:
+	if not max_time is None:
 		gps = ceil(float(len_pop)/(max_time*60.0))
 		print('The program will restrict the animation of the genetic algorithm to '+str(max_time)+' minutes (gps = '+str(gps)+').')
 	else:

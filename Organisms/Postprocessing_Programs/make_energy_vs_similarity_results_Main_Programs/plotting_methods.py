@@ -259,12 +259,12 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 		print('-------------------------------------------------------------------')
 		print('Making Individual Plots')
 		plotting_direction = 'forward' if not reverse else 'reversed'
-		pages = 0
-		plots_length_no = 0
-		plots_width_no = 0
+		#pages = 0
+		#plots_length_no = 0
+		#plots_width_no = 0
 		#for data_plot_counter in range(len(data_plots)):
 		#	populations = data_plots[data_plot_counter]
-		data_plot_counter = 1
+		#data_plot_counter = 1
 		for epoch_no in range(len(data_plots)):
 			print('Making plot for epoch '+str(epoch_no+1))
 			populations = data_plots[epoch_no]
@@ -285,7 +285,7 @@ def get_plots_for_each_epoch(populations_Per_generation, restart_gens, path, fol
 				energies = energies[::-1]
 				colors_for_scatterplot = colors_for_scatterplot[::-1]
 
-			fig = plt.figure(figsize=(4.0,4.0), dpi=300)
+			plt.figure(figsize=(4.0,4.0), dpi=300)
 			plt.scatter(similarities, energies, c=colors_for_scatterplot, s=1)
 			plt.ylim((min_energy, max_energy))
 			plt.xlim((-1,101))
