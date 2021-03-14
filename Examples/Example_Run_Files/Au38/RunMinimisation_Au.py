@@ -16,7 +16,7 @@ Other outputs: Trajectory file.
 import sys
 import time
 from asap3.Internal.BuiltinPotentials import Gupta
-from ase.optimize import BFGS, FIRE
+from ase.optimize import FIRE
 
 def Minimisation_Function(cluster,collection,cluster_name):
 	#######################################################################################

@@ -4,7 +4,6 @@ Recording_Clusters.py, 02/10/2018, Geoffrey R Weal
 '''
 import sys
 from math import pi
-import numpy as np
 
 from Organisms.GA.Collection import Collection
 from Organisms.GA.GA_Program_external_methods import update_progress
@@ -54,7 +53,7 @@ class GA_Recording_Database(Collection):
 		elif self.ga_recording_scheme == 'None':
 			exit('Error, should not create a GA_Recording_Database if self.ga_recording_scheme == None')
 		# Get the settings for if self.size or self.limit_datasize_of_database is not equal to none
-		if (max_no_of_recorded_structures == None) or (self.limit_datasize_of_database == None):
+		if (max_no_of_recorded_structures is None) or (self.limit_datasize_of_database is None):
 			self.write_initial_cluster_in_RAM = True
 			self.write_cluster_in_RAM = True
 		# Show the GA recording database check percentage
@@ -217,11 +216,11 @@ class GA_Recording_Database(Collection):
 				if (self.lower_energy_limit < cluster.energy < self.upper_energy_limit) and (not cluster.name in clusters_not_to_include):
 					self.add(-1,cluster)
 		# get rid of all the highest energy clusters that can not fit into the database
-		if (not self.size == None) and (len(self) > self.size):
+		if (not self.size is None) and (len(self) > self.size):
 			self.sort_by_energy()
 			while len(self) > self.size: # of if size is greater than current size 
 				del self[-1] 
-		if (not self.limit_datasize_of_database == None) and (os.stat(self.database_path).st_size > self.limit_datasize_of_database):
+		if (not self.limit_datasize_of_database is None) and (os.stat(self.database_path).st_size > self.limit_datasize_of_database):
 			self.sort_by_energy()
 			while os.stat(self.database_path).st_size > self.limit_datasize_of_database: # of if size is greater than current size
 				del self[-1]
@@ -241,22 +240,22 @@ class GA_Recording_Database(Collection):
 		if self.ga_recording_scheme == 'All':
 			with connect(self.database_path) as database:
 				for name in clusters_in_the_population:
-					row = database.update(name,ever_in_population=True)
+					database.update(name,ever_in_population=True) #row = 
 		elif self.ga_recording_scheme == 'Limit_energy_height': 
 			with connect(self.database_path) as database:
 				for name in clusters_in_the_population:
 					if name in names_of_clusters_in_database(database):
-						row = database.update(name,ever_in_population=True)
+						database.update(name,ever_in_population=True) #row = 
 		elif self.ga_recording_scheme == 'Set_higher_limit': 
 			with connect(self.database_path) as database:
 				for name, energy in zip(clusters_in_the_population,energies_of_clusters_removed_from_the_population):
 					if energy <= self.upper_energy_limit:
-						row = database.update(name,ever_in_population=True)
+						database.update(name,ever_in_population=True) #row = 
 		elif self.ga_recording_scheme == 'Set_energy_limits': 
 			with connect(self.database_path) as database:
 				for name, energy in zip(clusters_in_the_population,energies_of_clusters_removed_from_the_population):
 					if self.lower_energy_limit <= energy <= self.upper_energy_limit:
-						row = database.update(name,ever_in_population=True)
+						database.update(name,ever_in_population=True) #row = 
 						
 	# -----------------------------------------------------------------------------------------------------
 	# Methods for restoring the ga_recording_database from a particular generation. 
@@ -343,7 +342,6 @@ class GA_Recording_Database(Collection):
 # ----------------------------------------------------------------------------------------------------------------------------
 
 import os, sys
-from shutil import rmtree, copytree, copyfile
 from ase.db import connect
 
 def get_size(size):
@@ -421,14 +419,14 @@ class GA_Recording_System:
 	def __init__(self,ga_recording_information):
 		####################################################################################################
 		# determine the type of ga_recording_scheme to use, and the other settings associated to each ga_recording_scheme.
-		if ga_recording_information == None or ga_recording_information == {}:
+		if ga_recording_information is None or ga_recording_information == {}:
 			self.ga_recording_information = {'ga_recording_scheme': 'None'}
 		else:
 			self.ga_recording_information = ga_recording_information
 		if self.ga_recording_information['ga_recording_scheme'] in ['None', 'none', None]:
 			self.ga_recording_information = {'ga_recording_scheme': 'None'}
 		self.ga_recording_scheme = self._get_parameter('ga_recording_scheme',if_not_given_response='None')
-		if self.ga_recording_scheme == None:
+		if self.ga_recording_scheme is None:
 			self.ga_recording_scheme = 'None'
 		check_ga_recording_scheme_input(self.ga_recording_scheme)
 		# Determine the name of this recording instance. THis is the name of the folder clusters will be recorded into.
@@ -439,7 +437,7 @@ class GA_Recording_System:
 		self.exclude_recording_cluster_screened_by_diversity_scheme = self._get_parameter('exclude_recording_cluster_screened_by_diversity_scheme',if_not_given_response=True)
 		self.limit_number_of_clusters_recorded = self._get_parameter('limit_number_of_clusters_recorded',if_not_given_response='None') # determine the maximum number of clusters to record
 		self.limit_size_of_database = self._get_parameter('limit_size_of_database',if_not_given_response='None')
-		if not self.limit_size_of_database == None:
+		if not self.limit_size_of_database is None:
 			self.limit_size_of_database = convert_to_bytes(self.limit_size_of_database)
 		self.show_GA_Recording_Database_check_percentage = self._get_parameter('show_GA_Recording_Database_check_percentage',if_not_given_response=False)
 		####################################################################################################
@@ -537,7 +535,7 @@ class GA_Recording_System:
 				if value == 'inf':
 					value = float('inf') 
 				return value
-		if if_not_given_response == None:
+		if if_not_given_response is None:
 			print('Error in class Recording_Clusters, in Recording_Clusters.py')
 			print('The variable "'+str(parameter)+'" was not entered into Recording_Clusters')
 			print('Check this')

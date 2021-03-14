@@ -32,7 +32,7 @@ class Epoch:
 		:type  epoch_settings: dict.
 
 		"""
-		if epoch_settings == None:
+		if epoch_settings is None:
 			epoch_settings = {'epoch mode': 'Off'}
 		self.epoch_mode = epoch_settings['epoch mode']
 		# If there is no epoch
@@ -86,7 +86,7 @@ class Epoch:
 					self.fitness_information_temp = {'Fitness Operator': 'Energy', 'fitness_function': epoch_settings['energy_fitness_function']} #'fitness_function': fitness_operator.fitness_information['energy_fitness_function']}
 				else:
 					exit('fitness_operator switch error')
-				predation_information = {'Predation Operator': 'Off'}
+				#predation_information = {'Predation Operator': 'Off'}
 				self.fitness_operator_temp = get_fitness_operator(self.fitness_information_temp, None, population, None, 1, False)
 		else:
 			self.first_epoch_to_change_fitness_function = False

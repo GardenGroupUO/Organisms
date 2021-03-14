@@ -1,14 +1,9 @@
 import os 
 from numpy import zeros
-from shutil import copyfile, rmtree
-from ase.io import read as ase_read
-from ase.io import write as ase_write
 from ase.db import connect
-from ase.visualize import view
 
 from statistics import mean
 from multiprocessing import Process
-import multiprocessing as mp
 
 from Organisms.GA.Cluster import Cluster
 from Organisms.GA.EnergyProfile import tail, remove_end_lines_from_text

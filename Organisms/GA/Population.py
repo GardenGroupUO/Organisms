@@ -307,8 +307,8 @@ class Population(Collection):
 		print('Clusters in this population: '+str(self.name))
 		highest_energy = -float('inf')
 		lowest_energy = float('inf')
-		index_highest_energy = -1.1
-		index_lowest_energy = -1.1
+		#index_highest_energy = -1.1
+		#index_lowest_energy = -1.1
 		print('Sorted by position in the population')
 		for index in range(len(self)):
 			if 'fitness' in self[index].__dict__.keys():

@@ -6,7 +6,6 @@ the similarity_profile for different values of rCut, the average and the result 
 based on the result from Geoff's Thesis
 
 '''
-import sys
 
 def get_comparison(percentage_similarities):
 	'''

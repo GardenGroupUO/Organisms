@@ -1,5 +1,5 @@
 import copy
-from random import randrange, uniform, randint, random
+from random import randrange, uniform, randint #, random
 from collections import Counter
 
 from Organisms.GA.Cluster import Cluster
@@ -95,7 +95,7 @@ def randomMutate(boxtoplaceinlength,vacuumAdd,cluster_makeup=None,cluster_to_mut
 
 	"""
 	# Prepare the method for performing a fully ramdomly generated cluster
-	if not cluster_makeup == None and (cluster_to_mutate == None or percentage_of_cluster_to_randomise == None):
+	if not cluster_makeup is None and (cluster_to_mutate is None or percentage_of_cluster_to_randomise is None):
 		#Turn cluster_makeup into a chemical formula string
 		cluster_chemical_formula = '' 
 		for element, no_of_element in cluster_makeup.items():
@@ -103,14 +103,14 @@ def randomMutate(boxtoplaceinlength,vacuumAdd,cluster_makeup=None,cluster_to_mut
 		# set up the cluster for randomizing
 		mutant = Cluster(cluster_chemical_formula); nAtoms = len(mutant); atoms_to_randomise = range(nAtoms) # randomise all atoms in the cluster.
 	# preparing this method for only randomly changing the position of only a percentage (of atoms) of a cluster.
-	elif cluster_makeup == None and not (cluster_to_mutate == None or percentage_of_cluster_to_randomise == None):
+	elif cluster_makeup is None and not (cluster_to_mutate is None or percentage_of_cluster_to_randomise is None):
 		mutant = copy.deepcopy(cluster_to_mutate); nAtoms = len(mutant)
 		# The following will pick random atoms in the cluster to randomise
 		no_of_atoms_to_randomise = int(ceil(float(nAtoms)*(float(percentage_of_cluster_to_randomise)/100.0)))
 		all_atoms_in_cluster = range(nAtoms); atoms_to_randomise = []
 		for NOTUSED in range(no_of_atoms_to_randomise):
 			index_to_randomise = randint(0,len(all_atoms_in_cluster))-1
-			atoms_to_randomise.append(all_atoms_in_cluster.pop(index))
+			atoms_to_randomise.append(all_atoms_in_cluster.pop(index_to_randomise))
 	else: # Error.
 		print('Error in MutationProcedure: def randomMutate.')
 		print('cluster_makeup = ' + str(cluster_makeup))
@@ -148,7 +148,7 @@ def randomMutate(boxtoplaceinlength,vacuumAdd,cluster_makeup=None,cluster_to_mut
 	mutant.center(vacuum=vacuumAdd) # centre the cluster within this unit cell
 	# return the mutant cluster.
 	#print('cluster_makeup: '+str(cluster_makeup)+'; cluster_to_mutate: '+str(cluster_to_mutate))
-	if cluster_makeup == None: 
+	if cluster_makeup is None: 
 		if not len(mutant) == len(cluster_to_mutate):
 			print('Error in def randomMutate, in Types_Of_Mutations.py')
 			print('The offspring contains '+str(len(mutant))+' atoms, but should contain '+str(len(cluster_to_mutate)))
@@ -156,7 +156,7 @@ def randomMutate(boxtoplaceinlength,vacuumAdd,cluster_makeup=None,cluster_to_mut
 			import pdb; pdb.set_trace()
 			print('This program will finish without completing')
 			exit()
-	elif cluster_to_mutate == None:
+	elif cluster_to_mutate is None:
 		number_of_atoms = sum(Counter(cluster_makeup).values())
 		#print('Atoms in mutant: '+str(len(mutant))+'; number_of_atoms = '+str(number_of_atoms))
 		#import pdb; pdb.set_trace()

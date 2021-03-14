@@ -1,4 +1,4 @@
-from Organisms import GA_Program
+#from Organisms import GA_Program
 
 # This details the elemental and number of atom composition of cluster that the user would like to investigate
 cluster_makeup = {"Cu": 37}

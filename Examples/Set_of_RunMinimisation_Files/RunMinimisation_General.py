@@ -1,7 +1,4 @@
 import time
-from copy import deepcopy
-from asap3.Internal.BuiltinPotentials import Gupta
-from ase.optimize import FIRE
 from subprocess import Popen
 
 def Minimisation_Function(cluster,collection,cluster_name):

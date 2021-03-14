@@ -9,7 +9,7 @@ import numpy as np
 from shutil import rmtree
 from math import ceil
 
-from ase.db.row import row2dct
+#from ase.db.row import row2dct
 from ase.db import connect
 
 def get_distance(atom1,atom2):

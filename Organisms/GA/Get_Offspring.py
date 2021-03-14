@@ -115,28 +115,28 @@ def Create_An_Offspring(input_data):
 				print('exception',file=sys.stderr)
 				print('Will Try to run the local optimisation process again',file=sys.stderr)
 				try_statement_counter += 1
-			if try_statement_counter == 10:
-				print('The above error has occurred 10 times.',file=sys.stderr)
+			if try_statement_counter == 20:
+				print('The above error has occurred 20 times.',file=sys.stderr)
 				print('Will make a new offspring and discard this one',file=sys.stderr)
 				break
 		#sys.stdout = stdout
 		#if print_details:
 		#	opt_information['output.txt'] = output.getvalue()
 		#######################################################################################
-		if not try_statement_counter == 10:
-			#minimisation_end_time = time()
+		#exploded_start_time = time()
+		did_explode = Exploded(Opt_offspring,max_distance_between_atoms=r_ij)
+		#exploded_end_time = time()
+		if did_explode: # make sure the randomised cluster has not split up when optimised.
+			toString += "Cluster exploded. Will disregard this cluster and try mating or mutation method again"+'\n'
+			no_of_explosions += 1
+		elif not converged:
+			toString += "Cluster did not converge. Will disregard this cluster and try mating or mutation method again"+'\n'
+			no_of_not_converged += 1
+		else:
 			break
-			#exploded_start_time = time()
-			did_explode = Exploded(Opt_offspring,max_distance_between_atoms=r_ij)
-			#exploded_end_time = time()
-			if did_explode: # make sure the randomised cluster has not split up when optimised.
-				toString += "Cluster exploded. Will disregard this cluster and try mating or mutation method again"+'\n'
-				no_of_explosions += 1
-			elif not converged:
-				toString += "Cluster did not converge. Will disregard this cluster and try mating or mutation method again"+'\n'
-				no_of_not_converged += 1
-			else:
-				break
+		# if this happens too much, don't break the algorithm just take it as it is and move on
+		if not (no_of_explosions+no_of_not_converged) == 20:
+			break
 	# Add the cluster to the list of offspring from this list
 	#extra1_start = time()
 	Opt_offspring.verify_cluster(cluster_name,generation_number,vacuum_to_add_length,rounding_criteria)

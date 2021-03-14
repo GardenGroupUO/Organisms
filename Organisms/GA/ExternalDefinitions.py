@@ -6,8 +6,6 @@ This python script is designed to hold subsidery definitions used by this Geneti
 """
 
 from ase import Atom, Atoms
-import copy, os
-import collections
 
 class atom_single_connection:
 	"""

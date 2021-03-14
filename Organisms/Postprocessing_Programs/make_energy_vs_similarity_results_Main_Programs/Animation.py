@@ -106,7 +106,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 	legend_elements  = [Line2D([0], [0], marker='o', color="white", label='Pop',markerfacecolor='b', markersize=4)]
 	legend_elements += [Line2D([0], [0], marker='o', color="white", label='Off',markerfacecolor='orange', markersize=4)]
 	ax.legend(handles=legend_elements, loc='upper right', framealpha=0.3)
-	xdata, ydata = [], []
+	#xdata, ydata = [], []
 	#ln, = plt.plot([], [], 'bo' , marker=".", markersize=2)
 	ln = ax.scatter([], [], s=4)
 
@@ -192,7 +192,7 @@ def AnimatedScatter(Population_Per_generation, Offspring_Per_generation, cluster
 			similarities_pop = past_population_similarities
 			energies_pop = past_population_energies
 
-		elif looking_at_population_only:
+		if looking_at_population_only:
 			ln.set_offsets(np.c_[similarities_pop, energies_pop])
 			#ln.set_color(['b']*len(similarities_pop))
 			global restarts_list_index
@@ -264,7 +264,7 @@ def AnimatedScatter_no_offspring(Population_Per_generation, cluster_folder_path,
 	fig, ax = plt.subplots()
 	legend_elements  = [Line2D([0], [0], marker='o', color="white", label='Pop',markerfacecolor='b', markersize=4)]
 	ax.legend(handles=legend_elements, loc='upper right', framealpha=0.3)
-	xdata, ydata = [], []
+	#xdata, ydata = [], []
 	#ln, = plt.plot([], [], 'bo' , marker=".", markersize=2)
 	ln = ax.scatter([], [], s=4)
 	#sample_text1 = ax.text(0.5, 0.5, '', transform=ax.transAxes)

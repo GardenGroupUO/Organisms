@@ -13,12 +13,11 @@ Required to outputs: AfterOpt.traj, INFO.txt
 Other outputs: Trajectory file.
  
 '''
-import sys
-import time
+import sys, time
 from ase.data import atomic_numbers
 #from ase.calculators.lj import LennardJones
 from asap3.Internal.BuiltinPotentials import LennardJones
-from ase.optimize import BFGS, FIRE
+from ase.optimize import FIRE
 
 def Minimisation_Function(cluster,collection,cluster_dir):
 	cluster.pbc = False

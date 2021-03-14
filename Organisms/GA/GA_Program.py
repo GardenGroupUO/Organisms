@@ -1,4 +1,4 @@
-import os, sys
+import os
 from time import time
 
 from Organisms.GA.GA_Setup import GA_Setup
@@ -9,7 +9,7 @@ from Organisms.GA.Lock import Lock_Check_and_Set #, Lock_Remove
 
 from Organisms.GA.Get_Offspring import Create_An_Offspring
 
-from io import StringIO
+#from io import StringIO
 import multiprocessing as mp
 from Organisms.GA.exitting_procedure import add_to_exitting_procedure
 
@@ -112,7 +112,10 @@ class GA_Program():
 			#if if_to_finish_because_found_cluster_energy(self):
 			#	finish_because_found_cluster_energy = True
 			#	break
-			#Create all backup files before the generation begins
+			# -------------------------------------------------------------------------------------------------
+			# Create all backup files before the generation begins
+			# Make a backup of the population before offspring are added to the population.
+			# This has been added just in case there is a system crash, and the Organisms program needs to be restarted. 
 			self.population.backup_files()
 			self.epoch.backup()
 			# -------------------------------------------------------------------------------------------------
@@ -179,14 +182,12 @@ class GA_Program():
 			fitness_timer_2_end = time()
 			##############################################################################
 			############################# NATURAL SELECTION ##############################
-			# Make a backup of the population before offspring are added to the population.
-			# This has been added just in case there is a system crash, and the Organisms program needs to be restarted. 
-			natural_selection_timer_start = time()
 			# Perform the natural selection proceedure.
+			#natural_selection_timer_start = time()
 			clusters_removed_from_the_population = self.natural_selection(self.offspring_pool,generation_number)
 			# clear the offspring_pool
 			cleaned_offspring_names = self.offspring_pool.clean()
-			natural_selection_timer_end = time()
+			#natural_selection_timer_end = time()
 			# Add data to the population history about the clusters in the population after this generation and their energies. 
 			self.population.add_to_history_file(generation_number)
 			##############################################################################
