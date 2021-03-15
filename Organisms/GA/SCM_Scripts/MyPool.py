@@ -1,7 +1,7 @@
 # We must import this explicitly, it is not imported by the top-level
 # multiprocessing module.
 import multiprocessing
-#import multiprocessing.pool
+import multiprocessing.pool
 
 class NoDaemonProcess(multiprocessing.Process):
     # make 'daemon' attribute always return False

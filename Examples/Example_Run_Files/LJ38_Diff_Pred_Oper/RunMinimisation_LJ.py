@@ -34,9 +34,7 @@ def Minimisation_Function(cluster,collection,cluster_dir):
 		dyn.run(fmax=0.01,steps=5000)
 		converged = dyn.converged()
 		if not converged:
-			import os
-			name = os.path.basename(os.getcwd())
-			errorMessage = 'The optimisation of cluster ' + name + ' did not optimise completely.'
+			errorMessage = 'The optimisation of cluster ' + str(cluster_dir) + ' did not optimise completely.'
 			print(errorMessage, file=sys.stderr)
 			print(errorMessage)
 	except:

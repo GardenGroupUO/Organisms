@@ -12,7 +12,8 @@ if sys.version_info[0] == 2:
 	toString += '\n'
 	toString += 'The Organisms program requires Python3. You are attempting to execute this program in Python2.'+'\n'
 	toString += 'Make sure you are running the Organisms program in Python3 and try again'+'\n'
-	toString += 'This program will exit before beginning'
+	toString += 'This program will exit before beginning'+'\n'
+	toString += '================================================'+'\n'
 	raise ImportError(toString)
 
 __author_email__ = 'anna.garden@otago.ac.nz'

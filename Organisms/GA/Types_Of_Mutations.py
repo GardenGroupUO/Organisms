@@ -3,7 +3,7 @@ from random import randrange, uniform, randint #, random
 from collections import Counter
 
 from Organisms.GA.Cluster import Cluster
-#from Organisms.GA.ExternalDefinitions import InclusionRadiusOfCluster, is_position_already_occupied_by_an_atom_in_Cluster
+from Organisms.GA.ExternalDefinitions import is_position_already_occupied_by_an_atom_in_Cluster # , InclusionRadiusOfCluster
 
 def moveMutate(cluster_to_mutate, dist_to_move):
 	'''

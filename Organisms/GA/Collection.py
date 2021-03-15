@@ -1,4 +1,5 @@
-import os 
+import os
+from shutil import copyfile
 from numpy import zeros
 from ase.db import connect
 
