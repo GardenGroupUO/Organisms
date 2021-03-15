@@ -47,11 +47,12 @@ where ``name_of_database.db`` is the database you want to include. The metadata 
 How to use the ASE database website
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When you use ``database_viewer.py`` or ``ase db -w `` to open a ASE database website, you will see the database can be organised by Name, Cluster Energy, and ID. By default, the database in ``Recorded_Data/GA_Recording_Database.db`` is ordered by cluster energy
+When you use ``database_viewer.py`` or ``ase db -w`` to open a ASE database website, you will see the database can be organised by Name, Cluster Energy, and ID. By default, the database in ``Recorded_Data/GA_Recording_Database.db`` is ordered by cluster energy
 
 .. image:: Images/database.png
-  :width: 400
+  :width: 600
   :alt: Front page of database
+  :align: center
 
 You can click on these to change the ordering. You can also click on add columns to add other pieces of data recorded in the database to the website. The ``Toggle list of keys ...`` indicates what all the data means.  
 
@@ -60,9 +61,9 @@ If you click on one of the cluster, you can view all the information about that 
 If you click on **Open ASE's GUI**, you can get a interactive viewer for that cluster. You can also download the cluster as a `.xyz` file by clicking on **Download**. If you have ASE 3.20.0 or higher, you can also view this cluster on the website with jmol. 
 
 .. image:: Images/database_cluster.png
-  :width: 400
+  :width: 600
   :alt: A cluster in the database
-
+  :align: center
 
 Make a custom metadata file (*meta.py*)
 ---------------------------------------
