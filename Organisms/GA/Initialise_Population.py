@@ -453,7 +453,7 @@ def Initialise_Population_with_Randomly_Generated_Clusters(population,cluster_ma
 		else:
 			# If you want to do work in parallel rather than in serial
 			with mp.Pool(processes=no_of_cpus) as pool: # pool = mp.Pool()
-				results = pool.map_async(self.create_a_cluster, tasks)
+				results = pool.map_async(create_a_cluster, tasks)
 				results.wait()
 			made_clusters = results.get()
 

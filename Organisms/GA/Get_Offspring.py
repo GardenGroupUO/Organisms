@@ -1,3 +1,4 @@
+import sys
 from random import uniform 
 
 from Organisms.GA.ExternalDefinitions import Exploded
@@ -126,16 +127,16 @@ def Create_An_Offspring(input_data):
 		#exploded_start_time = time()
 		did_explode = Exploded(Opt_offspring,max_distance_between_atoms=r_ij)
 		#exploded_end_time = time()
-		if did_explode: # make sure the randomised cluster has not split up when optimised.
-			toString += "Cluster exploded. Will disregard this cluster and try mating or mutation method again"+'\n'
-			no_of_explosions += 1
-		elif not converged:
+		if not converged:
 			toString += "Cluster did not converge. Will disregard this cluster and try mating or mutation method again"+'\n'
 			no_of_not_converged += 1
+		elif did_explode: # make sure the randomised cluster has not split up when optimised.
+			toString += "Cluster exploded. Will disregard this cluster and try mating or mutation method again"+'\n'
+			no_of_explosions += 1
 		else:
 			break
 		# if this happens too much, don't break the algorithm just take it as it is and move on
-		if not (no_of_explosions+no_of_not_converged) == 20:
+		if (no_of_explosions+no_of_not_converged) == 20:
 			print('The cluster has not converged during local optimisation or has exploded 20 times.',file=sys.stderr)
 			print('Something weird is happening, but in any case the genetic algorithm will move on so that it can try created other offspring and not waste too much computational time.',file=sys.stderr)
 			print('If this is happening very rarely, this is fine and is not of major concern.',file=sys.stderr)
