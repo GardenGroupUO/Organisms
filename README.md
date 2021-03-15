@@ -1,6 +1,6 @@
 # The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) Program: A Genetic Algorithm for Nanoclusters
 
-[![Citation](https://img.shields.io/badge/Citation-click%20here-green.svg)](https://pubs.acs.org/journal/jcisd8)
+[![Citation](https://img.shields.io/badge/Citation-click%20here-green.svg)](https://dx.doi.org/10.1021/acs.jcim.0c01128)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Organisms)](https://docs.python.org/3/)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/GardenGroupUO/Organisms)](https://github.com/GardenGroupUO/Organisms)
 [![PyPI](https://img.shields.io/pypi/v/Organisms)](https://pypi.org/project/Organisms/)
@@ -8,7 +8,7 @@
 [![Documentation](https://img.shields.io/badge/Docs-click%20here-brightgreen)](https://organisms.readthedocs.io/en/latest/)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Jupyter_Examples/main?urlpath=lab)
 [![Licence](https://img.shields.io/github/license/GardenGroupUO/Organisms)](https://www.gnu.org/licenses/agpl-3.0.en.html)
-<!-- [![LGTM Grade](https://img.shields.io/lgtm/grade/python/github/GardenGroupUO/Organisms)](https://lgtm.com/projects/g/GardenGroupUO/Organisms/context:python) -->
+[![LGTM Grade](https://img.shields.io/lgtm/grade/python/github/GardenGroupUO/Organisms)](https://lgtm.com/projects/g/GardenGroupUO/Organisms/context:python)
 
 Authors: Geoffrey R. Weal and Dr. Anna L. Garden (University of Otago, Dunedin, New Zealand)
 
@@ -64,8 +64,8 @@ All the information about this program is found online at [organisms.readthedocs
 |:----------------------:|:-------------------------------------------------------------:|
 | Repositories | [![GitHub release (latest by date)](https://img.shields.io/github/v/release/GardenGroupUO/Organisms)](https://github.com/GardenGroupUO/Organisms) [![PyPI](https://img.shields.io/pypi/v/Organisms)](https://pypi.org/project/Organisms/) [![Conda](https://img.shields.io/conda/v/gardengroupuo/organisms)](https://anaconda.org/GardenGroupUO/organisms) |
 | Documentation | [![Documentation](https://img.shields.io/badge/Docs-click%20here-brightgreen)](https://organisms.readthedocs.io/en/latest/) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/GardenGroupUO/Organisms_Jupyter_Examples/main?urlpath=lab) | 
-| Citation | [![Citation](https://img.shields.io/badge/Citation-click%20here-green.svg)](https://pubs.acs.org/journal/jcisd8) | 
-| Tests | <!-- [![LGTM Grade](https://img.shields.io/lgtm/grade/python/github/GardenGroupUO/Organisms)](https://lgtm.com/projects/g/GardenGroupUO/Organisms/context:python) -->|
+| Citation | [![Citation](https://img.shields.io/badge/Citation-click%20here-green.svg)](https://dx.doi.org/10.1021/acs.jcim.0c01128) | 
+| Tests | [![LGTM Grade](https://img.shields.io/lgtm/grade/python/github/GardenGroupUO/Organisms)](https://lgtm.com/projects/g/GardenGroupUO/Organisms/context:python)
 | License | [![Licence](https://img.shields.io/github/license/GardenGroupUO/Organisms)](https://www.gnu.org/licenses/agpl-3.0.en.html) |
 | Authors | Geoffrey R. Weal, Dr. Anna L. Garden |
 | Group Website | https://blogs.otago.ac.nz/annagarden/ |
