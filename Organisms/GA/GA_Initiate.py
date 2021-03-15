@@ -24,7 +24,7 @@ def Initial_ProgramChecking(self):
 	def EndProgram():
 		print('The program will end')
 		exit()
-	if self.resume_from_generation == None:
+	if self.resume_from_generation is None:
 		return
 	if self.resume_from_generation >= self.generations:
 		print('The Genetic Algorithm program has already completed the maximum number of generations desired.')
@@ -50,7 +50,7 @@ def Initate_New_GAProgram(self):
 	return last_cluster_number
 
 # ---------------------------------------------------------------------------------------------------
-import os, sys, time
+import time
 from Organisms.GA.GA_Program_external_methods import convert_seconds_to_normal_time
 def Resume_GAProgram(self, resume_from_generation, clusters_in_resumed_population, clusters_in_resumed_population_energies):
 	"""
@@ -170,7 +170,7 @@ def GA_Initiate(self):
 	#import pdb; pdb.set_trace()
 	########################################################
 	# Set the Organisms program up so that it ready to begin a new genetic algorithm run, or continue the original genetic algorithm run.
-	if self.resume_from_generation == None:
+	if self.resume_from_generation is None:
 		self.previous_cluster_name = Initate_New_GAProgram(self)
 		self.starting_generation = 0
 		self.ga_program_details = GA_Program_Details(self, True) # Set up the GA details program to write information about how performance of the genetic algorithm

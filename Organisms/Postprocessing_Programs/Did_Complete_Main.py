@@ -3,8 +3,7 @@ Did_Find_LES.py, Geoffrey Weal, 08/03/2019
 
 This program will determine which of your genetic algorithm trials have completed up to a certain generation. 
 '''
-import os, sys
-import subprocess
+import sys, subprocess
 
 def tail(f, n, offset=0):
     proc = subprocess.Popen(['tail', '-n', str(n + offset), f], stdout=subprocess.PIPE)
@@ -17,13 +16,13 @@ def get_variables_from_run(filepath):
         for line in RunPY:
             if line.startswith('generations = '):
                 generations = int(eval(line.replace('generations = ','')))
-                if (generations == None and no_offspring_per_generation == None):
+                if (generations is None and no_offspring_per_generation is None):
                     break
             if line.startswith('no_offspring_per_generation = '):
                 no_offspring_per_generation = int(eval(line.replace('no_offspring_per_generation = ','')))
-                if (generations == None and no_offspring_per_generation == None):
+                if (generations is None and no_offspring_per_generation is None):
                     break
-    if generations == None or no_offspring_per_generation == None:
+    if generations is None or no_offspring_per_generation is None:
         print('Error')
         print(generations)
         print(no_offspring_per_generation)

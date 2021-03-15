@@ -1,6 +1,5 @@
-import copy
 import re
-from random import randrange, uniform, randint, random
+from random import randrange, uniform
 from ase import Atoms
 
 from Organisms.GA.Types_Of_Mutations import moveMutate, homotopMutate, randomMutate

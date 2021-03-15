@@ -1,8 +1,4 @@
-import os, sys
 from shutil import copyfile
-from io import StringIO
-from copy import deepcopy
-import multiprocessing as mp
 
 from Organisms.GA.Collection import Collection
 
@@ -50,7 +46,7 @@ class Population(Collection):
 		if folder_to_look_at == False:
 			folder_to_look_at = self.name
 		clusters_in_population = []
-		if folder_to_look_at == None or (not (os.path.exists(folder_to_look_at) and os.path.isdir(folder_to_look_at))):
+		if folder_to_look_at is None or (not (os.path.exists(folder_to_look_at) and os.path.isdir(folder_to_look_at))):
 			return 0
 		for cluster in os.listdir(folder_to_look_at):
 			if (os.path.isdir(os.path.join(folder_to_look_at, cluster)) and cluster.isdigit()): # If the cluster folder exists and the folder is numbered properl, then it is a cluster to be added into the GA program
@@ -253,11 +249,11 @@ class Population(Collection):
 						current_generation = int(current_generation.replace('\n',''))
 					except:
 						current_generation = None
-					if (not cluster_energies == None and not cluster_names == None and not current_generation == None) and (len(cluster_names) == self.size and len(cluster_energies) == self.size):
+					if (not cluster_energies is None and not cluster_names is None and not current_generation is None) and (len(cluster_names) == self.size and len(cluster_energies) == self.size):
 						break
 			self.close()
 			#clusters = [(cluster_name, cluster_energy) for cluster_name, cluster_energy in zip(cluster_names,cluster_energies)]
-			if current_generation == None:
+			if current_generation is None:
 				self.delete_collection_database()
 			self.repair_current_state_file(current_generation, cluster_names, cluster_energies)
 			return current_generation, cluster_names, cluster_energies, None
@@ -317,10 +313,10 @@ class Population(Collection):
 				print('pop index: ' + str(index) + '; cluster name: ' + str(self[index].name) + '; cluster energy: ' + str(self[index].energy) + ' eV')
 			if self[index].energy > highest_energy:
 				highest_energy = self[index].energy
-				index_highest_energy = index
+				#index_highest_energy = index
 			if self[index].energy < lowest_energy:
 				lowest_energy = self[index].energy
-				index_lowest_energy = index
+				#index_lowest_energy = index
 		print('Sorted by Energy (from lowest to highest energy).')
 		indices_of_pop = range(len(self))
 		indices_of_pop_sorted = []; sorted_pop_by_energy = [];

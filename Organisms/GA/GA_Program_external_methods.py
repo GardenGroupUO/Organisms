@@ -3,7 +3,7 @@ import math
 from Organisms.GA.Lock import Lock_Remove
 
 def if_to_finish_because_found_cluster_energy(self, all_energies_of_offpsring):
-	if not self.finish_algorithm_if_found_cluster_energy == None:
+	if not self.finish_algorithm_if_found_cluster_energy is None:
 		for cluster in self.population:
 			if round(cluster.energy,self.finish_algorithm_if_found_cluster_rounding) == self.finish_algorithm_if_found_cluster_energy:
 				self.energyprofile.add_found_LES_note()
@@ -80,7 +80,7 @@ def reset_population(self,generation_number):
 	self.previous_cluster_name = self.epoch.perform_epoch(generation_number,self.population,self.energyprofile,population_reset_settings,epoch_due_to_population_energy_convergence=epoch_due_to_population_energy_convergence)
 	self.ga_recording_system.add_collection(self.population, []) # save this new reset population
 
-import time, sys
+import sys
 # update_progress() : Displays or updates a console progress bar
 ## Accepts a float between 0 and 1. Any int will be converted to a float.
 ## A value under 0 represents a 'halt'.
@@ -111,7 +111,7 @@ def convert_seconds_to_normal_time(seconds):
 def check_files_for_readable_and_writable():
 	not_readable_and_writable_files = []
 	not_readable_and_writable_folders = []
-	root_path = os.path.dirname(__file__)
+	#root_path = os.path.dirname(__file__)
 	files_to_check = ['epoch_data','GA_Run_Details.txt']
 	folders_to_check = ['Population','Recorded_Data']
 	# check root GA files

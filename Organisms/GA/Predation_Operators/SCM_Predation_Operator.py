@@ -1,9 +1,7 @@
-import os
-import numpy as np
 from copy import deepcopy
 from Organisms.GA.Predation_Operators.Predation_Operator import Predation_Operator
 from Organisms.GA.SCM_Scripts.CNA_Database import CNA_Database
-from Organisms.GA.SCM_Scripts.SCM_initialisation import get_SCM_methods, get_rCut_values, get_rCuts
+#from Organisms.GA.SCM_Scripts.SCM_initialisation import get_SCM_methods, get_rCut_values, get_rCuts
 
 class Cluster_Block:
 	"""
@@ -317,7 +315,7 @@ class SCM_Predation_Operator(Predation_Operator):
 		# scan though all the clusters in offspring and population in order of fitness
 		while index_higher < len(structures_to_consider):
 			################################################################################################################
-			incountered_population_counter = 0
+			#incountered_population_counter = 0
 			cluster_higher = structures_to_consider[index_higher]
 			one_instance_of_swap_P_O = []
 			removal_O_P_temp = []

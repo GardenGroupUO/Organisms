@@ -67,7 +67,7 @@ class has_all_trials_found_LES:
 
     def run(self):
         path = os.getcwd()
-        Overall_Trials_to_check = {}
+        #Overall_Trials_to_check = {}
         self.results = []
         for dirpath, dirnames, filenames in os.walk(path):
             dirnames.sort()
@@ -128,7 +128,7 @@ class has_all_trials_found_LES:
                         if line.startswith('Restarting due to epoch.'):
                             continue
                         if line.startswith('Finished prematurely as LES energy found.'):
-                            got_to_trial = True
+                            #got_to_trial = True
                             to_string = 'Error: You have found the message "Finished prematurely as LES energy found." in your energyprofile.txt, but you didnt locate the cluster energy you entered. Check that the energy you put in is the energy of the LES, and run this program again. This error occurred for dirpath: '+str(filepath)
                             raise Exception(to_string)
                             #break
@@ -167,7 +167,7 @@ class has_all_trials_found_LES:
         number_of_dirnames = len(dirnames)
         for index in range(number_of_dirnames):
             dirname = dirnames[index]
-            trial_no = int(dirname.replace('Trial',''))
+            #trial_no = int(dirname.replace('Trial',''))
             found_LES, LES_clu_dir, LES_gen = Lowest_Energy_from_Trial(dirpath+'/'+dirname+'/Population/EnergyProfile.txt',energy_LES,max_generation_to_survey,rounding)
             LES_Data_from_Trials.append([dirname, found_LES, LES_clu_dir, LES_gen])
             ###########

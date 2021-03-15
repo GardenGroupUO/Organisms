@@ -169,10 +169,10 @@ def GA_Setup(self,cluster_makeup,pop_size,generations,no_offspring_per_generatio
 	self.print_details = print_details
 	#self.debug = True
 	##########################################################################################################
-	if finish_algorithm_if_found_cluster_energy == None:
+	if finish_algorithm_if_found_cluster_energy is None:
 		self.finish_algorithm_if_found_cluster_energy = None
 	else:
-		if finish_algorithm_if_found_cluster_energy['cluster energy'] == None:
+		if finish_algorithm_if_found_cluster_energy['cluster energy'] is None:
 			self.finish_algorithm_if_found_cluster_energy = None
 		else:
 			self.finish_algorithm_if_found_cluster_energy = finish_algorithm_if_found_cluster_energy['cluster energy']

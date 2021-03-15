@@ -1,5 +1,3 @@
-import sys
-
 from Organisms.GA.Fitness_Operators.Fitness_Operator import Fitness_Operator, dot
 from Organisms.GA.Fitness_Operators.SCM_and_Energy_Fitness_Operator_Options import SCM_options
 
@@ -205,7 +203,7 @@ class SCM_and_Energy_Fitness_Operator(Fitness_Operator):
 		population_fitness_value = population_similarity_value
 		return population_fitness_value
 
-	def convert_population_fitness_to_SCM_fitness_contribution(population_fitness):
+	def convert_population_fitness_to_SCM_fitness_contribution(self,population_fitness):
 		'''
 		This method will take the population fitness and use this to determine what the new coefficients (weights) for the energy and SCM coefficients are.
 
@@ -263,7 +261,7 @@ class SCM_and_Energy_Fitness_Operator(Fitness_Operator):
 		else:
 			lowest_similarity, highest_similarity = None, None	
 		# Update the fitness of all clusters in the population
-		cluster_SCM_simiarities = self.__update_collection_fitnesses(self.population, highest_energy, lowest_energy, highest_similarity, lowest_similarity)
+		self.__update_collection_fitnesses(self.population, highest_energy, lowest_energy, highest_similarity, lowest_similarity) # cluster_SCM_simiarities = 
 		# Update the fitness of all clusters in all the offsprings
 		for offspring_pool in all_offspring_pools:
 			self.__update_collection_fitnesses(offspring_pool, highest_energy, lowest_energy, highest_similarity, lowest_similarity)

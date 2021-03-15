@@ -1,6 +1,5 @@
 import os
 import subprocess
-from shutil import copytree, move
 
 def tail(f, n, offset=0):
 	"""
@@ -65,7 +64,7 @@ class EnergyProfile:
 	"""
 	def __init__(self,collection,end_name=None):
 		self.path = collection.name
-		if end_name == None:
+		if end_name is None:
 			self.EnergyProfileTXT_path = self.path+"/EnergyProfile.txt"
 		else:
 			self.EnergyProfileTXT_path = self.path+"/EnergyProfile_"+str(end_name)+".txt"

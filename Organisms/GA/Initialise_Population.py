@@ -100,7 +100,7 @@ def Place_Already_Created_Clusters_In_Population(population,cluster_makeup,Minim
 	"""
 	print('Checking to see if the user has any clusters in the folder '+str(population.user_initialised_population_folder)+' that the user would like to have inputted into the initalise population.')
 	# First, the definition will check the clusters if there is a population folder. If not, the user does not want to add any clusters to the initial population.
-	if population.user_initialised_population_folder == None or population.user_initialised_population_folder == '':
+	if population.user_initialised_population_folder is None or population.user_initialised_population_folder == '':
 		return 0
 	if not os.path.exists(population.user_initialised_population_folder):
 		print('Error in def Place_Already_Created_Clusters_In_Population of class Population, in Population.py.')
@@ -182,9 +182,9 @@ def Place_Already_Created_Clusters_In_Population(population,cluster_makeup,Minim
 			toStringError += str(included_clusters_in_pop)+'\n'
 			toStringError += 'We will exclude the following clusters from the population.\n'
 			excluded_clusters_in_pop = []
-			for cluster_name in cluster_names:
-				if not cluster_name in included_clusters_in_pop:
-					excluded_clusters_in_pop.append(cluster_name)
+			for cluster_name_to_print in cluster_names:
+				if not cluster_name_to_print in included_clusters_in_pop:
+					excluded_clusters_in_pop.append(cluster_name_to_print)
 			toStringError += str(excluded_clusters_in_pop)+'\n'
 			toStringError += 'The genetic algorithm will continue. I hope you know what you are doing.\n'
 			toStringError += '******************************************************************\n'
@@ -435,26 +435,27 @@ def Initialise_Population_with_Randomly_Generated_Clusters(population,cluster_ma
 	while True:
 		# This will create the required number of clusters to complete the population
 		tasks = get_tasks(population,clusters_to_create,cell_length,vacuum_to_add_length,cluster_makeup,surface,r_ij,rounding_criteria,Minimisation_Function,memory_operator)
-		'''
-		with mp.Pool(processes=no_of_cpus) as pool: # pool = mp.Pool()
-			results = pool.map_async(self.create_a_cluster, tasks)
-			results.wait()
-		made_clusters = results.get()
-		'''
-		# If you want to do work in serial rather than parallel
-		made_clusters = []
-		for task in tasks:
-			try:
-				made_cluster = create_a_cluster(task)
-				made_clusters.append(made_cluster)
-			except Exception as exception:
-				print('Error in def Initialise_Population_with_Randomly_Generated_Clusters, in Initialise_Population.py')
-				print('There was an issue with initialising the population with randomly generated clusters.')
-				print('The issue was with the following cluster')
-				print('\t --> '+str(task))
-				print('Check this out, see the following exception for details')
-				Lock_Remove()
-				raise exception
+		if no_of_cpus == 1:
+			# If you want to do work in serial
+			made_clusters = []
+			for task in tasks:
+				try:
+					made_cluster = create_a_cluster(task)
+					made_clusters.append(made_cluster)
+				except Exception as exception:
+					print('Error in def Initialise_Population_with_Randomly_Generated_Clusters, in Initialise_Population.py')
+					print('There was an issue with initialising the population with randomly generated clusters.')
+					print('The issue was with the following cluster')
+					print('\t --> '+str(task))
+					print('Check this out, see the following exception for details')
+					Lock_Remove()
+					raise exception
+		else:
+			# If you want to do work in parallel rather than in serial
+			with mp.Pool(processes=no_of_cpus) as pool: # pool = mp.Pool()
+				results = pool.map_async(self.create_a_cluster, tasks)
+				results.wait()
+			made_clusters = results.get()
 
 		for made_cluster in made_clusters:
 			index, Opt_Cluster = made_cluster

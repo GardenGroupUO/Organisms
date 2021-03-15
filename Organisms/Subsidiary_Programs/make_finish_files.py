@@ -4,7 +4,6 @@ Geoffrey Weal, make_finish_files.py, 10/02/2021
 
 This program is designed to place finish files in all subdirectories that also include a Run.py file
 '''
-import os, sys
 
 def make_finish_file(path):
 	print('Putting finish file in '+str(path))

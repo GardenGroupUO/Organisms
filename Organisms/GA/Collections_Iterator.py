@@ -15,14 +15,14 @@ class Collections_Iterator:
 		self.population = population
 		self.collections = [population]
 
-		if not offspring_pools == None:
+		if not offspring_pools is None:
 			if not isinstance(offspring_pools,list):
 				self.collections += [offspring_pools]
 			else:
 				self.collections += offspring_pools
 
 		self.length = len(self.population)
-		if not offspring_pools == None:
+		if not offspring_pools is None:
 			for offspring_pool in offspring_pools:
 				self.length += len(offspring_pool)
 

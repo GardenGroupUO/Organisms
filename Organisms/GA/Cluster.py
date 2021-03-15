@@ -13,7 +13,6 @@ from copy import deepcopy
 from ase.visualize import view
 from collections import Counter
 from numpy import array, zeros, sort
-from time import time
 
 from Organisms.GA.ExternalDefinitions import InclusionRadiusOfCluster
 
@@ -29,7 +28,7 @@ def import_surface(surface):
 		pass
 	elif isinstance(surface, str):
 		surface = ase_read(surface)
-	elif surface == None:
+	elif surface is None:
 		surface = None
 	else:
 		print('Surface error in Cluster')
@@ -204,7 +203,7 @@ class Cluster(Atoms):
 		rtype   energy: float
 		'''
 		energy = self.get_potential_energy()
-		if not rounding_criteria == None:
+		if not rounding_criteria is None:
 			energy = round(energy,rounding_criteria)
 		return energy
 

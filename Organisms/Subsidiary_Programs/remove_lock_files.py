@@ -4,7 +4,7 @@ Geoffrey Weal, remove_lock_files.py, 10/02/2021
 
 This program is designed to remove all the ga_running.lock files from subdirectories that this program is run from.
 '''
-import os, sys
+import os
 
 lock_name = 'ga_running.lock'
 

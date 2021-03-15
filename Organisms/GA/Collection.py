@@ -42,7 +42,7 @@ class Collection:
 		# Options about how to write clusters to disk.
 		#############################
 		# preparing folders to write information to for Collection 
-		if path == None:
+		if path is None:
 			self.path = os.getcwd()+'/'+self.name
 		else:
 			self.path = path
@@ -509,7 +509,7 @@ class Collection:
 		else:               # use data from the current Current_Population_details.txt and Population.db
 			path_to_database_db_to_use = self.database_path
 		# Load data from the collection database into the RAM
-		load_clusters_from_database_to_RAM(self.database_path,current_generation,clusters_in_resumed_population,clusters_in_resumed_population_energies,decimal_place,self)
+		load_clusters_from_database_to_RAM(path_to_database_db_to_use,current_generation,clusters_in_resumed_population,clusters_in_resumed_population_energies,decimal_place,self)
 		# if use_backup_file = True,  data was obtained from backup files
 		# if use_backup_file = False, data was obtained from original files
 		return use_backup_file
@@ -572,7 +572,7 @@ class Collection:
 		try:
 			with connect(database_path) as database:
 				for cluster_row in database.select():
-					ase_cluster = cluster_row.toatoms()
+					cluster_row.toatoms()
 					ase_cluster_name = cluster_row.name
 					if ase_cluster_name in cluster_names_in_database:
 						return (False, ase_cluster_name)
@@ -601,7 +601,7 @@ class Collection:
 		cluster_to_delete = []
 		with connect(database_path) as database:
 			for cluster_row in database.select():
-				if current_generation == None or cluster_row.gen_made <= current_generation:
+				if current_generation is None or cluster_row.gen_made <= current_generation:
 					ase_cluster = cluster_row.toatoms()
 					cluster = Cluster(ase_cluster)
 					cluster.custom_verify_cluster(cluster_row.name,cluster_row.gen_made,cluster_row.cluster_energy,cluster_row.ever_in_population,cluster_row.excluded_because_violates_predation_operator,cluster_row.initial_population)
@@ -621,7 +621,7 @@ class Collection:
 		:type  current_generation: int
 
 		"""
-		if current_generation == None:
+		if current_generation is None:
 			return
 		with connect(database_path) as database:
 			cluster_to_delete = []
@@ -688,7 +688,7 @@ class Collection:
 		Inputs:
 			end_name (str): The suffix of the name for the history gfile.
 		"""
-		if end_name == None:
+		if end_name is None:
 			self.history_path = self.path+'/'+str(self.name)+"_history.txt"
 		else:
 			self.history_path = self.path+'/'+str(self.name)+"_history_"+str(end_name)+".txt"

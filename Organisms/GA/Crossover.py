@@ -8,12 +8,6 @@ This program is designed to run the mating proceedure of the Genetic Algorithm.
 
 from ase import Atom, Atoms
 import random as rand
-import numpy as np
-import copy
-from Organisms.GA.ExternalDefinitions import get_elemental_makeup, AtomInClusterPosition, InclusionRadiusOfCluster
-from Organisms.GA.Cluster import Cluster
-from Organisms.GA.Population import Population
-from collections import Counter
 
 #population_type_example = Population('example',-1,False,None,False)
 #cluster_type_example = Cluster()
@@ -312,8 +306,8 @@ class Crossover:
 			if not elemental_makeup_of_parents[index] == elemental_makeup_of_parents[0]:
 				print('Error in def mate_Cut_and_Splice: The parents do not have the same element count.')
 				print('Element Count of Parents')
-				for index in range(len(elemental_makeup_of_parents)):
-					print('Parent ' + str(index+1) + ': ' + str(elemental_makeup_of_parents[index]))
+				for index_print_error in range(len(elemental_makeup_of_parents)):
+					print('Parent ' + str(index_print_error+1) + ': ' + str(elemental_makeup_of_parents[index_print_error]))
 				print('Check this')
 				import pdb; pdb.set_trace()
 				exit('This program will finish without completing')

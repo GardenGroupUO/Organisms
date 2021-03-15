@@ -53,7 +53,7 @@ def LoD_compare_two_structures(LoD_1, LoD_2, percentage_diff):
     :rtype:   bool. 
 
     """
-    similar_element_list = []
+    #similar_element_list = []
     for index in range(len(LoD_1)):
         distance1 = LoD_1[index]
         distance2 = LoD_2[index]

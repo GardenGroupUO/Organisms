@@ -110,6 +110,23 @@ where the number of decimal places to run the genetic algorithm to is given as 2
 
 	Postprocessing_Database.py number_of_clusters_per_database sort_clusters_by
 
+.. _database_viewer:
+
+*database_viewer.py* - Viewing GA databases with ASE database website viewer with metadata
+******************************************************************************************
+
+The databases that are created by the Organisms program has metadata that allows the clusters to be organised in the database by their energy. The metadata also contains information about all the variables included in the database for the users convenience. However, in recent versions of ASE the metadata is not included when using the website. ``database_viewer`` allows the metadata to be included in the ASE website viewer.
+
+This program is run by the user moving into the ``Recorded_Data`` folder in the terminal and running the ``database_viewer.py`` program. There is one parameter that need to be entered. This is:
+
+* **name_of_the_database** (*str.*): This is the name of the database that you want to view.
+
+Enter this into the terminal when you type in ``database_viewer.py``:
+
+.. code-block:: bash
+
+	database_viewer.py name_of_the_database
+
 .. _make_energy_vs_similarity_results:
 
 *make_energy_vs_similarity_results.py* - For analysing the genetic algorithm under-the-hood

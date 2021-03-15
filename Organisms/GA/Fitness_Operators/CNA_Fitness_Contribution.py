@@ -114,7 +114,7 @@ def get_lowest_and_highest_similarities_from_collections(population,collections,
 
 	"""
 	cluster_names = population.get_cluster_names()
-	if not collections == None:
+	if not collections is None:
 		#if not len(collections[0]) == 16:
 		#	import pdb; pdb.set_trace()
 		for collection in collections:

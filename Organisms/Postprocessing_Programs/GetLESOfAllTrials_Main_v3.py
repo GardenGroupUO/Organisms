@@ -46,7 +46,7 @@ class GetLESOfAllTrials_Main:
 
     def run(self):
         path = os.getcwd()
-        Overall_Trials_to_check = {}
+        #Overall_Trials_to_check = {}
         for dirpath, dirnames, filenames in os.walk(path):
             dirnames.sort()
             if any([(dirname.startswith('Trial') and dirname.replace('Trial','').isdigit()) for dirname in dirnames]):
@@ -143,7 +143,7 @@ class GetLESOfAllTrials_Main:
         number_of_dirnames = len(dirnames)
         for index in range(number_of_dirnames):
             dirname = dirnames[index]
-            trial_no = int(dirname.replace('Trial',''))
+            #trial_no = int(dirname.replace('Trial',''))
             LES_clu_dir, LES_gen, LES_energy = Lowest_Energy_from_Trial(dirpath+'/'+dirname+'/Population/EnergyProfile.txt',rounding)
             LES_Data_from_Trials.append([dirname, LES_clu_dir, LES_gen, LES_energy])
             ###########

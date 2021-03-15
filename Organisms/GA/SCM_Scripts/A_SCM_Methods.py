@@ -7,7 +7,6 @@ This script is designed to include all the methods for performing structural rec
 
 from asap3.analysis.localstructure import FullCNA
 from collections import Counter
-import sys
 import multiprocessing as mp
 
 ######################################################################

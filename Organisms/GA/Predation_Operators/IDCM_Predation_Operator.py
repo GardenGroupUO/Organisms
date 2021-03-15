@@ -11,11 +11,6 @@ This Operator works by preventing the population from having clusters with the s
 #################### Initialising and Preparing the imports and internal defs that are needed for the IDCM Predation Operator #####################
 ##################################################################################################################################################
 
-import os
-import numpy as np
-from copy import deepcopy
-from io import StringIO
-
 from Organisms.GA.Predation_Operators.Predation_Operator import Predation_Operator
 
 from Organisms.GA.Predation_Operators.IDCM_Predation_Operator_Scripts.IDCM_Methods import get_cluster_distance_list, LoD_compare_two_structures
@@ -23,7 +18,6 @@ from Organisms.GA.Predation_Operators.IDCM_Predation_Operator_Scripts.LoD_Compar
 
 import multiprocessing as mp
 import time
-from collections import OrderedDict
 
 ##################################################################################################################################################
 
@@ -154,7 +148,7 @@ class IDCM_Predation_Operator(Predation_Operator):
 			self.get_structural_data_method = get_LoD_database
 			self.check_if_two_clusters_are_identical_method = check_if_two_clusters_are_identical_LoD
 			percentage_diff = float(Predation_Information['percentage_diff']) # distance_difference
-			neighbor_cutoff = float('inf') # Predation_Information['neighbor_cutoff'] # neighbor_cutoff
+			#neighbor_cutoff = float('inf') # Predation_Information['neighbor_cutoff'] # neighbor_cutoff
 			self.similarity_settings = {'percentage_diff': percentage_diff}
 		else:
 			print('Error in IDCM_Predation_Operator, in IDCM_Predation_Operator.py')
@@ -481,7 +475,7 @@ class IDCM_Predation_Operator(Predation_Operator):
 		# scan though all the clusters in offspring and population in order of fitness
 		while index_higher < len(all_clusters_sorted_by_expected_fitness):
 			################################################################################################################
-			incountered_population_counter = 0
+			#incountered_population_counter = 0
 			cluster_higher = all_clusters_sorted_by_expected_fitness[index_higher]
 			one_instance_of_swap_cluster_in_pop_with_offspring = []
 			offspring_to_remove_due_to_pop_temp = []

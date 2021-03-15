@@ -1,6 +1,5 @@
 import os
 from ase.db import connect
-from ase.io import read
 
 from Organisms.GA.SCM_Scripts.T_SCM_Methods import get_total_CNA_profile  as get_total_CNA_profile_T_SCM
 from Organisms.GA.SCM_Scripts.A_SCM_Methods import get_atomic_CNA_profile as get_total_CNA_profile_A_SCM

@@ -1,7 +1,4 @@
 from random import uniform 
-import os, sys
-from io import StringIO
-from time import time
 
 from Organisms.GA.ExternalDefinitions import Exploded
 
@@ -91,7 +88,8 @@ def Create_An_Offspring(input_data):
 	cluster_name = run_number
 	#if print_details:
 	#	toString += "----------------------------------------------------------"+'\n'
-	no_of_explosions = 0; no_of_not_converged = 0
+	#no_of_explosions = 0 
+	#no_of_not_converged = 0
 	while True:
 		#cluster_start_time = time()
 		#stdout = sys.stdout; output = StringIO(); sys.stdout = output

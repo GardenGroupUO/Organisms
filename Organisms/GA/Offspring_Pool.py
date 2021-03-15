@@ -1,4 +1,3 @@
-import os, shutil
 from Organisms.GA.Collection import Collection
 
 class Offspring_Pool(Collection):

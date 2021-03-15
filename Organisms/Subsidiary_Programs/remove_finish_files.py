@@ -4,7 +4,7 @@ Geoffrey Weal, remove_finish_files.py, 10/02/2021
 
 This program is designed to remove all the finish files from subdirectories that this program is run from.
 '''
-import os, sys
+import os
 
 path = os.getcwd()
 for dirpath, dirs, files in os.walk(path):

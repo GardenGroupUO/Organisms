@@ -10,7 +10,7 @@ def version_no():
 	"""
 	Will provide the version of the Organisms program
 	"""
-	path = __file__
+	#path = __file__
 	version = get_version_number() 
 	return version
 
