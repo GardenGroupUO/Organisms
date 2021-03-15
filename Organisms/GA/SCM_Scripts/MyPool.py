@@ -1,11 +1,7 @@
-import multiprocessing
 # We must import this explicitly, it is not imported by the top-level
 # multiprocessing module.
-import multiprocessing.pool
-import time
-
-from random import randint
-
+import multiprocessing
+#import multiprocessing.pool
 
 class NoDaemonProcess(multiprocessing.Process):
     # make 'daemon' attribute always return False

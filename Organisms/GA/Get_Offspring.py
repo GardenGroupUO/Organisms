@@ -116,6 +116,8 @@ def Create_An_Offspring(input_data):
 			if try_statement_counter == 20:
 				print('The above error has occurred 20 times.',file=sys.stderr)
 				print('Will make a new offspring and discard this one',file=sys.stderr)
+				print('If this is happening very rarely, this is fine and is not of major concern.',file=sys.stderr)
+				print('If you see this message multiple times during a genetic algorithm run, this is probably of some concern and it may pay to follow this up.',file=sys.stderr)
 				break
 		#sys.stdout = stdout
 		#if print_details:
@@ -134,6 +136,10 @@ def Create_An_Offspring(input_data):
 			break
 		# if this happens too much, don't break the algorithm just take it as it is and move on
 		if not (no_of_explosions+no_of_not_converged) == 20:
+			print('The cluster has not converged during local optimisation or has exploded 20 times.',file=sys.stderr)
+			print('Something weird is happening, but in any case the genetic algorithm will move on so that it can try created other offspring and not waste too much computational time.',file=sys.stderr)
+			print('If this is happening very rarely, this is fine and is not of major concern.',file=sys.stderr)
+			print('If you see this message multiple times during a genetic algorithm run, this is probably of some concern and it may pay to follow this up.',file=sys.stderr)
 			break
 	# Add the cluster to the list of offspring from this list
 	#extra1_start = time()

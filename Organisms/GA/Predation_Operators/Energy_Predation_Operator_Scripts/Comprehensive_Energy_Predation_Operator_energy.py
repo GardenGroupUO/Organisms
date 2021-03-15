@@ -7,12 +7,6 @@ This scheme works by preventing the population from having clusters with the sam
 
 '''
 
-############################################################################################################################################################
-###### These Methods are used by other Diversity Scheme. For this reason, these methods have been written to be accessible to those Diversity Schemes ######
-############################################################################################################################################################
-
-import os, sys, inspect
-
 ###########################################################################################################
 ########################## Methods Required for the def check_initial_population ##########################
 ###########################################################################################################
@@ -273,7 +267,7 @@ def assess_for_violations_force_replacement(self,offspring_pool):
 	# scan though all the clusters in offspring and population in order of fitness
 	while index_lower_energy < len(structures_to_consider):
 		################################################################################################################
-		incountered_population_counter = 0
+		#incountered_population_counter = 0
 		cluster_lower_energy = structures_to_consider[index_lower_energy]
 		one_instance_of_swap_P_O = []
 		removal_O_P_temp = []
@@ -382,7 +376,7 @@ def Check_for_Issue_with_Scheme_with_collection(self,collection):
 	:type  collection: Population or Offspring_Pool
 		
 	"""
-	energies = [cluster.energy for cluster in collection]
+	#energies = [cluster.energy for cluster in collection]
 	similar_energy_clusters = []
 	for index1 in range(len(self.population)):
 		for index2 in range(index1+1,len(self.population)):

@@ -1,4 +1,3 @@
-import os
 import time
 from datetime import datetime
 
@@ -11,7 +10,7 @@ class Timer:
 	"""
 	def __init__(self,total_length_of_running_time):
 		self.total_length_of_running_time = total_length_of_running_time # Hours
-		if not self.total_length_of_running_time == None:
+		if not self.total_length_of_running_time is None:
 			self.total_length_of_running_time *= (60.0*60.0) # turns the time in to seconds. 
 		self.start_time = time.time()
 
@@ -22,7 +21,7 @@ class Timer:
 		:returns: total_length_of_running_time, the maximum amount of time to run the genetic algorithm for, in hours.
 		:rtype:   float or str.
 		'''
-		if self.total_length_of_running_time == None: 
+		if self.total_length_of_running_time is None: 
 			return 'Indefinitely'
 		else:
 			return str(self.total_length_of_running_time/(60.0*60.0))+' hours'
@@ -31,7 +30,7 @@ class Timer:
 		"""
 		This determines if the cluster has exceeded the desired running time.
 		"""
-		if self.total_length_of_running_time == None:
+		if self.total_length_of_running_time is None:
 			return False
 		elapsed_time = time.time() - self.start_time
 		return (elapsed_time > self.total_length_of_running_time)

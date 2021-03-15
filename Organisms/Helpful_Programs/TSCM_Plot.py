@@ -6,15 +6,10 @@
 ####################################################################################################################
 ####################################################################################################################
 
-from ase import Atom, Atoms
-from ase.io import read as ase_read
-from ase.io import write as ase_write
-from asap3.Internal.BuiltinPotentials import Gupta
-from ase.optimize import BFGS, FIRE
-import sys
 import time
- 
-from ase.visualize import view
+from ase import Atom, Atoms
+from asap3.Internal.BuiltinPotentials import Gupta
+from ase.optimize import FIRE
 
 def Minimisation_Function(cluster,collection,cluster_dir):
 	####################################################################################################################
@@ -62,14 +57,12 @@ def Minimisation_Function(cluster,collection,cluster_dir):
 ####################################################################################################################
 ####################################################################################################################
 
-from ase.io import read
-from ase import Atom, Atoms
 import numpy as np
-
-from asap3.analysis.localstructure import FullCNA
-from collections import Counter
-import sys
 import multiprocessing as mp
+from collections import Counter
+
+from ase.io import read
+from asap3.analysis.localstructure import FullCNA
 
 #############################################################################################
 

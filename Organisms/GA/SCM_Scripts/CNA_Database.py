@@ -4,7 +4,7 @@ CNA_Database.py, Geoffrey Weal, 29/10/2018
 This script holds the information required to make a CNA_database.
 
 '''
-import os, sys, time
+import time
 import multiprocessing as mp
 from Organisms.GA.SCM_Scripts.MyPool import MyPool
 from Organisms.GA.SCM_Scripts.Similarity_Profile import Similarity_Profile

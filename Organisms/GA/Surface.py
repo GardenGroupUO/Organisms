@@ -51,12 +51,12 @@ class Surface:
 			self.surface = ase_read(surface_details['surface'])
 		else:
 			exit('Error')
-		if not self.surface == None:
+		if not self.surface is None:
 			self.surface.center()
 			self.place_cluster_where = surface_details['place_cluster_where']
 
 	def adjust_z_axis(self, cluster):
-		if self.surface == None:
+		if self.surface is None:
 			return
 		'''
 		surface_constraints = []
@@ -116,15 +116,13 @@ class Surface:
 			print('Local Optimiser Failed for some reason.')
 		import pdb; pdb.set_trace()
 
-
-
 	def get_surface(self, cluster):
-		if self.surface == None:
+		if self.surface is None:
 			return
-		if self == None:
+		if self is None:
 			return
 		# find center of xy plane in 
-		if self.place_cluster_where == None:
+		if self.place_cluster_where is None:
 			cluster_xy_center = get_xy_center(cluster)
 			surface_xy_center = get_xy_center(self.surface)
 			xy_distance_diff = cluster_xy_center - surface_xy_center
