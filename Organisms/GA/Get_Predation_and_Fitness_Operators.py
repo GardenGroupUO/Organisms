@@ -1,5 +1,7 @@
 import sys
 
+from Organisms.GA.check_version_of_asap3 import check_version_of_asap3
+
 def get_predation_operator(predation_information, fitness_information, population, no_of_cpus, print_details):
 	"""
 	This def will set up the predation operator to be by the genetic algorithm. This is dependent on the entry for the 'Predation_Switch' 
@@ -106,6 +108,8 @@ def check_asap3_version(self,predation_information,fitness_information):
 	predation_switch = predation_information['Predation Operator']
 	fitness_switch = fitness_information['Fitness Operator']
 	if (predation_switch == 'SCM') or (fitness_switch == 'SCM + Energy'):
+		check_version_of_asap3()
+		'''
 		import asap3
 		version = asap3.__version__
 		if not version == '3.11.10':
@@ -128,6 +132,7 @@ def check_asap3_version(self,predation_information,fitness_information):
 			print('This program with finish without completing.')
 			print('----------------------------------------------------------------------')
 			exit()
+		'''
 
 def get_predation_and_fitness_operators(predation_information, fitness_information, population, generations, no_of_cpus, print_details):
 	"""

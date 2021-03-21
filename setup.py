@@ -70,7 +70,7 @@ setup(name='Organisms',
           'numpy','scipy','ase>=3.21.1','asap3==3.11.10',
           'Sphinx','sphinx-rtd-theme','sphinx-tabs','sphinxcontrib-applehelp','sphinxcontrib-devhelp',
           'sphinxcontrib-htmlhelp','sphinxcontrib-jsmath','sphinxcontrib-plantuml','sphinxcontrib-qthelp',
-          'sphinxcontrib-serializinghtml','sphinxcontrib-wiki'
+          'sphinxcontrib-serializinghtml','sphinxcontrib-wiki','packaging','termcolor'
           ],
       classifiers=[
         'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
