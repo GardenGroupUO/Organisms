@@ -38,7 +38,7 @@ predation_information = {'Predation Operator': 'Energy', 'mode': 'comprehensive'
 
 # This dictionary includes the information required by the fitness scheme
 # fitness_information = {'Fitness Operator': 'Energy', 'fitness_function': {'function': 'exponential', 'alpha': 3.0}}
-fitness_information = {'Fitness Operator': 'SCM + Energy', 'SCM Scheme': 'T-SCM', 'rCut': 1.3495, 'SCM_fitness_contribution': 0.8, 'Dynamic Mode': False, 'Use Predation Information': False, 'energy_fitness_function': {'function': 'exponential', 'alpha': 3.0}, 'SCM_fitness_function': {'function': 'exponential', 'alpha': 1.0}}
+fitness_information = {'Fitness Operator': 'Structure + Energy', 'SCM Scheme': 'T-SCM', 'rCut': 1.3495, 'SCM_fitness_contribution': 0.8, 'Dynamic Mode': False, 'Use Predation Information': False, 'energy_fitness_function': {'function': 'exponential', 'alpha': 3.0}, 'SCM_fitness_function': {'function': 'exponential', 'alpha': 1.0}}
 
 # Variables required for the Recording_Cluster.py class/For recording the history as required of the genetic algorithm.
 ga_recording_information = {'ga_recording_scheme': 'Limit_energy_height', 'limit_number_of_clusters_recorded': 1, 'limit_energy_height_of_clusters_recorded': 1.0, 'exclude_recording_cluster_screened_by_diversity_scheme': False}

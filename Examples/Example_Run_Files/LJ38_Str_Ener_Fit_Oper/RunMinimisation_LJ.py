@@ -13,7 +13,6 @@ Required to outputs: AfterOpt.traj, INFO.txt
 Other outputs: Trajectory file.
  
 '''
-from ase import Atom, Atoms
 #from ase.calculators.lj import LennardJones
 import time
 from ase.data import atomic_numbers

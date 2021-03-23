@@ -196,10 +196,13 @@ class CNA_Database:
 		# First, add all the CNA profiles to the cna_profile_database
 		CNA_Profiles_to_make = cna_profile_generator(collection,self.rCuts)
 		start_time = time.time()
-		with MyPool(processes=self.no_of_cpus) as pool:
-			results = pool.map_async(self.get_cna_profile_method, CNA_Profiles_to_make)
-			results.wait()
-		data = results.get()
+		if self.no_of_cpus == 1:
+			data = [self.get_cna_profile_method(input_datum) for input_datum in CNA_Profiles_to_make]
+		else:
+			with MyPool(processes=self.no_of_cpus) as pool:
+				results = pool.map_async(self.get_cna_profile_method, CNA_Profiles_to_make)
+				results.wait()
+			data = results.get()
 		end_time = time.time()
 		print('Processing CNA Profiles took '+str(end_time - start_time)+' seconds.')
 		for cluster_dir, cluster_CNA_profile in data:
