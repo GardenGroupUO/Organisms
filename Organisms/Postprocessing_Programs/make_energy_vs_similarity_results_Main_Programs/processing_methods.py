@@ -140,7 +140,7 @@ def look_through_file(filename):
 				if next_cluster_line_counter%1000 == 0:
 					print(str(next_cluster_line_counter)+', ', end='')
 				next_cluster_line_counter += 1
-			except:
+			except Exception:
 				break
 	return found_finish, next_cluster_line_counter
 
