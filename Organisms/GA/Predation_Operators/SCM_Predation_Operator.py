@@ -1,7 +1,7 @@
 from copy import deepcopy
 from Organisms.GA.Predation_Operators.Predation_Operator import Predation_Operator
 from Organisms.GA.SCM_Scripts.CNA_Database import CNA_Database
-#from Organisms.GA.SCM_Scripts.SCM_initialisation import get_SCM_methods, get_rCut_values, get_rCuts
+from Organisms.GA.SCM_Scripts.SCM_initialisation import get_SCM_methods, get_rCuts
 
 class Cluster_Block:
 	"""
