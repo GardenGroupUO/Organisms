@@ -28,7 +28,7 @@ vacuum_to_add_length = 10.0
 # The RunMinimisation.py algorithm is one set by the user. It contain the def Minimisation_Function
 # That is used for local optimisations. This can be written in whatever way the user wants to perform
 # the local optimisations. This is meant to be as free as possible.
-from RunMinimisation import Minimisation_Function
+from RunMinimisation import Minimisation_Function # lgtm[py/conflicting-attributes]
 
 # This dictionary includes the information required to prevent clusters being placed in the population if they are too similar to clusters in this memory_operator
 memory_operator_information = {'Method': 'Off'}

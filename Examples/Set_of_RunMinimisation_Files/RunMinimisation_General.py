@@ -8,7 +8,10 @@ def Minimisation_Function(cluster,collection,cluster_name):
 	# Perform the local optimisation method on the cluster.
 	startTime = time.time();
 	#Pre-calculation
-	Popen(['run','external','program'])
+	try:
+		Popen(['run','external','program'])
+	except BaseException:
+		print('Local Optimiser Failed for some reason.')
 	#Post-calculation
 	endTime = time.time()
 	####################################################################################################################

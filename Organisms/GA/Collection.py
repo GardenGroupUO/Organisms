@@ -659,7 +659,7 @@ class Collection:
 					print('Energy of cluster as recorded in the database: '+str(round(cluster.energy,decimal_place)))
 					return False
 			return True
-		except:
+		except Exception:
 			return False
 
 	def add_clusters_into_RAM(self, cluster_dict, cluster_names):

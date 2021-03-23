@@ -175,7 +175,7 @@ class CNA_Database:
 		"""
 		try:
 			return self.similarity_profile_database[name]
-		except:
+		except Exception:
 			print("Error in Def __getitem__ in class CNA_Database, in CNA_Database.py")
 			print('You are trying to get cluster '+str(name))
 			print('But this does not exist in the CNA database')
@@ -369,7 +369,7 @@ class CNA_Database:
 		similarity_profile = self.similarity_profile_database[name_1][name_2]
 		try:
 			return similarity_profile.similarity_max
-		except:
+		except Exception:
 			print('Error in def CNA_Analysis of Class CNA_Database of Diversity Scheme.')
 			print('This def can not obtain a similarity_category')
 			print('This probably means that an entry does not exist')
@@ -412,7 +412,7 @@ class CNA_Database:
 			for column, similarity_datum in similarity_data:
 				try:
 					similarity_data_format.append((column, str(similarity_datum.average)))
-				except:
+				except Exception:
 					similarity_data_format.append((column, str(similarity_datum)))
 			similarity_data_format += [(cluster_name,'-')]
 			similarity_data_format.sort()

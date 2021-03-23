@@ -241,7 +241,7 @@ class Epoch:
 				self.get_resumed_same_population_epoch_details(epoch_settings,get_epoch_data_from)
 			# If you get to this point, the right epoch method contains the information required, so return True
 			return True
-		except:
+		except Exception:
 			# Some information is missing from the epoch_data file, so return False
 			return False
 	# --------------------------------------------------------------------------------------------------------

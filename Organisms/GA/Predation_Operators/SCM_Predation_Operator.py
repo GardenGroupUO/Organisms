@@ -72,7 +72,7 @@ class SCM_Predation_Operator(Predation_Operator):
 		# Get the geometrically similar cut off percentage.
 		try:
 			self.cut_off_similarity = Predation_Information['Cut_off']
-		except:
+		except Exception:
 			self.cut_off_similarity = 100.0
 		############################################################
 		# Obtain the values for values of rCut to scan across and get the values of rCut the user wishes to investigate

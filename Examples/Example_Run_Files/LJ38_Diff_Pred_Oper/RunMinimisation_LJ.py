@@ -37,7 +37,7 @@ def Minimisation_Function(cluster,collection,cluster_dir):
 			errorMessage = 'The optimisation of cluster ' + str(cluster_dir) + ' did not optimise completely.'
 			print(errorMessage, file=sys.stderr)
 			print(errorMessage)
-	except:
+	except BaseException:
 		print('Local Optimiser Failed for some reason.')
 	endTime = time.time()
 	# Write information about the algorithm

@@ -230,7 +230,7 @@ class Mutation:
 			percentage_of_cluster_to_randomise = mutation_method.replace('random_','')
 			try:
 				percentage_of_cluster_to_randomise = float(percentage_of_cluster_to_randomise)
-			except:
+			except Exception:
 				print('Error in MutationProcedure Class: If you are using chosen_mutation_type in random_X where X is a percentage of atoms to be randomised, X must be in the form of an interger or a decimal number.')
 				print('Check this.')
 				print('chosen_mutation_type: '+str(mutation_method))

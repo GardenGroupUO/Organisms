@@ -106,7 +106,7 @@ def make_new_cna_database(self, fitness_information, no_of_cpus):
 	get_cna_profile_method, get_cna_similarities_method = get_SCM_methods(SCM_Scheme)
 	try:
 		cut_off_similarity = predation_Information['Cut_off']
-	except:
+	except Exception:
 		cut_off_similarity = 100.0
 	debug = False
 	return CNA_Database(rCuts,self.population,cut_off_similarity,get_cna_profile_method,get_cna_similarities_method,no_of_cpus,debug)

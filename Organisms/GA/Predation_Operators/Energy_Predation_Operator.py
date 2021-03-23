@@ -47,7 +47,7 @@ class Energy_Predation_Operator(Predation_Operator):
 			exit('This program will exit without completing.')
 		try:
 			self.mode = predation_information['mode']
-		except:
+		except Exception:
 			print('Error in class Energy_Predation_Operator, in Energy_Predation_Operator.py')
 			print("You need to include a 'mode' in your predation_information dictionary.")
 			print("This should be either 'simple' or 'comprehensive'.")
@@ -65,7 +65,7 @@ class Energy_Predation_Operator(Predation_Operator):
 				print('Do this and repeat this algorithm.')
 				print('The GA Program will end.')
 				exit('This program will exit without completing.')
-			except:
+			except Exception:
 				print('Error in class Energy_Predation_Operator, in Energy_Predation_Operator.py')
 				print("You need to set a 'round_energy' in to your predation_information variable in your Run.py (or MakeTrial.py) file, as you have set mode = 'simple'.")
 				print("E.g. predation_information['round_energy'] = 2")
@@ -76,12 +76,12 @@ class Energy_Predation_Operator(Predation_Operator):
 				predation_information['minimum_energy_diff']
 				print("Ignoring your 'minimum_energy_diff' input variable for the Energy Predation Operator")
 				del predation_information['minimum_energy_diff']
-			except:
+			except Exception:
 				pass
 		elif self.mode == 'comprehensive':
 			try:
 				self.type_of_comprehensive_scheme = predation_information['type_of_comprehensive_scheme']
-			except:
+			except Exception:
 				print('Error in class Energy_Predation_Operator, in Energy_Predation_Operator.py')
 				print("You need to set a 'type_of_comprehensive_scheme' in to your predation_information variable in your Run.py (or MakeTrial.py) file, as you have set mode = 'comprehensive'.")
 				print("E.g. predation_information['type_of_comprehensive_scheme'] = 'energy' or predation_information['type_of_comprehensive_scheme'] = 'fitness'")
@@ -98,7 +98,7 @@ class Energy_Predation_Operator(Predation_Operator):
 				print('Do this and repeat this algorithm.')
 				print('The GA Program will end.')
 				exit('This program will exit without completing.')
-			except:
+			except Exception:
 				print('Error in class Energy_Predation_Operator, in Energy_Predation_Operator.py')
 				print("You need to set a 'minimum_energy_diff' in to your predation_information variable in your Run.py (or MakeTrial.py) file, as you have set mode = 'comprehensive'.")
 				print("E.g. predation_information['minimum_energy_diff'] = 0.005 #eV")
@@ -109,7 +109,7 @@ class Energy_Predation_Operator(Predation_Operator):
 				predation_information['round_energy']
 				print("Ignoring your 'round_energy' input variable for the Energy Predation Operator")
 				del predation_information['round_energy']
-			except:
+			except Exception:
 				pass
 		else:
 			print('Error in class Energy_Predation_Operator, in Energy_Predation_Operator.py')

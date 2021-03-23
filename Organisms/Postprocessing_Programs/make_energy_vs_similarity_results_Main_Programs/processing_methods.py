@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter # lgtm[py/conflicting-attributes]
 
 # ------------------------------------------------------------------------------------------------------------------------- %
 # ------------------------------------------------------------------------------------------------------------------------- %
@@ -206,7 +206,7 @@ def check_similarity_data_in_file(similarity_data_filename):
 						print('Check this out.')
 						exit('This program will finish without completing.')
 					next_cluster_line_counter += 1
-				except:
+				except Exception:
 					break
 			print()
 			print('==========================================================================================================')

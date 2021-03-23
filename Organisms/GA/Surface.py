@@ -1,8 +1,8 @@
 from ase import Atoms
 from ase.io import read as ase_read
-from ase.build import add_adsorbate
-from ase.data import covalent_radii, vdw_radii, atomic_numbers
-from ase.constraints import FixAtoms, FixedLine, FixInternals, ExternalForce
+#from ase.build import add_adsorbate
+#from ase.data import covalent_radii, vdw_radii, atomic_numbers
+#from ase.constraints import FixAtoms, FixedLine, FixInternals, ExternalForce
 import numpy as np
 from math import pi
 from ase.calculators.emt import EMT
@@ -112,7 +112,7 @@ class Surface:
 				errorMessage = 'The optimisation of cluster ' + name + ' did not optimise completely.'
 				print(errorMessage, file=sys.stderr)
 				print(errorMessage)
-		except:
+		except Exception:
 			print('Local Optimiser Failed for some reason.')
 		import pdb; pdb.set_trace()
 

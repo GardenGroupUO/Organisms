@@ -126,7 +126,7 @@ def get_lowest_and_highest_similarities_from_collections(population,collections,
 		all_cna_averages = cna_database.get_all_averages_for_a_cluster(cluster_name)
 		try:
 			CNA_most_similar_average = float(collection_function(all_cna_averages))
-		except:
+		except Exception:
 			print('Weird CNA fitness contribution issue in CNA_Fitness_Contribution')
 			import pdb; pdb.set_trace()
 			exit('Exitting')

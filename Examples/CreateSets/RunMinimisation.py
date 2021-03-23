@@ -16,7 +16,7 @@ Other outputs: Trajectory file.
 import sys
 import time
 from asap3.Internal.BuiltinPotentials import Gupta
-from ase.optimize import BFGS, FIRE
+from ase.optimize import FIRE
 
 def Minimisation_Function(cluster,collection,cluster_name):
 	####################################################################################################################
@@ -35,7 +35,7 @@ def Minimisation_Function(cluster,collection,cluster_name):
 			errorMessage = 'The optimisation of cluster ' + str(cluster_name) + ' did not optimise completely.'
 			print(errorMessage, file=sys.stderr)
 			print(errorMessage)
-	except:
+	except BaseException:
 		print('Local Optimiser Failed for some reason.')
 	endTime = time.time()
 	####################################################################################################################

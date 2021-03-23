@@ -18,7 +18,7 @@ def get_input_energy_float(input_message):
             print('Error. Your input must be an float.')
         try:
             return float(get_input)
-        except:
+        except Exception:
             print('Error. Your input must be an integer.')
 
 def get_input_int(input_message,default_input):

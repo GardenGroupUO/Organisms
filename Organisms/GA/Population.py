@@ -234,21 +234,21 @@ class Population(Collection):
 					try:
 						cluster_energies = line.split()[3:]
 						cluster_energies = [float(x) for x in cluster_energies]
-					except:
+					except Exception:
 						cluster_energies = None
 				# get the dirs of the clusters of last generation.
 				elif 'Clusters in Pool:' in line:
 					try:
 						cluster_names = line.split()[3:]
 						cluster_names = [int(x.split('(')[0]) for x in cluster_names]
-					except:
+					except Exception:
 						cluster_names = None
 				# get the last generation that was successfully completed before the genetic algorithm fail.
 				elif 'GA Iteration:' in line:
 					try:
 						current_generation = line.replace('GA Iteration: ','')
 						current_generation = int(current_generation.replace('\n',''))
-					except:
+					except Exception:
 						current_generation = None
 					if (not cluster_energies is None and not cluster_names is None and not current_generation is None) and (len(cluster_names) == self.size and len(cluster_energies) == self.size):
 						break
