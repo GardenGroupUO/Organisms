@@ -137,7 +137,7 @@ def check_files_for_readable_and_writable():
 				os.access(path_to_file,0o777)
 			for path_to_folder in not_readable_and_writable_folders:
 				os.access(path_to_folder,0o777)
-		except BaseException:
+		except Exception:
 			print('--------------------------------------------------------------------------------------')
 			print('Error in your genetic algorithm program')
 			print('Some of your files and folders are not both readable and writable.')

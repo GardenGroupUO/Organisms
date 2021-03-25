@@ -13,7 +13,7 @@ def Minimisation_Function(cluster,collection,cluster_name):
 	#Pre-calculation
 	try:
 		Popen(['run','external','program'])
-	except BaseException:
+	except Exception:
 		pass
 	#Post-calculation
 	endTime = time.time()

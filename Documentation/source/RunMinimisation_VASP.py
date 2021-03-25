@@ -22,7 +22,7 @@ def Minimisation_Function(cluster,collection,cluster_name):
 	startTime = time.time();
 	try:
 		Popen(['srun','vasp'])
-	except BaseException:
+	except Exception:
 		pass
 	endTime = time.time()
 	cluster = ase_read('OUTCAR')

@@ -10,7 +10,7 @@ def Minimisation_Function(cluster,collection,cluster_name):
 	#Pre-calculation
 	try:
 		Popen(['run','external','program'])
-	except BaseException:
+	except Exception:
 		print('Local Optimiser Failed for some reason.')
 	#Post-calculation
 	endTime = time.time()
