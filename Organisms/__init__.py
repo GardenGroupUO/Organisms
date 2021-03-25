@@ -1,7 +1,7 @@
 # The information about the Organisms program
 
 __name__    = 'The Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similarity (Organisms) Program'
-__version__ = '3.2.8'
+__version__ = '3.2.7.1'
 __author__  = 'Geoffrey Weal and Dr. Anna Garden'
 
 import sys
