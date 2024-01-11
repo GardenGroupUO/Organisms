@@ -3,6 +3,8 @@
 # and https://readthedocs.org/projects/sphinx-rtd-tutorial/downloads/pdf/latest/
 
 pip
+setuptools
+build-essential
 numpy
 scipy
 ase
