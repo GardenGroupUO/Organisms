@@ -2,13 +2,12 @@
 # Notes from https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html#using-a-configuration-file
 # and https://readthedocs.org/projects/sphinx-rtd-tutorial/downloads/pdf/latest/
 
-numpy
-scipy
-ase
-#asap3
+numpy==1.26.3
+scipy==1.11.4
+ase==3.22.1
+asap3==3.13.2
 #Organisms
 git+https://github.com/GardenGroupUO/Organisms.git
-asap3
 
 #sphinx-rtd-theme
 #sphinxcontrib-applehelp
