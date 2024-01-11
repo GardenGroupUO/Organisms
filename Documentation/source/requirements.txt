@@ -2,6 +2,7 @@
 # Notes from https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html#using-a-configuration-file
 # and https://readthedocs.org/projects/sphinx-rtd-tutorial/downloads/pdf/latest/
 
+numpy
 ase
 asap3
 Organisms
