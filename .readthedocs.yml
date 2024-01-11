@@ -9,10 +9,6 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.11"
-    # You can also specify other tool versions:
-    # nodejs: "20"
-    # rust: "1.70"
-    # golang: "1.20"
 
 # Optional but recommended, declare the Python requirements required
 # to build your documentation
@@ -33,3 +29,10 @@ sphinx:
 # formats:
 #   - pdf
 #   - epub
+
+# Specify dependencies
+dependencies:
+  - numpy==1.26.3
+  - scipy==1.11.4
+  - ase==3.22.1
+  - asap3==3.13.2
