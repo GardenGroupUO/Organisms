@@ -29,10 +29,3 @@ sphinx:
 # formats:
 #   - pdf
 #   - epub
-
-# Specify dependencies
-dependencies:
-  - numpy==1.26.3
-  - scipy==1.11.4
-  - ase==3.22.1
-  - asap3==3.13.2
