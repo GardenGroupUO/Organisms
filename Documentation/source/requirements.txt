@@ -1,3 +1,18 @@
 # File: docs/requirements.txt
 # Notes from https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html#using-a-configuration-file
 # and https://readthedocs.org/projects/sphinx-rtd-tutorial/downloads/pdf/latest/
+
+ase
+asap3
+Organisms
+
+#sphinx-rtd-theme
+#sphinxcontrib-applehelp
+#sphinxcontrib-devhelp
+#sphinxcontrib-htmlhelp
+#sphinxcontrib-jsmath
+#sphinxcontrib-qthelp
+#sphinxcontrib-serializinghtml
+#sphinxcontrib-wiki
+#sphinx-tabs
+#sphinxcontrib-plantuml==0.18
