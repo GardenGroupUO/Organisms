@@ -14,11 +14,8 @@ build:
     # rust: "1.70"
     # golang: "1.20"
 
-      dependencies:
-        - numpy==1.26.3
-        - scipy==1.11.4
-        - ase==3.22.1
-        - asap3==3.13.2
+      install:
+        - requirements: Documentation/source/requirements.txt
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
