@@ -2,4 +2,4 @@ version: 2
 
 # Project information
 sphinx:
-  configuration: docs/source/conf.py
+  configuration: Documentation/source/conf.py
