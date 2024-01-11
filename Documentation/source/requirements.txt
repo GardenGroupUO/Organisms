@@ -6,7 +6,7 @@ numpy
 scipy
 ase
 #asap3
-Organisms
+#Organisms
 
 #sphinx-rtd-theme
 #sphinxcontrib-applehelp
