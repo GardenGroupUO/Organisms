@@ -7,6 +7,7 @@ scipy
 ase
 #asap3
 #Organisms
+git+https://github.com/GardenGroupUO/Organisms.git
 
 #sphinx-rtd-theme
 #sphinxcontrib-applehelp
