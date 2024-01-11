@@ -3,8 +3,9 @@
 # and https://readthedocs.org/projects/sphinx-rtd-tutorial/downloads/pdf/latest/
 
 numpy
+scipy
 ase
-asap3
+#asap3
 Organisms
 
 #sphinx-rtd-theme
