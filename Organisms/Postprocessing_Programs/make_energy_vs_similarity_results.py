@@ -1,0 +1,3 @@
+from Organisms.Postprocessing_Programs.make_energy_vs_similarity_results_Main import make_energy_vs_similarity_results_Main
+def make_energy_vs_similarity_results(path_to_ga_trial, rCut, cluster_to_compare_against, calculator, no_of_cpus=1, plotting_settings={}):
+	make_energy_vs_similarity_results_Main(path_to_ga_trial, rCut, cluster_to_compare_against, calculator, no_of_cpus=no_of_cpus, plotting_settings=plotting_settings)

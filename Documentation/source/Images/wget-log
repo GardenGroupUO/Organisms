@@ -1,0 +1,9 @@
+--2021-02-23 14:41:45--  https://mybinder.org/badge_logo.svg
+Resolving mybinder.org (mybinder.org)... 35.239.125.45
+Connecting to mybinder.org (mybinder.org)|35.239.125.45|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://static.mybinder.org/badge_logo.svg [following]
+--2021-02-23 14:41:46--  https://static.mybinder.org/badge_logo.svg
+Resolving static.mybinder.org (static.mybinder.org)... 35.239.125.45
+Connecting to static.mybinder.org (static.mybinder.org)|35.239.125.45|:443... connected.
+Unable to establish SSL connection.

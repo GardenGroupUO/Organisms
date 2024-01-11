@@ -1,0 +1,73 @@
+
+.. uml::
+
+   @startuml
+
+   [*] --> Run.py
+   Run.py : this is a string
+
+   Run.py --> GA_Program
+
+   state Recording_Clusters {
+
+   }
+
+   GA_Program --> Recording_Clusters
+   Recording_Clusters --> GA_Program
+
+   state Population {
+      Population : This hold the population of clusters and keeps track of the population though the GA.
+
+      class Cluster1 
+
+      state Initalise_Population{
+         Initalise_Population : ip
+      }
+
+      state Import_User_Clusters{
+         Import_User_Clusters : ip
+      }
+
+      state Create_Randomly_Initalised_population{
+         Initalise_Population : ip
+      }
+
+      Initalise_Population --> Import_User_Clusters
+      Import_User_Clusters --> Initalise_Population
+      Initalise_Population --> Create_Randomly_Initalised_population
+      Create_Randomly_Initalised_population --> Initalise_Population
+   }
+   
+   state GA_Program {
+      GA_Program : This runs the genetic algorithm program
+      [*] --> Initialise_Genetic_Algorithm
+      state Initialise_Genetic_Algorithm {
+         Initialise_Genetic_Algorithm : This will 
+         [*] --> Initalise_Population
+      }
+      Initialise_Genetic_Algorithm --> run_GA
+      state run_GA {
+         run_GA : This will 
+         state generation {
+            [*] --> Get_Offsprings
+            state Get_Offsprings{
+               [*] --> Mate
+               [*] --> Mutate
+               Mate --> Local_Minimisation
+               Mutate --> Local_Minimisation
+               Local_Minimisation --> [*]
+            }
+            Get_Offsprings --> Assess_Offsprings_and_update_All_Fitnesses
+            Assess_Offsprings_and_update_All_Fitnesses --> Natural_Selection
+            Natural_Selection --> Reassess_Population_Fitnesses_After_Natural_Selection
+         }
+         [*] --> generation
+         generation --> generation
+         generation --> [*]
+   }
+
+   
+   }
+
+   @enduml
+

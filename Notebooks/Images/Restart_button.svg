@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="Restart_button.svg"
+   inkscape:version="1.0beta2 (2b71d25, 2019-12-03)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 57.211445 25.32781"
+   height="25.32781mm"
+   width="57.211445mm">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="49"
+     inkscape:window-x="2029"
+     inkscape:window-height="969"
+     inkscape:window-width="1600"
+     fit-margin-bottom="0"
+     fit-margin-right="0"
+     fit-margin-left="0"
+     fit-margin-top="0"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="-257.56952"
+     inkscape:cx="137.15121"
+     inkscape:zoom="0.35"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-51.872478,-84.927849)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <g
+       id="g908">
+      <rect
+         style="fill:#f23a2f;fill-opacity:1;stroke:none;stroke-width:0.984321;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         id="rect833"
+         width="57.211445"
+         height="25.32781"
+         x="51.872478"
+         y="84.927849"
+         ry="1.3053546" />
+      <text
+         xml:space="preserve"
+         style="font-size:10.5833px;line-height:1.05;font-family:sans-serif;letter-spacing:1.32292px;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"
+         x="61.447376"
+         y="101.31761"
+         id="text903"><tspan
+           sodipodi:role="line"
+           id="tspan901"
+           x="61.447376"
+           y="101.31761"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0.529167px;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"
+           rotate="0 0 0 0 0 0 0 0">Restart</tspan></text>
+    </g>
+  </g>
+</svg>
