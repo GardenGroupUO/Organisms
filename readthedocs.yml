@@ -1,5 +1,0 @@
-version: 2
-
-# Project information
-sphinx:
-  configuration: Documentation/source/conf.py
