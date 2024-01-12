@@ -13,12 +13,6 @@ build:
     - libclang
     - cmake
     - python3.11-distutils
-  commands:
-    - pip3 --version
-    - pip install --user --upgrade pip setuptools numpy scipy
-    - pip install --user --upgrade ase
-    - pip install --user --upgrade numpy asap3
-    - pip install --user --upgrade git+https://github.com/GardenGroupUO/Organisms.git
 
 # Optional but recommended, declare the Python requirements required
 # to build your documentation
