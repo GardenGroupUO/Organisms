@@ -14,12 +14,6 @@ build:
     - pip install --user --upgrade ase
     - pip install --user --upgrade asap3
     - pip install --user --upgrade git+https://github.com/GardenGroupUO/Organisms.git
-  jobs:
-    pre_create_environment:
-      - echo "Command run at 'pre_create_environment' step"
-    post_build:
-      - echo "Command run at 'post_build' step"
-      - echo `date`
 
 # Optional but recommended, declare the Python requirements required
 # to build your documentation
