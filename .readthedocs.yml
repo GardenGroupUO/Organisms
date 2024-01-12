@@ -12,7 +12,7 @@ build:
   commands:
     - pip install --user --upgrade pip setuptools numpy scipy
     - pip install --user --upgrade ase
-    - pip install --user --upgrade asap3
+    - pip install --user --upgrade numpy asap3
     - pip install --user --upgrade git+https://github.com/GardenGroupUO/Organisms.git
 
 # Optional but recommended, declare the Python requirements required
