@@ -10,6 +10,7 @@ build:
   tools:
     python: "3.11"
   commands:
+    - echo pip3 --version
     - pip install --user --upgrade pip setuptools numpy scipy
     - pip install --user --upgrade ase
     - pip install --user --upgrade numpy asap3
