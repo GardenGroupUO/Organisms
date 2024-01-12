@@ -17,7 +17,8 @@ build:
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 python:
   install:
-    - requirements: Documentation/source/requirements.txt
+    - requirements: Documentation/source/requirements1.txt
+    - requirements: Documentation/source/requirements2.txt
 
 # Optionally build your docs in additional formats such as PDF and ePub
 # formats:
