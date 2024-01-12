@@ -7,9 +7,6 @@ setuptools
 numpy
 scipy
 ase
-#Organisms
-git+https://github.com/GardenGroupUO/Organisms.git
-asap3
 
 #sphinx-rtd-theme
 #sphinxcontrib-applehelp
