@@ -65,7 +65,7 @@ setup(name='Organisms',
       download_url = 'https://github.com/GardenGroupUO/Organisms/archive/v'+str(get_version_number())+'.tar.gz',
       license='GNU AFFERO GENERAL PUBLIC LICENSE',
       zip_safe=False,
-      keywords = ['nanoclusters', 'nanoparticles', 'clusters', 'optimisation', 'genetic-algorithm', 'ase', 'university-of-otago', 'asap3', 'atomic-simulation-environment', 'jupyter-binder', 'predation-operator', 'fitness-operator', 'otago-university', 'common-neighbor-analysis', 'common-neighbour-analysis'],
+      keywords = ['nanoclusters', 'nanoparticles', 'clusters', 'optimisation', 'genetic-algorithm', 'ase', 'university-of-otago', 'asap3', 'atomic-simulation-environment', 'predation-operator', 'fitness-operator', 'otago-university', 'common-neighbor-analysis', 'common-neighbour-analysis', 'jupyter', 'Colabs', 'Google Golabs'],
       install_requires=[
           'numpy','scipy','ase','packaging','termcolor','tqdm'
           #'Sphinx','sphinx-rtd-theme','sphinx-tabs','sphinxcontrib-applehelp','sphinxcontrib-devhelp',

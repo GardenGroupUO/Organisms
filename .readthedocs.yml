@@ -19,6 +19,7 @@ python:
   install:
     - requirements: Documentation/source/requirements1.txt
     - requirements: Documentation/source/requirements2.txt
+    - requirements: Documentation/source/requirements3.txt
 
 # Optionally build your docs in additional formats such as PDF and ePub
 # formats:
