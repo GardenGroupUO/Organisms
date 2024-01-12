@@ -22,8 +22,8 @@ python:
     - method: pip
       path: .
       extra_requirements:
-        - Documentation/source/requirements.txt
-    - requirements: Documentation/source
+        - Documentation/source
+    - requirements: Documentation/source/requirements.tx
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
