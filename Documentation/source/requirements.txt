@@ -9,7 +9,7 @@ scipy
 ase
 #Organisms
 git+https://github.com/GardenGroupUO/Organisms.git
-asap3
+numpy asap3
 
 #sphinx-rtd-theme
 #sphinxcontrib-applehelp
