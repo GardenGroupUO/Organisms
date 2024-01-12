@@ -10,8 +10,6 @@ build:
   tools:
     python: "3.11"
   apt_packages:
-    - libclang
-    - cmake
     - python3.11-distutils
 
 # Optional but recommended, declare the Python requirements required
