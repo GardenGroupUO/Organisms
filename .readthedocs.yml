@@ -14,7 +14,7 @@ build:
     - cmake
     - python3.11-distutils
   commands:
-    - apt-get install python3.11-distutils
+    - sudo apt-get install python3.11-distutils
     - pip3 --version
     - pip install --user --upgrade pip setuptools numpy scipy
     - pip install --user --upgrade ase
