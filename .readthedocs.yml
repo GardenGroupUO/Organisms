@@ -23,7 +23,7 @@ python:
       path: .
       #extra_requirements:
       #  - Documentation/source
-    - requirements: Documentation/source/requirements.tx
+    - requirements: Documentation/source/requirements.txt
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
