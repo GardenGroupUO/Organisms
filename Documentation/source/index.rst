@@ -9,41 +9,31 @@ Welcome to the Otago Research Genetic Algorithm for Nanoclusters, Including Stru
 .. image:: https://img.shields.io/badge/Citation-click%20here-green.svg
    :target: https://dx.doi.org/10.1021/acs.jcim.0c01128
    :alt: Citation
-   
 
 .. image:: https://img.shields.io/pypi/pyversions/Organisms
    :target: https://docs.python.org/3/
    :alt: Python Version
 
-
 .. image:: https://img.shields.io/github/v/release/GardenGroupUO/Organisms
    :target: https://github.com/GardenGroupUO/Organisms
    :alt: GitHub release (latest by date)
-
 
 .. image:: https://img.shields.io/pypi/v/Organisms
    :target: https://pypi.org/project/Organisms/
    :alt: PyPI
 
-
 .. image:: https://img.shields.io/conda/v/gardengroupuo/organisms
    :target: https://anaconda.org/GardenGroupUO/organisms
    :alt: Conda
-
 
 .. image:: https://colab.research.google.com/assets/colab-badge.svg
    :target: https://colab.research.google.com/github/GardenGroupUO/Organisms/blob/main/Notebooks/Organisms_Jupyter_Example.ipynb#scrollTo=objective-alliance
    :alt: Colab
 
-
 .. image:: https://img.shields.io/github/license/GardenGroupUO/Organisms
    :target: https://www.gnu.org/licenses/agpl-3.0.en.html
    :alt: Licence
 
-
-.. image:: https://img.shields.io/lgtm/grade/python/github/GardenGroupUO/Organisms
-   :target: https://lgtm.com/projects/g/GardenGroupUO/Organisms/context:python
-   :alt: LGTM Grade
 
 .. sectionauthor:: Geoffrey Weal <geoffrey.weal@gmail.com>
 .. sectionauthor:: Dr. Anna Garden <anna.garden@otago.ac.nz>
@@ -90,7 +80,7 @@ This algorithm is designed to explore the potential energy surface of a cluster 
 
       With the use of Atomic Simulation Environment, this algorithm has been designed so that you can record all the clusters you make, or just the important ones such as the lowest energy clusters that you make
 
-Try Organisms before you Clone/Pip/Conda (on Binder/Jupter Notebooks)!
+Try Organisms before you Clone/Pip/Conda (on Google Colab/Jupter Notebooks)!
 ======================================================================
 
 If you are new to the Organisms program, it is recommended try it out by running Organisms live on our interactive Jupyter+Google Colabs page before you download it. On Google Colabs, you can play around with the Organisms program on the web. You do not need to install anything to try Organisms out on Google Colabs. 

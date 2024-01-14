@@ -1,8 +1,9 @@
 
 .. _How_Organisms_Works:
 
-How the Otago Research Genetic Algorithm for Nanoclusters, Including Structural Methods and Similatity (Organisms) Program Works
-================================================================================================================================
+How the Organisms Program Works
+===============================
+
 
 How the Genetic Algorithm Works
 *******************************
