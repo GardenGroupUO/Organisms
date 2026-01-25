@@ -216,7 +216,7 @@ class Cluster(Atoms):
 		lengthOfCell = 2.0*InclusionRadiusOfCluster(self) + vacuumAdd
 		cell = [lengthOfCell,lengthOfCell,lengthOfCell]
 		self.set_cell(cell)
-		self.center(vacuum=None, axis=(0, 1, 2), about=(0.,0.,0.)) # make a better center function?
+		self.center(vacuum=None, axis=(0, 1, 2), about=0.) # make a better center function?
 
 	def get_elemental_makeup(self):
 		"""
