@@ -36,6 +36,7 @@ if sys.version_info[1] < 4:
 
 # A check for ASE
 import importlib
+import importlib.util
 python_version = 3.4
 
 ase_spec = importlib.util.find_spec("ase")
