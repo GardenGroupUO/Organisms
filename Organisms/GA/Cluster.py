@@ -90,7 +90,8 @@ class Cluster(Atoms):
 			pbc = symbols.get_pbc()
 			celldisp = symbols.get_celldisp()
 			constraint = [c.copy() for c in symbols.constraints]
-			calculator = symbols.get_calculator()
+			#calculator = symbols.get_calculator()
+			calculator = symbols.calc
 			info = deepcopy(symbols.info)
 			symbols = None
 		super().__init__(symbols,positions,numbers,tags,momenta,masses,magmoms,charges,scaled_positions,cell,pbc,celldisp,constraint,calculator,info)
@@ -231,16 +232,19 @@ class Cluster(Atoms):
 		"""
 		This method will remove the calculator for this Cluster
 		"""
-		self.set_calculator(calc=None)
+		#self.set_calculator(calc=None)
+		self.calc = None
 
 	def deepcopy(self):
 		"""
 		Will create a copy of the Cluster. This copy does not include a copy of the calculator as this has the potential to cause issues.
 		"""
-		original_calculator = self.get_calculator()
+		#original_calculator = self.get_calculator()
+		original_calculator = self.calc
 		self.remove_calculator()
 		new_Cluster = deepcopy(self)
-		self.set_calculator(calc=original_calculator)
+		#self.set_calculator(calc=original_calculator)
+		self.calc = original_calculator
 		return new_Cluster
 
 	def deepcopy_skeleton(self):
